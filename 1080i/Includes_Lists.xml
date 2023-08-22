@@ -103,9 +103,11 @@
                         <height>35</height>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <font>font_tiny</font>
+                        <!-- PVR004: Font changed from font_tiny -->
+						<font>font_mini_bold</font>
                         <label>$INFO[ListItem.Label]</label>
-                        <textcolor>main_fg_30</textcolor>
+						<!-- PVR004: textcolor changed from main_fg_30 -->
+                        <textcolor>$VAR[ColorGradient]</textcolor>
                         <visible>!String.IsEqual(ListItem.Label,System.Date)</visible>
                     </control>
                 </rulerlayout>
