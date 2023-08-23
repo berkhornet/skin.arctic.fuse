@@ -69,7 +69,7 @@
     <expression name="Exp_View_55">[Container.Content(files) + [String.IsEqual(Container.ListItem.Property(param.info),user_discover) | String.IsEqual(Container.Property(param.info),user_discover)]]</expression>
 
     <!-- Alphabet -->
-    <expression name="Exp_AlphabetTypes_Only">[!$EXP[Exp_View_512] + !Skin.HasSetting(Views.WrapLists) + !Skin.HasSetting(DisableAlphabetScrollbar) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | [String.IsEqual(Container.SortMethod,$LOCALIZE[557]) + Container.Content(artists)] | [String.IsEqual(Container.SortMethod,$LOCALIZE[558]) + Container.Content(albums)]]]</expression>
+    <expression name="Exp_AlphabetTypes_Only">[!$EXP[Exp_View_512] + !Skin.String(Rows.ContentLoopback,Wrap) + !Skin.HasSetting(DisableAlphabetScrollbar) + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | [String.IsEqual(Container.SortMethod,$LOCALIZE[557]) + Container.Content(artists)] | [String.IsEqual(Container.SortMethod,$LOCALIZE[558]) + Container.Content(albums)]]]</expression>
 
     <!-- Scrollbar -->
     <expression name="Exp_AlphabetVisible">[Control.HasFocus(65) + $EXP[Exp_AlphabetTypes_Only]]</expression>
@@ -77,15 +77,15 @@
     <expression name="Exp_ItemCountVisible">[Control.HasFocus(60) | Control.HasFocus(64) | Control.HasFocus(67) | [Skin.HasSetting(Furniture.EnableCount) + !$EXP[Exp_AlphabetVisible] + String.IsEmpty(Window.Property(MediaFilterBase)) + [![$EXP[Exp_View_502] | $EXP[Exp_View_512] | $EXP[Exp_View_522]] | Skin.HasSetting(Views.UseAltCombined)]]]</expression>
 
     <!-- Discover Wall -->
-    <expression name="Exp_FilterWall_IsDiscover">[Control.IsVisible(55) + !Integer.IsEqual(Container(553).NumItems,0) + [[!Skin.String(Viewtype.Movies,Landscape) + String.IsEqual(Container(55).ListItemAbsolute(0).Property(Param.TMDb_Type),movie)] | [!Skin.String(Viewtype.TVShows,Landscape) + String.IsEqual(Container(55).ListItemAbsolute(0).Property(Param.TMDb_Type),tv)]] + !Skin.HasSetting(DisableDefaultExploreMenu) + !Skin.HasSetting(DisableMediaFilterWall)]</expression>
+    <expression name="Exp_FilterWall_IsDiscover">[Control.IsVisible(55) + !Integer.IsEqual(Container(553).NumItems,0) + !Skin.HasSetting(DisableMediaFilterWall)]</expression>
 
     <!-- Media Filter Wall -->
     <expression name="Exp_FilterWall_IsMedia">[[Window.IsActive(mediafilter) | !String.IsEmpty(Window.Property(MediaFilterBase)) | Control.HasFocus(67) | $EXP[Exp_ScrollbarVisible]] + $EXP[Exp_FilterWall_IsEnabled] + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(52)]]</expression>
 
     <!-- Media Filter Has -->
-    <expression name="Exp_FilterWall_IsEnabled">[Window.IsMedia + !Skin.HasSetting(DisableDefaultExploreMenu) + !Skin.HasSetting(DisableMediaFilterWall)]</expression>
+    <expression name="Exp_FilterWall_IsEnabled">[Window.IsMedia + !Skin.HasSetting(DisableMediaFilterWall)]</expression>
 
-    <expression name="Exp_Navigation_IsBackToStart">[!Skin.HasSetting(Views.WrapLists)]</expression>
+    <expression name="Exp_Navigation_IsBackToStart">[!Skin.String(Rows.ContentLoopback,Wrap)]</expression>
 
 
     <!-- ================= -->
@@ -138,5 +138,7 @@
     <expression name="Exp_Video_IsNotPlaying">[!Player.HasVideo | Player.Paused | Skin.HasSetting(Background.VideoDisabled)]</expression>
 
     <expression name="Exp_Furniture_PVR">[[Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRChannels.xml)] + !Window.IsVisible(DialogPVRInfo.xml)]</expression>
+
+    <expression name="Exp_Group_Bumper_HasFocus">[Control.HasFocus(330) | Control.HasFocus(332) | Control.HasFocus(333)]</expression>
 
 </includes>

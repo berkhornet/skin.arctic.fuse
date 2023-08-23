@@ -55,7 +55,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Home_Widgets_Grouplist">
                     <param name="id">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                    <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
+                    <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 401]</param>
                     <param name="mainmenuid">$SKINSHORTCUTS[mainmenuid]</param>
                     <param name="visible">String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])</param>
                     <control type="group" id="$PYTHON[int(mainmenuid) * 1000 + 401]">
@@ -63,188 +63,39 @@
                     </control>
 
                     
-				    <include content="_Widget_Row" condition="String.IsEmpty(Skin.String(Home.LayoutStyle))">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 412]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Landscape_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 411])</param>
-                        <param name="visible">[!String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderStyle),Square) + !String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderStyle),Poster) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus(302)] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</content>
+                    <include content="Widget_Adaptive_Rows">
+                        <param name="include_condition">String.IsEmpty(Skin.String(Home.LayoutStyle))</param>
 
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
+                        <param name="label">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLabel)]</param>
+                        <param name="sort_label">$LOCALIZE[571]</param>
 
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 411])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Landscape_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
-                    </include>
+                        <param name="prefix">Item.$PYTHON[int(mainmenuid) * 1000 + 302].</param>
+                        <param name="enabled">!String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))</param>
+                        <param name="altvisible">Control.HasFocus(300) | Control.HasFocus(302)</param>
 
-                    <include content="_Widget_Row" condition="String.IsEmpty(Skin.String(Home.LayoutStyle))">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 422]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Square_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 421])</param>
-                        <param name="visible">[String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderStyle),Square) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus(302)] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</content>
+                        <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
+                        <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
 
+                        <param name="toplandscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
+                        <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
+                        <param name="landscapegroupid">$PYTHON[int(mainmenuid) * 1000 + 412]</param>
+                        <param name="content_landscape">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</param>
 
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
+                        <param name="topsquareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
+                        <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
+                        <param name="squaregroupid">$PYTHON[int(mainmenuid) * 1000 + 422]</param>
+                        <param name="content_square">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</param>
 
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 421])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Square_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
-                    </include>
-
-                    <include content="_Widget_Row" condition="String.IsEmpty(Skin.String(Home.LayoutStyle))">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 432]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Poster_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 431])</param>
-                        <param name="visible">[String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderStyle),Poster) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus(302)] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)) + !String.IsEmpty(Container(302).ListItem.Property(useWidgetList))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</content>
-
-
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
-
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 431])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Poster_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
+                        <param name="topposterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
+                        <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
+                        <param name="postergroupid">$PYTHON[int(mainmenuid) * 1000 + 432]</param>
+                        <param name="content_poster">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 302].SpecialFolderPath)]</param>
                     </include>
 
                     <skinshortcuts insert="widgets">items</skinshortcuts>
 
                     
-				    <include content="_Widget_Row" condition="true">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 417]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 418]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Landscape_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 417])</param>
-                        <param name="visible">[!String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderStyle),Square) + !String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderStyle),Poster) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 419])] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath)]</content>
-
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 417]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
-
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 417])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Landscape_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
-                    </include>
-
-                    <include content="_Widget_Row" condition="true">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 427]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 428]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Square_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 427])</param>
-                        <param name="visible">[String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderStyle),Square) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 419])] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath)]</content>
-
-
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 427]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
-
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 427])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Square_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
-                    </include>
-
-                    <include content="_Widget_Row" condition="true">
-                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 437]</param>
-                        <param name="groupid">$PYTHON[int(mainmenuid) * 1000 + 438]</param>
-                        <param name="label">[CAPITALIZE]$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLabel)][/CAPITALIZE]</param>
-                        <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[571]</param>
-                        <param name="sort_condition">True</param>
-                        <param name="sort_descending">String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder),descending)</param>
-                        <param name="include">List_Poster_Row</param>
-                        <param name="transition_include">true</param>
-                        <param name="transition_hidden">Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 437])</param>
-                        <param name="visible">[String.IsEqual(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderStyle),Poster) + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <param name="altvisible">[[[Control.HasFocus(300) | Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 419])] + !System.IdleTime(1)] + !String.IsEmpty(Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath))]</param>
-                        <content target="$VAR[Path_Hub_Target]" sortby="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortby)]" sortorder="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderSortorder)]" limit="$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderLimit)]">$INFO[Window.Property(Item.$PYTHON[int(mainmenuid) * 1000 + 419].SpecialFolderPath)]</content>
-
-
-                        <include content="Action_Widget_OnBack">
-                            <param name="id">$PYTHON[int(mainmenuid) * 1000 + 437]</param>
-                            <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 400]</param>
-                            <param name="landscapeid">$PYTHON[int(mainmenuid) * 1000 + 411]</param>
-                            <param name="squareid">$PYTHON[int(mainmenuid) * 1000 + 421]</param>
-                            <param name="posterid">$PYTHON[int(mainmenuid) * 1000 + 431]</param>
-                            <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
-                            <param name="refocus">SetFocus(393)</param>
-                        </include>
-
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PYTHON[int(mainmenuid) * 1000 + 437])</onfocus>
-                        <onfocus>SetProperty(Transition.WidgetStyle,List_Poster_Row,Home)</onfocus>
-                        <onunfocus>ClearProperty(Transition.WidgetStyle,Home)</onunfocus>
-                    </include>
-                    
-				    <include content="Home_Selector_Widget">
+				    <include content="Home_Selector_Widget" condition="Skin.HasSetting(Hubs.WidgetSelector)">
                         <param name="id">$PYTHON[int(mainmenuid) * 1000 + 419]</param>
                         <param name="grouplistid">$PYTHON[int(mainmenuid) * 1000 + 429]</param>
                         <param name="window_id">home</param>
@@ -256,9 +107,7 @@
                         <param name="slide">true</param>
                         <param name="backing">true</param>
                         <param name="font">font_mini</param>
-                        <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_Home</param>
-                        <param name="hidden_button_prefix">Item.$PYTHON[int(mainmenuid) * 1000 + 419].</param>
-                        <param name="hidden_button_force_widget">true</param>
+                        <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_Temp</param>
 
                         <include content="Action_Widget_OnBack">
                             <param name="id">$PYTHON[int(mainmenuid) * 1000 + 419]</param>
@@ -288,11 +137,12 @@
                         <height>160</height>
                         <top>-160</top>
 
-                        <content><include>skinshortcuts-submenu-2</include></content>
+                        <content><include>skinshortcuts-submenu-1</include></content>
 
                     </include>
 
-
+                    <control type="group" id="$PYTHON[int(mainmenuid) * 1000 + 499]">
+                    </control>
                 </include>
             </include>
         </controls>
@@ -430,7 +280,7 @@
                     <param name="topid">$PYTHON[int(mainmenuid) * 1000 + 601]</param>
                     <param name="refocus">SetFocus(393)</param>
                     <param name="detailed">$SKINSHORTCUTS[widgetDetailed]</param>
-                    <param name="visible">[String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])]</param>
+                    <param name="visible">[String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [String.IsEqual(Container($PYTHON[int(mainmenuid) * 1000 + 419]).ListItem.Label,$SKINSHORTCUTS[widgetName]) | !Skin.HasSetting(Hubs.WidgetSelector)]]</param>
                     <param name="altvisible">[$SKINSHORTCUTS[widgetAltVisible]]</param>
 
                     <content>
@@ -444,6 +294,13 @@
 
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[int(mainmenuid) * 1000 + 600 + int(id)])</param>
+                    </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 600 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[int(mainmenuid) * 1000 + 600 + int(id)]</param>
                     </include>
                 </include>
             </controls>
@@ -535,34 +392,37 @@
 
     <submenu include="searchmenu" name="searchmenu">
         <controls>
-            <include content="Search_View_Slide">
-                <include content="Home_Widgets_Infopanel">
-                    <param name="visible">[ControlGroup(6000).HasFocus() | Control.HasFocus(330) | Control.HasFocus(340)]</param>
-                    <skinshortcuts insert="searchinfopanels">items</skinshortcuts>
-                    <include>Search_View_DiscoverInfoPanel</include>
-                </include>
-                <include content="Search_View_Widgets">
-                    <skinshortcuts insert="searchlist">items</skinshortcuts>
-                    <include>Search_View_DiscoverWidgets</include>
-                </include>
-            </include>
-            <include content="Search_View_Panel">
-                <include content="Search_View_Footer">
-                    <skinshortcuts insert="searchfooter">items</skinshortcuts>
-                    <include content="Search_View_Footer_Item">
-                        <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
-                        <param name="id">5081</param>
-                        <param name="icon">special://skin/extras/icons/film.png</param>
-                        <param name="altnofocus">false</param>
+            <control type="group">
+                <include>Animation_Group_Bumper</include>
+                <include content="Search_View_Slide">
+                    <include content="Home_Widgets_Infopanel">
+                        <param name="visible">[ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus]]</param>
+                        <skinshortcuts insert="searchinfopanels">items</skinshortcuts>
+                        <include>Search_View_DiscoverInfoPanel</include>
                     </include>
-                    <include content="Search_View_Footer_Item">
-                        <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
-                        <param name="id">5082</param>
-                        <param name="icon">special://skin/extras/icons/tv.png</param>
-                        <param name="altnofocus">false</param>
+                    <include content="Search_View_Widgets">
+                        <skinshortcuts insert="searchlist">items</skinshortcuts>
+                        <include>Search_View_DiscoverWidgets</include>
                     </include>
                 </include>
-            </include>
+                <include content="Search_View_Panel">
+                    <include content="Search_View_Footer">
+                        <skinshortcuts insert="searchfooter">items</skinshortcuts>
+                        <include content="Search_View_Footer_Item">
+                            <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
+                            <param name="id">5081</param>
+                            <param name="icon">special://skin/extras/icons/film.png</param>
+                            <param name="altnofocus">false</param>
+                        </include>
+                        <include content="Search_View_Footer_Item">
+                            <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
+                            <param name="id">5082</param>
+                            <param name="icon">special://skin/extras/icons/tv.png</param>
+                            <param name="altnofocus">false</param>
+                        </include>
+                    </include>
+                </include>
+            </control>
             <include>Search_View_Side</include>
         </controls>
         <items insert="searchlist">
@@ -1351,6 +1211,13 @@
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
                     </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
                 </include>
             </controls>
         </items>
@@ -1527,6 +1394,13 @@
 
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
+                    </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
                     </include>
                 </include>
             </controls>
@@ -1705,6 +1579,13 @@
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
                     </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
                 </include>
             </controls>
         </items>
@@ -1881,6 +1762,13 @@
 
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
+                    </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
                     </include>
                 </include>
             </controls>
@@ -2059,6 +1947,13 @@
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
                     </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
                 </include>
             </controls>
         </items>
@@ -2235,6 +2130,13 @@
 
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
+                    </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
                     </include>
                 </include>
             </controls>
@@ -2413,6 +2315,13 @@
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
                     </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
                 </include>
             </controls>
         </items>
@@ -2589,6 +2498,13 @@
 
                     <include content="Defs_AutoScroll" condition="$SKINSHORTCUTS[isAutoScroll]">
                         <param name="condition">!Control.HasFocus($PYTHON[5003 + int(id)])</param>
+                    </include>
+
+                    <include content="Action_View_Movement_OnLeft">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
+                    </include>
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">$PYTHON[5003 + int(id)]</param>
                     </include>
                 </include>
             </controls>
