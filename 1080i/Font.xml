@@ -109,6 +109,13 @@
             <filename>RobotoCondensed-Bold.ttf</filename>
             <size>24</size>
         </font>
+		<!-- PVR005: EPG Group Switcher - custom font for All Channels -->
+		<font>
+            <name>font_epg_group_switcher</name>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+			<style>uppercase</style>
+            <size>24</size>
+        </font>
         <font>
             <name>font_hint_bold</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
@@ -341,6 +348,13 @@
         <font>
             <name>font_tiny_bold</name>
             <filename>RobotoNotoCondensed-Bold.ttf</filename>
+            <size>24</size>
+        </font>
+		<!-- PVR005: EPG Group Switcher - custom font for All Channels -->
+		<font>
+            <name>font_epg_group_switcher</name>
+            <filename>RobotoNotoCondensed-Bold.ttf</filename>
+			<style>uppercase</style>
             <size>24</size>
         </font>
         <font>

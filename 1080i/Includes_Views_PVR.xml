@@ -6,7 +6,8 @@
         <include content="Home_Selector_Widget">
             <param name="id">11</param>
             <param name="visible">True</param>
-            <param name="font">font_mini_bold</param>
+			<!-- PVR005: EPG Group Switcher - custom font for All Channels (was font_mini_bold) -->
+            <param name="font">font_epg_group_switcher</param>
             <param name="shorten">True</param>
             <param name="hidden_button">Items_Null</param>
             <top>920</top>
