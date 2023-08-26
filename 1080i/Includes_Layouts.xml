@@ -200,7 +200,7 @@
     <include name="Layout_PVRChannel_Programs">
         <param name="detailed">false</param>
         <param name="selected">false</param>
-        <param name="affix"></param>
+        <param name="affix" />
         <definition>
 
             <include content="Object_Control" condition="!$PARAM[selected]">
@@ -1200,7 +1200,6 @@
         <param name="listitem_dbtype">ListItem.DBType</param>
         <param name="listitem_label">ListItem.Label</param>
         <param name="listitem_label2">ListItem.Label2</param>
-        <param name="misc">0</param>
         <definition>
             <control type="group">
                 <nested />
@@ -1272,9 +1271,6 @@
                     </control>
                 </control>
                 <control type="group">
-                    <top>-$PARAM[misc]</top>
-                    <bottom>$PARAM[misc]</bottom>
-                    <animation effect="slide" end="0,$PARAM[misc]" condition="true">Conditional</animation>
                     <include condition="!$PARAM[selected] + $PARAM[indicator]" content="Object_Indicator">
                         <param name="affix">$PARAM[affix]</param>
                         <param name="listitem">$PARAM[listitem]</param>
@@ -1870,6 +1866,9 @@
                         <bordersize>20</bordersize>
                         <visible>String.IsEqual($PARAM[listitem].DBType,studio) | String.IsEqual($PARAM[listitem].DBType,country)</visible>
                     </control>
+                    <include content="Object_ProgressLine">
+                        <param name="listitem">$PARAM[listitem]</param>
+                    </include>
                     <include content="Object_Indicator" condition="!$PARAM[selected]">
                         <param name="affix">$PARAM[affix]</param>
                         <param name="listitem">$PARAM[listitem]</param>
@@ -1917,10 +1916,18 @@
                     <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
                     <aspectratio scalediffuse="false">keep</aspectratio>
                 </control>
+
+                <include content="Object_ProgressLine">
+                    <param name="listitem">$PARAM[listitem]</param>
+                </include>
+
                 <include content="Object_Indicator" condition="!$PARAM[selected]">
                     <param name="affix">$PARAM[affix]</param>
                     <param name="listitem">$PARAM[listitem]</param>
                 </include>
+
+
+
                 <control type="group">
                     <top>$PARAM[item_h]</top>
                     <control type="group">
