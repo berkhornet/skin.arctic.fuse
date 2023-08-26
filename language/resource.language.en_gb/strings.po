@@ -1508,8 +1508,43 @@ msgctxt "#31331"
 msgid "Background style"
 msgstr ""
 
+#: /1080i/Includes_Items.xml
+msgctxt "#31332"
+msgid "Categories and widgets"
+msgstr ""
+
+#: /1080i/script-skinshortcuts.xml
+msgctxt "#31333"
+msgid "Customise fallback submenu"
+msgstr ""
+
 msgctxt "#31334"
 msgid "Comments"
+msgstr ""
+
+#: /1080i/GameOSD.xml
+msgctxt "#31335"
+msgid "Game menu"
+msgstr ""
+
+#: /1080i/GameOSD.xml
+msgctxt "#31336"
+msgid "Select + X"
+msgstr ""
+
+#: /1080i/GameOSD.xml
+msgctxt "#31337"
+msgid "Select + Start"
+msgstr ""
+
+#: /1080i/Includes_Items.xml
+msgctxt "#31338"
+msgid "Select + Right Stick"
+msgstr ""
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31339"
+msgid "Larger icons"
 msgstr ""
 
 msgctxt "#31346"

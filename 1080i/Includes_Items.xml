@@ -23,6 +23,7 @@
     </variable>
 
     <include name="Items_Settings_CustomDialog">
+        <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_GameOptions)">Items_Settings_GameOptions</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_ColourPresets)">Items_Settings_ColourPresets</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_ColourHighlights)">Items_Settings_ColourHighlights</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_BackgroundDialogImage)">Items_Settings_BackgroundDialogImage</include>
@@ -205,6 +206,59 @@
         </include>
     </include>
 
+    <include name="Items_Settings_GameOptions">
+        <include content="Settings_Button">
+            <param name="id">8001</param>
+            <param name="dialog">true</param>
+            <description>Video filter button</description>
+            <label>$LOCALIZE[35225]</label>
+            <onclick>ActivateWindow(GameVideoFilter)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8002</param>
+            <param name="dialog">true</param>
+            <description>Stretch mode button</description>
+            <label>$LOCALIZE[35233]</label>
+            <onclick>ActivateWindow(GameStretchMode)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8003</param>
+            <param name="dialog">true</param>
+            <description>Video rotation button</description>
+            <label>$LOCALIZE[35227]</label>
+            <onclick>ActivateWindow(GameVideoRotation)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8004</param>
+            <param name="dialog">true</param>
+            <description>Volume button</description>
+            <label>$LOCALIZE[13376]</label>
+            <label2>$LOCALIZE[31338]</label2>
+            <onclick>ActivateWindow(GameVolume)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8005</param>
+            <param name="dialog">true</param>
+            <description>Controller settings button</description>
+            <label>$LOCALIZE[35234]</label>
+            <onclick>ActivateWindow(GameControllers)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8006</param>
+            <param name="dialog">true</param>
+            <description>Controller port configuration</description>
+            <label>$LOCALIZE[35110]</label>
+            <onclick>ActivateWindow(GamePorts)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8007</param>
+            <param name="dialog">true</param>
+            <description>Advanced settings</description>
+            <label>$LOCALIZE[35226]</label>
+            <onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+        </include>
+    </include>
+
     <include name="Items_Settings_SideButtonConfigure">
         <include content="Settings_Button" description="Type">
             <param name="id">8$PARAM[item]01</param>
@@ -304,7 +358,7 @@
         </include>
 
 
-        <include content="Settings_Button" description="Submenu">
+        <!-- <include content="Settings_Button" description="Submenu">
             <param name="id">8$PARAM[item]08</param>
             <param name="dialog">true</param>
             <label> - $LOCALIZE[1034] ([LOWERCASE]$LOCALIZE[31297][/LOWERCASE])</label>
@@ -325,7 +379,7 @@
             <onfocus>SetProperty(CustomDialogSettingsImage,special://skin/extras/screens/submenu.jpg,Home)</onfocus>
             <onfocus>SetProperty(CustomDialogSettingsLabel,[B]$LOCALIZE[1034] ([LOWERCASE]$LOCALIZE[31297][/LOWERCASE])[/B][CR]$LOCALIZE[31300],Home)</onfocus>
             <visible>String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_SideMenu_$PARAM[item])</visible>
-        </include>
+        </include> -->
 
         <include content="Settings_Button" description="Widgets">
             <param name="id">8$PARAM[item]09</param>
@@ -1132,7 +1186,7 @@
         <include content="Settings_Button" description="Categories">
             <param name="id">8802</param>
             <param name="dialog">true</param>
-            <label>$LOCALIZE[31150]</label>
+            <label>$LOCALIZE[31332]</label>
             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
             <onfocus>SetProperty(CustomDialogSettingsImage,special://skin/extras/screens/categories_widgets.jpg,Home)</onfocus>
             <onfocus>SetProperty(CustomDialogSettingsLabel,[B]$LOCALIZE[31150][/B][CR]$LOCALIZE[31291][CR][CR]$LOCALIZE[31327] $LOCALIZE[31328],Home)</onfocus>
