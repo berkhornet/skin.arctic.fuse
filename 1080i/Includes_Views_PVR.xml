@@ -7,7 +7,10 @@
             <param name="id">11</param>
             <param name="visible">True</param>
 			<!-- PVR005: EPG Group Switcher - custom font for All Channels (was font_mini_bold) -->
+			<!-- PVR005: EPG Group Switcher - custom text colours -->
             <param name="font">font_epg_group_switcher</param>
+			<param name="color_fo">$VAR[ColorHighlight]</param>
+            <param name="color_nf">$VAR[ColorGradient]</param>
             <param name="shorten">True</param>
             <param name="hidden_button">Items_Null</param>
             <top>920</top>
