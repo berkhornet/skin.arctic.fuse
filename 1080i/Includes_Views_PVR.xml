@@ -12,7 +12,7 @@
 			<!-- PVR005: EPG Group Switcher - color_fo changed from default (main_fg_100) -->
 			<param name="color_fo">$VAR[ColorHighlight]</param>
 			<!-- PVR005: EPG Group Switcher - color_nf changed from default (main_fg_30) -->
-            <param name="color_nf">$VAR[ColorGradient]</param>
+            <param name="color_nf">main_fg_30</param>
             <param name="shorten">True</param>
             <param name="hidden_button">Items_Null</param>
             <top>920</top>
