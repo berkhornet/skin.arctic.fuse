@@ -182,10 +182,22 @@
 							<top>-7</top>
 							<width>203</width>
 							<height>64</height>									
+							<texture>$VAR[ImagePVREPGIcon]</texture>
+							<align>center</align>
+							<aligny>center</aligny>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<!-- PVR001: For Club Specific Channels, display Icon (Club Badge) -->
+						<control type="image">	
+							<left>327</left>
+							<top>-4</top>
+							<width>60</width>
+							<height>60</height>									
 							<texture>$INFO[ListItem.Icon]</texture>
 							<align>center</align>
 							<aligny>center</aligny>
 							<aspectratio>keep</aspectratio>
+							<visible>$EXP[Live_Football_Club_Channel]</visible>
 						</control>
 						<!-- PVR001: Channel Resolution Icon -->
 						<control type="image">						
