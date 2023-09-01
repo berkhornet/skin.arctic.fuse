@@ -99,14 +99,30 @@
                         <left>0</left>
                         <height>35</height>
                         <align>left</align>
-                        <aligny>center</aligny>
+                        <aligny>right</aligny>
                         <!-- PVR004: Font changed from font_tiny -->
 						<font>font_mini_bold</font>
                         <label>$INFO[ListItem.Label]</label>
 						<!-- PVR004: textcolor changed from main_fg_30 -->
-                        <textcolor>$VAR[ColorGradient]</textcolor>
-                        <visible>!String.IsEqual(ListItem.Label,System.Date)</visible>
+                        <textcolor>$VAR[ColorHighlight]</textcolor>
+						<!-- PVR004: visible tag changed from not System Date -->
+                        <visible>!String.Contains(ListItem.Label,",")</visible>
                     </control>
+					<!-- PVR004: Alternative control added for Date in Ruler -->
+					<control type="label" id="2">
+                        <top>20</top>
+                        <left>40</left>
+                        <height>35</height>
+                        <align>left</align>
+                        <aligny>right</aligny>
+                        <!-- PVR004: Font changed from font_tiny -->
+						<font>font_mini_bold</font>
+                        <label>$INFO[ListItem.Label]</label>
+						<!-- PVR004: textcolor changed from main_fg_30 -->
+                        <textcolor>$VAR[ColorHighlight]</textcolor>
+                        <visible>String.Contains(ListItem.Label,",") + !String.IsEqual(ListItem.Label,System.Date)</visible>
+                    </control>
+					
                 </rulerlayout>
                 <channellayout height="$PARAM[channelheight]" width="$PARAM[channelwidth]">
                     <include content="$PARAM[include_channels]">
