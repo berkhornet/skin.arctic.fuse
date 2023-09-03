@@ -123,10 +123,11 @@
                 <nested />
                 <right>x02</right>
                 <left>x02</left>
-                <include content="Object_Control" condition="$PARAM[selected]">
+				<!-- PVR001: Remove "Selected Highlight" from Channel -->
+                <!-- include content="Object_Control" condition="$PARAM[selected]">
                     <param name="control">image</param>
                     <include>Texture_Menu_Highlight_H</include>
-                </include>
+                </include -->
                 <control type="group">
                     <height>50</height>
                     <centertop>50%</centertop>
