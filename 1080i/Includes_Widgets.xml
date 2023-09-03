@@ -706,7 +706,7 @@
 				<!-- MISC002: color_fo changed from main_fg_30 -->
                 <param name="color_fo">$VAR[ColorGradient]</param>
 				<!-- MISC002: color_nf changed from main_fg_30 -->
-                <param name="color_nf">main_fg_90</param>
+                <param name="color_nf">main_fg_70</param>
                 <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_ERow</param>
                 <param name="hidden_button_prefix">$PARAM[hidden_button_prefix]</param>
                 <param name="hitrect_x">-40</param>
