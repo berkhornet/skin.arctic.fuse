@@ -418,7 +418,16 @@
             <include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
                 <param name="control">image</param>
                 <texture colordiffuse="$VAR[ColorBackground]">background/combined_flixart.png</texture>
+				<!-- PVR006: visible tag added -->
+				<visible>!Window.IsVisible(10702)</visible>
             </include>
+			<!-- PVR006: alternative background for EPG added -->
+			<include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
+                <param name="control">image</param>
+                <texture colordiffuse="$VAR[ColorBackground]">background/floor.png</texture>
+				<visible>Window.IsVisible(10702)</visible>
+            </include>
+			
             <include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
                 <param name="control">image</param>
                 <texture colordiffuse="$VAR[ColorBackground]">background/combined_overlay.png</texture>
