@@ -500,6 +500,8 @@
                     <property name="description">$VAR[Defs_AddonDetails_Loader_Description]</property>
                     <property name="type">xbmc.core</property>
                     <property name="version">$INFO[System.BuildVersionCode]</property>
+					<!-- MISC003: additional visible tag added -->
+					<visible>![String.IsEqual(System.CurrentControlID,"50") + String.Contains(Container.FolderPath,"plugin.program.autowidget")]</visible>
                     <visible>Integer.IsEqual(Container(99956).NumItems,0) | [Integer.IsEqual(Container(99956).NumItems,1) + String.IsEqual(Container(99956).ListItemAbsolute(0).Label,null)]</visible>
                 </item>
             </content>

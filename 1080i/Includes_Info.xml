@@ -897,6 +897,8 @@
                     <centertop>52%</centertop>
                     <width>37</width>
                     <height>24</height>
+					<!-- MISC003: additional visible tag added -->
+					<visible>![String.IsEqual(System.CurrentControlID,"50") + String.Contains(Container.FolderPath,"plugin.program.autowidget")]</visible>
                 </include>
 
                 <!-- Star Rating -->
