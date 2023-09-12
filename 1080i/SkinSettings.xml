@@ -280,6 +280,7 @@
                             <onclick>AlarmClock(refocusblurb,SetFocus(2013),00:00,silent)</onclick>
                             <visible>Container(3).HasFocus(2)</visible>
                         </include>
+								                        
                         <include content="Settings_Label" description="Background">
                             <param name="id">2010</param>
                             <label>$LOCALIZE[33068]</label>
@@ -332,7 +333,16 @@
                             <visible>Container(3).HasFocus(3)</visible>
                             <onclick>Skin.ToggleSetting(Views.UseFullPVRGuide)</onclick>
                         </include>
-
+						<!-- PVR006: Basic EPG Flixart Option - Setting -->						
+						<include content="Settings_Button" description="Basic EPG Flixart">
+                            <param name="id">3090</param>
+                            <param name="control">radiobutton</param>
+                            <label>Use Flixart for Basic (Classic) EPG</label>
+                            <selected>Skin.HasSetting(Views.FullPVRGuideFlixart)</selected>
+                            <onclick>Skin.ToggleSetting(Views.FullPVRGuideFlixart)</onclick>
+                            <visible>Container(3).HasFocus(3)</visible>
+                        </include>						
+						<!-- PVR006: Basic EPG Flixart Option - Setting -->		
                         <include content="Settings_Label" description="Media Filter and Wall">
                             <param name="id">3030</param>
                             <label>$LOCALIZE[31038]</label>

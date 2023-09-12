@@ -72,8 +72,8 @@
             <include>Animation_FadeOut</include>
         </control>
 		
-		<!-- PVR008: Display PVR artwork on Basic (Full Screen EPG) -->
-		<control type="image">          			
+		<!-- PVR008: Display PVR artwork on Basic (Full Screen EPG) DISABLED following reworked PVR006 -->
+		<!-- control type="image">          			
             <texture background="true">$VAR[Image_EPG_PVRArtwork]</texture>			
             <aspectratio align="center">keep</aspectratio>
             <bordersize>20</bordersize>
@@ -82,7 +82,7 @@
 			<top>50</top>
 			<height>108</height>
 			<width>192</width>
-        </control>
+        </control -->
 				
         <control type="group">
             <include>Animation_View_WindowChange</include>
