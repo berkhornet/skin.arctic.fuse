@@ -38,7 +38,7 @@
                             <textcolor>dialog_fg_70</textcolor>
                             <label>$VAR[Label_Overlay_PlotBox]</label>
                             <include content="Dimension_Padding">
-                                <param name="pad">x02</param>
+                                <param name="pad">20</param>
                             </include>
                         </control>
                     </include>
@@ -163,7 +163,7 @@
                 <control type="scrollbar" id="60">
                     <orientation>horizontal</orientation>
                     <texturesliderbackground />
-                    <texturesliderbar border="4">special://profile/addon_data/script.texturemaker/ArcticFuse/scrollh_h.png</texturesliderbar>
+                    <include>Texture_Scrollbar_SliderBar_H</include>
                     <include>Texture_Scrollbar_H</include>
                     <showonepage>true</showonepage>
                     <include>Action_Scrollbar</include>

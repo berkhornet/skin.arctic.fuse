@@ -113,40 +113,6 @@
         </definition>
     </include>
 
-    <include name="Object_Glow_40">
-        <param name="pad">-40</param>
-        <param name="affix">v</param>
-        <definition>
-            <control type="image">
-                <include content="Dimension_Padding"><param name="pad">$PARAM[pad]</param></include>
-                <include content="Texture_Glow_Highlight">
-                    <param name="affix">$PARAM[affix]</param>
-                </include>
-                <nested />
-            </control>
-        </definition>
-    </include>
-
-    <include name="Object_Button_Underline">
-        <param name="width">x24</param>
-        <definition>
-            <control type="button" id="$PARAM[id]" description="Extra">
-                <width>$PARAM[width]</width>
-                <texturefocus border="10,0,10,0">special://profile/addon_data/script.texturemaker/ArcticFuse/underline_h.png</texturefocus>
-                <texturenofocus />
-                <font>font_mini</font>
-                <align>center</align>
-                <aligny>center</aligny>
-                <textcolor>main_fg_30</textcolor>
-                <selectedcolor>main_fg_90</selectedcolor>
-                <height>80</height>
-                <centerbottom>40</centerbottom>
-                <visible>$PARAM[visible]</visible>
-                <nested />
-            </control>
-        </definition>
-    </include>
-
     <include name="Object_ItemBack">
         <param name="selected">false</param>
         <param name="shadow_include">Texture_Shadow_40</param>
@@ -393,7 +359,7 @@
         <definition>
             <control type="group">
                 <height>60</height>
-                <width>x06</width>
+                <width>60</width>
                 <nested />
                 <include content="Object_Control">
                     <param name="control">image</param>
@@ -477,7 +443,7 @@
                 <nested />
                 <left>40</left>
                 <control type="label">
-                    <left>x08</left>
+                    <left>80</left>
                     <font>$PARAM[font_top]</font>
                     <label>$PARAM[role]</label>
                     <textcolor>$PARAM[textcolor_top]</textcolor>
@@ -485,7 +451,7 @@
                     <height>30%</height>
                 </control>
                 <control type="label">
-                    <left>x08</left>
+                    <left>80</left>
                     <font>$PARAM[font_sub]</font>
                     <label>$PARAM[name]</label>
                     <textcolor>$PARAM[textcolor_sub]</textcolor>
@@ -854,9 +820,7 @@
     <include name="Object_Info_Button_Left">
         <control type="group">
             <visible>$PARAM[visible]</visible>
-            <control type="image">
-                <texture border="80,0,0,0">$PARAM[texture]</texture>
-            </control>
+            <nested />
             <include content="Object_Info_Button_Icon">
                 <param name="colordiffuse">$PARAM[colordiffuse]</param>
                 <param name="icon">$PARAM[icon]</param>
@@ -881,12 +845,13 @@
                 <visible>$PARAM[visible]</visible>
                 <include content="Object_Info_Button_Left">
                     <param name="visible">Control.HasFocus($PARAM[id])</param>
-                    <param name="texture">special://profile/addon_data/script.texturemaker/ArcticFuse/menumain_h_x.png</param>
                     <param name="icon">$PARAM[icon]</param>
+                    <control type="image">
+                        <include>Texture_MainMenu_Highlight_H_X</include>
+                    </control>
                 </include>
                 <include content="Object_Info_Button_Left">
                     <param name="visible">![Control.HasFocus($PARAM[id])]</param>
-                    <param name="texture" />
                     <param name="icon">$PARAM[icon]</param>
                 </include>
             </control>
@@ -896,9 +861,8 @@
                 <visible>$PARAM[visible]</visible>
                 <height>256</height>
                 <texturenofocus />
-                <texturefocus>special://profile/addon_data/script.texturemaker/ArcticFuse/menumain_h_y.png</texturefocus>
                 <alttexturenofocus />
-                <alttexturefocus>special://profile/addon_data/script.texturemaker/ArcticFuse/menumain_h_y.png</alttexturefocus>
+                <include>Texture_MainMenu_Highlight_Focus_H_Y</include>
                 <font>$PARAM[font]</font>
                 <align>left</align>
                 <textoffsetx>0</textoffsetx>
@@ -914,44 +878,8 @@
                 <height>256</height>
                 <control type="image">
                     <visible>Control.HasFocus($PARAM[id])</visible>
-                    <texture border="0,0,80,0">special://profile/addon_data/script.texturemaker/ArcticFuse/menumain_h_z.png</texture>
+                    <include>Texture_MainMenu_Highlight_H_Z</include>
                 </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Object_Info_Button_Circle">
-        <param name="visible">true</param>
-        <param name="control">button</param>
-        <param name="itemgap">-20</param>
-        <param name="itempad">60</param>
-        <definition>
-            <control type="$PARAM[control]" id="$PARAM[id]">
-                <left>$PARAM[itempad]</left>
-                <centertop>50%</centertop>
-                <width>80</width>
-                <height>80</height>
-                <visible>$PARAM[visible]</visible>
-                <texturenofocus />
-                <texturefocus>special://profile/addon_data/script.texturemaker/ArcticFuse/circle_h.png</texturefocus>
-                <alttexturenofocus />
-                <alttexturefocus>special://profile/addon_data/script.texturemaker/ArcticFuse/circle_h.png</alttexturefocus>
-                <nested />
-                <font />
-                <label />
-            </control>
-            <control type="group" id="$PARAM[groupid]">
-                <left>$PARAM[itemgap]</left>
-                <visible>$PARAM[visible]</visible>
-                <centertop>50%</centertop>
-                <height>80</height>
-                <width>80</width>
-                <include content="Object_Info_Button_Icon">
-                    <param name="colordiffuse">$PARAM[colordiffuse]</param>
-                    <param name="icon">$PARAM[icon]</param>
-                    <centerleft>50%</centerleft>
-                    <centertop>50%</centertop>
-                </include>
             </control>
         </definition>
     </include>
@@ -984,8 +912,8 @@
                 <visible>$PARAM[visible]</visible>
                 <centertop>50%</centertop>
                 <height>256</height>
-                <left>-x06</left>
-                <right>-x06</right>
+                <left>-60</left>
+                <right>-60</right>
                 <control type="image">
                     <include condition="$PARAM[selected]">$PARAM[fo_texture]</include>
                     <texture border="80" colordiffuse="$PARAM[color_bg]">$PARAM[nf_texture]</texture>
@@ -1030,17 +958,17 @@
                 <height>120</height>
                 <control type="label">
                     <label>$PARAM[label]</label>
-                    <textoffsetx>x04</textoffsetx>
+                    <textoffsetx>40</textoffsetx>
                     <font>$PARAM[font]</font>
                     <aligny>center</aligny>
                     <textcolor>$PARAM[textcolor]_90</textcolor>
                 </control>
                 <include content="Object_Control" condition="$PARAM[has_icon]">
                     <param name="control">group</param>
-                    <right>x02</right>
+                    <right>20</right>
                     <centertop>50%</centertop>
                     <height>80</height>
-                    <width>x08</width>
+                    <width>80</width>
                     <control type="image">
                         <bordersize>$PARAM[bordersize]</bordersize>
                         <texture colordiffuse="$PARAM[colordiffuse]">$PARAM[icon]</texture>
@@ -1049,8 +977,8 @@
                 <control type="image">
                     <bottom>0</bottom>
                     <height>1</height>
-                    <left>x04</left>
-                    <right>x04</right>
+                    <left>40</left>
+                    <right>40</right>
                     <texture colordiffuse="$PARAM[textcolor]_12">common/white.png</texture>
                 </control>
             </control>
@@ -1064,7 +992,7 @@
                 <include>defs_dialog_$PARAM[control]</include>
                 <nested />
                 <texturenofocus border="40" colordiffuse="dialog_fg_12">common/menu.png</texturenofocus>
-                <width>x08</width>
+                <width>80</width>
                 <font>font_main</font>
                 <textoffsetx>0</textoffsetx>
                 <textcolor>dialog_fg_70</textcolor>
@@ -1555,7 +1483,7 @@
 
     <include name="Object_ListItem_Iconic">
         <param name="color">main_fg_90</param>
-        <param name="item_h">x16</param>
+        <param name="item_h">160</param>
         <param name="icon">$INFO[ListItem.Icon]</param>
         <definition>
             <control type="group">
@@ -1775,7 +1703,7 @@
                 <top>-5</top>
                 <height>40</height>
                 <aspectratio>keep</aspectratio>
-                <include>Layout_Side_Menu_Icon_Bordersize</include>
+                <bordersize>icon_menu_bordersize</bordersize>
                 <bordersize>-4</bordersize>
                 <texture colordiffuse="main_fg_70">$PARAM[icon]</texture>
             </control>
