@@ -126,17 +126,12 @@
         <value>$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage)]</value>
     </variable>
 
-	<!-- PVR006: previous variable definition -->
-    <variable name="Image_Foreground_FlixArt-PREVIOUS">
-        <value condition="!String.IsEmpty(Window(Home).Property(BlurImage.Original)) + String.IsEmpty(Window(Home).Property(TMDbHelper.Image.Override))">$INFO[Window(Home).Property(BlurImage.Original)]</value>
-    	<!-- MISC004: added value condition -->
-		<value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.BlurImage.Original)) + !String.IsEmpty(Container(99950).ListItem.Art(fanart))">$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage.Original)]</value>
-	</variable>
-	
-	<!-- PVR006: Customised Variable Definition -->
 	<variable name="Image_Foreground_FlixArt">
-	    <value>$VAR[Custom_Image_Foreground_FlixArt]</value>					
-	</variable>
+	    <!-- PVR006: Customised Variable for EPG -->
+		<value condition="Window.IsVisible(10702)">$VAR[Custom_Image_Foreground_FlixArt]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(BlurImage.Original)) + String.IsEmpty(Window(Home).Property(TMDbHelper.Image.Override))">$INFO[Window(Home).Property(BlurImage.Original)]</value>		
+		<value>$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage.Original)]</value>
+    </variable>
 
     <variable name="Image_Foreground">
         <value condition="Skin.HasSetting(TMDbHelper.EnableBlur)">$VAR[Image_Foreground_FlixArt]</value>
