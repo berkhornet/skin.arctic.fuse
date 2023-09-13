@@ -107,18 +107,6 @@
     <include name="DialogInfo_MusicInfo">
         <control type="group">
             <visible>String.IsEmpty(Window.Property(DetailsView))</visible>
-            <control type="group">
-                <height>320</height>
-                <width>320</width>
-                <right>80</right>
-                <bottom>-15</bottom>
-                <include content="Object_ItemBack">
-                    <param name="selected">false</param>
-                </include>
-                <control type="image">
-                    <texture diffuse="diffuse/square_w320_h320.png">$VAR[Image_Layout_CombinedThumb]</texture>
-                </control>
-            </control>
             <include content="List_Button_Row" condition="String.IsEqual(ListItem.DBType,album)">
                 <param name="id">50</param>
                 <param name="orientation">horizontal</param>
@@ -152,8 +140,7 @@
                 <top>-40</top>
                 <bottom>-40</bottom>
                 <left>120</left>
-                <right>80</right>
-                <right>320</right>
+                <right>400</right>
                 <include content="DialogInfo_List_Movement">
                     <param name="id">5050</param>
                 </include>
@@ -170,6 +157,18 @@
                     <param name="content">$INFO[ListItem.Album,musicdb://songs/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22album%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22songs%22%7D]</param>
                 </include>
             </include>
+            <control type="group">
+                <height>320</height>
+                <width>320</width>
+                <right>80</right>
+                <bottom>-15</bottom>
+                <include content="Object_ItemBack">
+                    <param name="selected">false</param>
+                </include>
+                <control type="image">
+                    <texture diffuse="diffuse/square_w320_h320.png">$VAR[Image_Layout_CombinedThumb]</texture>
+                </control>
+            </control>
         </control>
         <include content="List_Landscape_Row">
             <param name="id">5002</param>
@@ -217,7 +216,8 @@
                     <height>294</height>
                     <bottom>0</bottom>
                     <right>240</right>
-                    <width>720</width>
+                    <left>920</left>
+                    <!-- <width>720</width> -->
                     <include content="Dialog_Background_Blur">
                         <animation effect="fade" end="90" condition="true">Conditional</animation>
                     </include>
@@ -324,8 +324,6 @@
                 <param name="id">5203</param>
                 <content sortby="year" sortorder="descending">$INFO[Container(5003).ListItem.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=details&amp;tmdb_type=person&amp;tmdb_id=,]</content>
             </include>
-
-
             <include content="DialogInfo_VideoInfo_CastSpotlight">
                 <include>Animation_Right</include>
                 <visible>Control.HasFocus(5003) | Control.HasFocus(5103) | Control.HasFocus(5303)</visible>
@@ -354,7 +352,7 @@
                     <movement>1</movement>
                     <!-- <onclick>runscript(script.wikipedia,wikipedia=$INFO[Container(5003).ListItem.Label],tmdb_type=person)</onclick> -->
                     <onclick>SetProperty(Item_Title,$INFO[Container(5003).ListItem.Label],1122)</onclick>
-                    <onclick>SetProperty(Item_Query,$INFO[Container(5003).ListItem.Property(TMDb_ID)],1122)</onclick>
+                    <onclick>SetProperty(Item_Query,$INFO[Container(5003).ListItem.Property(TMDb_ID),&amp;tmdb_id=,],1122)</onclick>
                     <onclick>SetProperty(Item_Icon,$INFO[Container(5003).ListItem.Icon],1122)</onclick>
                     <onclick>SetProperty(Item_Plot,$VAR[Label_VideoInfo_CastBio_Prop],1122)</onclick>
                     <onclick>SetProperty(Item_Label,$INFO[Container(5003).ListItem.Label],1122)</onclick>
@@ -445,18 +443,55 @@
 
 
         </include>
-        <include content="List_Poster_Row" condition="Skin.HasSetting(Info.UseLocalCast)">
-            <param name="id">50</param>
-            <param name="detailed">true</param>
-            <height>divider_bottom</height>
-
-            <bottom>-160</bottom>
-            <include content="DialogInfo_List_Movement">
-                <param name="id">50</param>
-            </include>
+        <include content="Object_Control" condition="Skin.HasSetting(Info.UseLocalCast)">
+            <param name="control">group</param>
 
             <visible>String.IsEqual(Window.Property(DetailsView),Cast)</visible>
-            <animation effect="fade" start="100" end="0" condition="Container(50).IsUpdating">Conditional</animation>
+            <include content="Animation_ConditionalFade">
+                <param name="condition">Container(50).IsUpdating</param>
+            </include>
+            <include content="Object_Hidden_List">
+                <param name="id">5203</param>
+                <content sortby="year" sortorder="descending">$INFO[Container(50).ListItem.Label,plugin://plugin.video.themoviedb.helper/?info=details&amp;tmdb_type=person&amp;query=,]</content>
+            </include>
+            <include content="DialogInfo_VideoInfo_CastSpotlight">
+                <param name="icon">$INFO[Container(50).ListItem.Icon]</param>
+                <param name="label">$INFO[Container(50).ListItem.Label]</param>
+                <include>Animation_Right</include>
+                <visible>Control.HasFocus(50)</visible>
+                <top>-390</top>
+            </include>
+
+            <include content="List_Poster_Row">
+                <param name="id">50</param>
+                <param name="detailed">true</param>
+                <height>divider_bottom</height>
+
+                <bottom>-160</bottom>
+                <include content="DialogInfo_List_Movement">
+                    <param name="id">50</param>
+                    <param name="ondown_condition">false</param>
+                    <param name="onup_condition">false</param>
+                </include>
+
+                <onup>SetProperty(Item_Title,$INFO[Container(50).ListItem.Label],1122)</onup>
+                <onup>SetProperty(Item_Query,$INFO[Container(50).ListItem.Label,&amp;query=,],1122)</onup>
+                <onup>SetProperty(Item_Icon,$INFO[Container(50).ListItem.Icon],1122)</onup>
+                <onup>SetProperty(Item_Plot,$VAR[Label_VideoInfo_CastBio_Prop],1122)</onup>
+                <onup>SetProperty(Item_Label,$INFO[Container(50).ListItem.Label],1122)</onup>
+                <onup>SetProperty(Item_Label2,$VAR[Label_VideoInfo_CastAge],1122)</onup>
+                <onup>SetProperty(CustomDialogSettingsTitle,$INFO[Container(50).ListItem.Label],Home)</onup>
+                <onup>SetProperty(CustomDialogSettingsItems,Items_Settings_DialogInfo_ActorChoice,Home)</onup>
+                <onup>ActivateWindow(1118)</onup>
+
+                <ondown>SetProperty(Item_Title,$INFO[Container(50).ListItem.Label],1122)</ondown>
+                <ondown>SetProperty(Item_Query,$INFO[Container(50).ListItem.Label,&amp;query=,],1122)</ondown>
+                <ondown>SetProperty(Item_Icon,$INFO[Container(50).ListItem.Icon],1122)</ondown>
+                <ondown>SetProperty(Item_Plot,$VAR[Label_VideoInfo_CastBio_Prop],1122)</ondown>
+                <ondown>SetProperty(Item_Label,$INFO[Container(50).ListItem.Label],1122)</ondown>
+                <ondown>SetProperty(Item_Label2,$VAR[Label_VideoInfo_CastAge],1122)</ondown>
+                <ondown>ActivateWindow(1122)</ondown>
+            </include>
         </include>
 
         <include content="List_Reviews_Row">
@@ -1088,12 +1123,12 @@
                 </control>
             </control>
         </control>
-        <include content="Object_BigPoster">
+        <include content="Object_BigPoster" condition="![String.IsEqual(Skin.AspectRatio,3:2) | String.IsEqual(Skin.AspectRatio,4:3)]">
             <param name="icon">$VAR[Image_DialogInfo_Poster]</param>
             <param name="diffuse">diffuse/poster_w460_h680.png</param>
             <include>Animation_Right_Delay</include>
             <visible>String.IsEqual(Window.Property(DetailsView),Artwork)</visible>
-            <right>0</right>
+            <left>1180</left>
             <width>infodialog_poster_w</width>
             <height>infodialog_poster_h</height>
         </include>

@@ -555,7 +555,7 @@
         <param name="enable_9">true</param>
         <param name="enable_10">true</param>
         <param name="enable_11">true</param>
-        <param name="enable_12">!Skin.String(Rows.ContentLoopback,Wrap)</param>
+        <param name="enable_12">[!String.IsEqual(Skin.AspectRatio,16:9) | !Skin.String(Rows.ContentLoopback,Wrap)]</param>
         <definition>
             <include content="MediaFilter_Wall_Poster" condition="$PARAM[enable_0]">
                 <param name="layout_include">$PARAM[layout_include]</param>
@@ -679,7 +679,7 @@
                 <param name="pos">$PARAM[p_6]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">6</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_9]]">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_9]]">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -697,7 +697,7 @@
                 <param name="pos">$PARAM[p_7]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">7</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_10]]">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_10]]">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -715,7 +715,7 @@
                 <param name="pos">$PARAM[p_8]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">8</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_11]]">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_11]]">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -733,7 +733,7 @@
                 <param name="pos">$PARAM[p_9]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">9</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_12]]">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap) + ![$PARAM[enable_12]]">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -751,7 +751,7 @@
                 <param name="pos">$PARAM[p_10]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">10</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap)">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap)">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -769,7 +769,7 @@
                 <param name="pos">$PARAM[p_11]</param>
                 <param name="row">$PARAM[row]</param>
                 <param name="col">11</param>
-                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="Skin.String(Rows.ContentLoopback,Wrap)">
+                <include content="MediaFilter_Wall_Poster_Row_Fade" condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.String(Rows.ContentLoopback,Wrap)">
                     <param nmae="id">$PARAM[id]</param>
                     <param name="onaction">OnPrevious</param>
                 </include>
@@ -956,8 +956,11 @@
             <right>-20</right>
 
             <onback>50</onback>
-            <onup>ClearProperty(MediaFilterBase)</onup>
-            <include>Action_ToScrollbar_OnUp</include>
+            <onup condition="String.IsEmpty(Window.Property(View.WallSwitchRow.Hold))">50</onup>
+            <onup condition="!String.IsEmpty(Window.Property(View.WallSwitchRow.Hold))">ClearProperty(MediaFilterBase)</onup>
+            <include content="Action_ToScrollbar_OnUp">
+                <param name="condition">!String.IsEmpty(Window.Property(View.WallSwitchRow.Hold))</param>
+            </include>
             <ondown>SetFocus(20000)</ondown>
 
             <visible>!String.IsEmpty(Window.Property(MediaFilterBase))</visible>
@@ -965,9 +968,10 @@
             <include content="Dialog_Side_Button">
                 <param name="vertical">false</param>
                 <param name="id">01</param>
-                <param name="label">$LOCALIZE[31319]</param>
-                <param name="icon">special://skin/extras/icons/object-group.png</param>
-                <onclick>Runscript(script.skinvariables,action=buildviews,contentid=$VAR[Items_ViewMode_Switch],pluginname=$INFO[Container.PluginName])</onclick>
+                <param name="label">$LOCALIZE[31352]</param>
+                <param name="icon">special://skin/extras/icons/arrow-right.png</param>
+                <onclick>ClearProperty(MediaFilterBase)</onclick>
+                <include>Action_ToScrollbar_OnClick</include>
             </include>
 
             <include content="Dialog_Side_Button">
@@ -984,7 +988,7 @@
             <include content="Dialog_Side_Button">
                 <param name="vertical">false</param>
                 <param name="id">10</param>
-                <param name="label">Explore</param>
+                <param name="label">$LOCALIZE[31370]</param>
                 <param name="icon">special://skin/extras/icons/gem.png</param>
                 <onclick>SetFocus(20000)</onclick>
             </include>
@@ -1030,7 +1034,13 @@
                 <onclick>SendClick(videos,4)</onclick>
             </include>
 
-
+            <include content="Dialog_Side_Button">
+                <param name="vertical">false</param>
+                <param name="id">22</param>
+                <param name="label">$LOCALIZE[31319]</param>
+                <param name="icon">special://skin/extras/icons/object-group.png</param>
+                <onclick>Runscript(script.skinvariables,action=buildviews,contentid=$VAR[Items_ViewMode_Switch],pluginname=$INFO[Container.PluginName])</onclick>
+            </include>
 
             <include content="Dialog_Side_Button">
                 <param name="vertical">false</param>
@@ -1075,8 +1085,8 @@
                         <onup>SetFocus(20000,9999,absolute)</onup>
                         <ondown>SetFocus(20000,0,absolute)</ondown>
                         <align>left</align>
-                        <onleft>50</onleft>
-                        <onback>50</onback>
+                        <onleft>9000</onleft>
+                        <onback>9000</onback>
                         <onright>28900</onright>
                         <top>40</top>
                         <height>80</height>
@@ -1099,8 +1109,8 @@
                         <param name="textcolor">dialog_fg</param>
                         <focusposition>4</focusposition>
                         <movement>5</movement>
-                        <onleft>50</onleft>
-                        <onback>50</onback>
+                        <onleft>9000</onleft>
+                        <onback>9000</onback>
                         <onright>28900</onright>
                         <onfocus>ClearProperty(MediaFilterNode)</onfocus>
                         <top>160</top>
@@ -1116,13 +1126,13 @@
                     <param name="id">28900</param>
                     <onright>noop</onright>
                     <onleft>20003</onleft>
-                    <onback>50</onback>
+                    <onback>9000</onback>
                     <include content="Dialog_Side_Button">
                         <param name="id">01</param>
                         <param name="baseid">28</param>
                         <param name="label">$LOCALIZE[186]</param>
                         <param name="icon">special://skin/extras/icons/circle-check.png</param>
-                        <onclick>SetFocus(50)</onclick>
+                        <onclick>SetFocus(9000)</onclick>
                     </include>
                 </include>
             </include>
@@ -1153,7 +1163,7 @@
                         <onleft>20000</onleft>
                         <onright>20061</onright>
                         <align>left</align>
-                        <onleft>50</onleft>
+                        <onleft>9000</onleft>
                         <top>40</top>
                         <height>80</height>
                         <textoffsetx>40</textoffsetx>

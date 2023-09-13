@@ -381,10 +381,10 @@
     </include>
 
     <include name="Action_Scrollbar">
-        <onup condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow.Action,None)</onup>
-        <onup condition="$EXP[Exp_FilterWall_IsMedia]">68</onup>
-        <!-- <onup condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow,1)</onup>
-        <onup condition="$EXP[Exp_FilterWall_IsMedia]">67</onup> -->
+        <!-- <onup condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow.Action,None)</onup>
+        <onup condition="$EXP[Exp_FilterWall_IsMedia]">68</onup> -->
+        <onup condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow,1)</onup>
+        <onup condition="$EXP[Exp_FilterWall_IsMedia]">67</onup>
         <onup condition="!$EXP[Exp_FilterWall_IsMedia] + !$EXP[Exp_View_512]">50</onup>
         <onup condition="!$EXP[Exp_FilterWall_IsMedia] + $EXP[Exp_View_512]">513</onup>
 
@@ -393,20 +393,27 @@
         <onback condition="!$EXP[Exp_FilterWall_IsMedia] + !$EXP[Exp_View_512]">50</onback>
         <onback condition="!$EXP[Exp_FilterWall_IsMedia] + $EXP[Exp_View_512]">513</onback>
 
-        <onclick condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow,1)</onclick>
+        <!-- <onclick condition="$EXP[Exp_FilterWall_IsMedia]">SetProperty(View.WallSwitchRow,1)</onclick>
         <onclick condition="$EXP[Exp_FilterWall_IsMedia]">SetFocus(67)</onclick>
         <onclick condition="!$EXP[Exp_FilterWall_IsMedia] + !$EXP[Exp_View_512]">SetFocus(50)</onclick>
-        <onclick condition="!$EXP[Exp_FilterWall_IsMedia] + $EXP[Exp_View_512]">SetFocus(513)</onclick>
-        <!-- <onclick>SetProperty(View.WallSwitchRow.Action,None)</onclick>
-        <onclick>SetFocus(68)</onclick> -->
+        <onclick condition="!$EXP[Exp_FilterWall_IsMedia] + $EXP[Exp_View_512]">SetFocus(513)</onclick> -->
+        <onclick>SetProperty(View.WallSwitchRow.Action,None)</onclick>
+        <onclick>SetFocus(68)</onclick>
+        <!-- <onclick>SetProperty(MediaFilterBase,$INFO[Container.FolderPath])</onclick>
+        <onclick>SetFocus(9001)</onclick> -->
+
+        <!-- <ondown>SetProperty(View.WallSwitchRow.Action,None)</ondown>
+        <ondown>SetFocus(68)</ondown> -->
         <ondown>SetProperty(MediaFilterBase,$INFO[Container.FolderPath])</ondown>
         <ondown>SetFocus(9001)</ondown>
     </include>
 
     <include name="Action_ToScrollbar_OnUp">
-        <onup condition="$EXP[Exp_AlphabetTypes_Only] + !Skin.HasSetting(DisableAlphabetScrollbar) + !$EXP[Exp_View_512]">65</onup>
-        <onup condition="[!$EXP[Exp_AlphabetTypes_Only] | Skin.HasSetting(DisableAlphabetScrollbar)] + !$EXP[Exp_View_512]">64</onup>
-        <onup condition="$EXP[Exp_View_512]">512</onup>
+        <param name="condition">true</param>
+        <definition>
+            <onup condition="$PARAM[condition] + $EXP[Exp_AlphabetTypes_Only] + !Skin.HasSetting(DisableAlphabetScrollbar)">65</onup>
+            <onup condition="$PARAM[condition] + [!$EXP[Exp_AlphabetTypes_Only] | Skin.HasSetting(DisableAlphabetScrollbar)]">64</onup>
+        </definition>
     </include>
 
     <include name="Action_ToScrollbar_OnDown">
@@ -417,8 +424,18 @@
         </definition>
     </include>
 
+    <include name="Action_ToScrollbar_OnClick">
+        <param name="condition">true</param>
+        <definition>
+            <onclick condition="$PARAM[condition] + $EXP[Exp_AlphabetTypes_Only] + !Skin.HasSetting(DisableAlphabetScrollbar)">SetFocus(65)</onclick>
+            <onclick condition="$PARAM[condition] + [!$EXP[Exp_AlphabetTypes_Only] | Skin.HasSetting(DisableAlphabetScrollbar)]">SetFocus(64)</onclick>
+        </definition>
+    </include>
+
     <include name="Action_Row_OnDown">
-        <include>Action_ToScrollbar_OnDown</include>
+        <!-- <include>Action_ToScrollbar_OnDown</include> -->
+        <ondown>SetProperty(MediaFilterBase,$INFO[Container.FolderPath])</ondown>
+        <ondown>SetFocus(9001)</ondown>
     </include>
 
     <include name="Action_Row_WallView_OnDown">
