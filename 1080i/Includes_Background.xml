@@ -36,8 +36,8 @@
                 <animation effect="fade" start="100" end="0" reversible="false" time="400" condition="[$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">Conditional</animation>
                 <animation effect="fade" start="0" end="100" reversible="false" delay="400" time="800" condition="![$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">Conditional</animation>
                 <include>Background_NotVideo</include>
-				<!-- PVR006: include visible tag to OPTIONALLY exclude from Basic (Full Screen) EPG -->
-				<visible>![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]</visible>
+				<!-- PVR006: include visible tag to exclude from Basic (Full Screen) EPG >
+				<visible>!Window.IsVisible(10702) | !Skin.HasSetting(Views.UseFullPVRGuide)</visible-->
             </control>
         </definition>
     </include>
@@ -130,19 +130,18 @@
         <definition>
             <control type="group">
                 <include>Background_NotVideo</include>
-	
-				<!-- PVR006: include "[![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]] + " to exclude from Basic (Full Screen) EPG with no Flixart -->
-                <include content="Background_Blur_Quadrants" condition="[![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]] + Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.String(Background.ArtworkStyle,Fanart)">				
+				<!-- PVR006: include "[!Window.IsVisible(10702) | !Skin.HasSetting(Views.UseFullPVRGuide)] + " to exclude from Basic (Full Screen) EPG -->
+                <include content="Background_Blur_Quadrants" condition="[!Window.IsVisible(10702) | !Skin.HasSetting(Views.UseFullPVRGuide)] + Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.String(Background.ArtworkStyle,Fanart)">
                     <param name="flixart_size_w">$PARAM[flixart_size_w]</param>
                     <param name="flixart_size_h">$PARAM[flixart_size_h]</param>
                     <param name="fadetime">$PARAM[fadetime]</param>
                 </include>
-				<!-- PVR006: include "[![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]] + " to exclude from Basic (Full Screen) EPG with no Flixart -->
-                <include content="Background_Blur_Cheater" condition="[![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]] + !Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.String(Background.ArtworkStyle,Fanart)">
+				<!-- PVR006: include "[!Window.IsVisible(10702) | !Skin.HasSetting(Views.UseFullPVRGuide)] + " to exclude from Basic (Full Screen) EPG -->
+                <include content="Background_Blur_Cheater" condition="[!Window.IsVisible(10702) | !Skin.HasSetting(Views.UseFullPVRGuide)] + !Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.String(Background.ArtworkStyle,Fanart)">
                     <param name="fadetime">$PARAM[fadetime]</param>
                 </include>
-				<!-- PVR006: include " | [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]" to include for Basic (Full Screen) EPG -->
-                <include content="Background_Image" condition="Skin.String(Background.ArtworkStyle,Fanart) | [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]">
+				<!-- PVR006: include " | [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide)]" to include for Basic (Full Screen) EPG -->
+                <include content="Background_Image" condition="Skin.String(Background.ArtworkStyle,Fanart) | [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide)]">
                     <param name="fadetime">$PARAM[fadetime]</param>
                 </include>
             </control>
