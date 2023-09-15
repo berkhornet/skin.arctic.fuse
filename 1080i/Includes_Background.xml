@@ -22,6 +22,8 @@
         <param name="flixart_size_h">flixart_size_h</param>
         <param name="right">0</param>
         <param name="diffuse">diffuse/flixart.png</param>
+		<!-- PVR006: add colordiffuse parameter for Basic (Full Screen) EPG using Flixart -->
+		<param name="colordiffuse"></param>		
         <param name="aspectratio">scale</param>
         <param name="fadetime">background_fadetime</param>
         <definition>
@@ -33,12 +35,14 @@
                 <width>$PARAM[flixart_size_w]</width>
                 <aspectratio scalediffuse="false" align="$PARAM[align]" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
                 <texture background="true" diffuse="$PARAM[diffuse]">$VAR[Image_Foreground]</texture>
+				<!-- PVR006: add colordiffuse parameter for Basic (Full Screen) EPG using Flixart -->
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>				
                 <animation effect="fade" start="100" end="0" reversible="false" time="400" condition="[$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">Conditional</animation>
                 <animation effect="fade" start="0" end="100" reversible="false" delay="400" time="800" condition="![$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">Conditional</animation>
                 <include>Background_NotVideo</include>
 				<!-- PVR006: include visible tag to OPTIONALLY exclude from Basic (Full Screen) EPG -->
 				<visible>![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + !Skin.HasSetting(Views.FullPVRGuideFlixart)]</visible>
-            </control>
+            </control>			
         </definition>
     </include>
 
@@ -57,8 +61,15 @@
     <include name="Background_Artwork">
         <param name="fadetime">background_fadetime</param>
         <definition>
-            <include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart)">
+			<!-- PVR006: Original definition for NOT Basic (Full Screen) EPG using Flixart-->
+            <include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + ![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
                 <param name="fadetime">$PARAM[fadetime]</param>
+            </include>
+			<!-- PVR006: New definition for Basic (Full Screen) EPG using Flixart only -->
+			<include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
+                <param name="fadetime">$PARAM[fadetime]</param>
+				<param name="diffuse">diffuse/flixart.png</param>
+				<param name="colordiffuse">panel_fg_50</param>
             </include>
             <include content="Background_Fanart" condition="Skin.String(Background.ArtworkStyle,Fanart)">
                 <param name="fadetime">$PARAM[fadetime]</param>
@@ -418,15 +429,9 @@
             <include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
                 <param name="control">image</param>
                 <texture colordiffuse="$VAR[ColorBackground]">background/combined_flixart.png</texture>
-				<!-- PVR006: visible tag added -->
-				<visible>!Window.IsVisible(10702)</visible>
+				
             </include>
-			<!-- PVR006: alternative background for EPG added -->
-			<include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
-                <param name="control">image</param>
-                <texture colordiffuse="$VAR[ColorBackground]">background/floor.png</texture>
-				<visible>Window.IsVisible(10702)</visible>
-            </include>
+			
 			
             <include content="Object_Control" condition="!$EXP[Exp_ColourTheme_IsLight]">
                 <param name="control">image</param>
