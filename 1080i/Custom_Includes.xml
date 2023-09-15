@@ -143,7 +143,7 @@
 		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
 		<value condition="!String.IsEmpty(Container(99950).ListItem.Thumb)">$INFO[Container(99950).ListItem.Thumb]</value>
 		<!-- 8. Fallback -->
-		<value>special://xbmc\media\splash.jpg</value>			
+		<!-- value>special://xbmc\media\splash.jpg</value -->			
 	</variable>
 	
 </includes>
