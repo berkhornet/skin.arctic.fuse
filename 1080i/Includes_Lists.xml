@@ -103,8 +103,8 @@
                         <!-- PVR004: Font changed from font_tiny -->
 						<font>font_mini_bold</font>
                         <label>$INFO[ListItem.Label]</label>
-						<!-- PVR004: textcolor changed from main_fg_30 -->
-                        <textcolor>$VAR[ColorHighlight]</textcolor>
+						<!-- PVR004: textcolor alternative: changed from main_fg_30 to $VAR[ColorHighlight] -->
+                        <textcolor>main_fg_30</textcolor>
 						<!-- PVR004: visible tag changed from not System Date -->
                         <visible>!String.Contains(ListItem.Label,",")</visible>
                     </control>
@@ -118,8 +118,8 @@
                         <!-- PVR004: Font changed from font_tiny -->
 						<font>font_mini_bold</font>
                         <label>$INFO[ListItem.Label]</label>
-						<!-- PVR004: textcolor changed from main_fg_30 -->
-                        <textcolor>$VAR[ColorHighlight]</textcolor>
+						<!-- PVR004: textcolor alternative: changed from main_fg_30 to $VAR[ColorHighlight] -->
+                        <textcolor>main_fg_30</textcolor>
                         <visible>String.Contains(ListItem.Label,",") + !String.IsEqual(ListItem.Label,System.Date)</visible>
                     </control>
 					
