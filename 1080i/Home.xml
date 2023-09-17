@@ -3,6 +3,9 @@
     <defaultcontrol>300</defaultcontrol>
     <menucontrol>303</menucontrol>
     <include>Action_Blur_Onload</include>
+	
+	<!-- MISC005: Home Page Focus Option -->	
+	<onload condition="Skin.HasSetting(HomePageFocus.Menu)">SetFocus(303,0)</onload>
 
     <onload>RunScript(plugin.video.themoviedb.helper,kodi_setting=myvideos.selectaction,property=KodiSetting.DefaultSelectAction)</onload>
     <onload>Skin.SetString(TMDbHelper.MonitorContainer,99950)</onload>
