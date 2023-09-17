@@ -897,8 +897,6 @@
                     <centertop>52%</centertop>
                     <width>37</width>
                     <height>24</height>
-					<!-- MISC003: additional visible tag added -->
-					<visible>![String.IsEqual(System.CurrentControlID,"50") + String.Contains(Container.FolderPath,"plugin.program.autowidget")]</visible>
                 </include>
 
                 <!-- Star Rating -->
@@ -1719,6 +1717,7 @@
         <param name="titlelabel">$VAR[Label_Title_Container]</param>
         <definition>
             <control type="group">
+				
                 <nested />
                 <control type="grouplist">
                     <top>-20</top>
@@ -1735,7 +1734,8 @@
                     </include>
                     <control type="group">
                         <height>40</height>
-                        <visible>$PARAM[infoline]</visible>
+						<!-- MISC003: additional visible tag added -->
+						<visible>$PARAM[infoline] + ![String.IsEqual(System.CurrentControlID,"50") + String.Contains(Container.FolderPath,"plugin.program.autowidget")] + !String.IsEqual(System.CurrentControlID,"1419")</visible>
                         <include content="Info_Line">
                             <param name="colordiffuse">$PARAM[colordiffuse]</param>
                             <param name="container">$PARAM[container]</param>
