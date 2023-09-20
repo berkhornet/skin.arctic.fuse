@@ -338,6 +338,35 @@
         </items>
     </submenu>
 
+    <submenu include="powersubmenu" name="powersubmenu">
+        <controls>
+            <skinshortcuts insert="powerlist">items</skinshortcuts>
+        </controls>
+        <items insert="powerlist">
+            <property name="id" tag="mainmenuid" />
+            <property name="widgetLabel" tag="label" />
+            <property name="widgetAction" tag="property" attribute="name|path" />
+            <property name="widgetIcon" tag="thumb" />
+            <property name="widgetIcon" tag="icon" />
+            <property name="widgetSecondAction" tag="property" attribute="name|translatedPath" value="RebootToAndroid">Reboot()</property>
+            <property name="widgetSecondAction" />
+
+            <property name="isVisible" tag="visible" />
+            <property name="isVisible">True</property>
+            <controls>
+                <include content="Dialog_Side_Button">
+                    <param name="id">0$PYTHON[int(id) + 1]</param>
+                    <param name="label">$SKINSHORTCUTS[widgetLabel]</param>
+                    <param name="icon">$SKINSHORTCUTS[widgetIcon]</param>
+                    <param name="visible">[$SKINSHORTCUTS[isVisible]]</param>
+                    <onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+                    <onclick>$SKINSHORTCUTS[widgetAction]</onclick>
+                    <onclick>$SKINSHORTCUTS[widgetSecondAction]</onclick>
+                </include>
+            </controls>
+        </items>
+    </submenu>
+
     <submenu include="exploremenu" name="exploremenu">
         <controls>
             <skinshortcuts insert="explorelist">items</skinshortcuts>
@@ -431,7 +460,7 @@
             <property name="widgetPath2" tag="property" attribute="name|list" value="DefaultSearch-TVShowActors">&amp;&amp;videodb://tvshows/actors</property>
 
             <property name="widgetPath" tag="property" attribute="name|list" value="DefaultSearch-MovieDirectors">plugin://script.skinvariables/?info=get_filter_dir&amp;filter_key=title&amp;filter_value=</property>
-            <property name="widgetPath2" tag="property" attribute="name|list" value="DefaultSearch-MovieDirectors">&amp;&amp;videodb://tvshows/actors</property>
+            <property name="widgetPath2" tag="property" attribute="name|list" value="DefaultSearch-MovieDirectors">&amp;&amp;videodb://movies/directors</property>
 
             <property name="widgetPath" tag="property" attribute="name|list" value="DefaultSearch-Movies">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22</property>
             <property name="widgetPath2" tag="property" attribute="name|list" value="DefaultSearch-Movies">%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
@@ -649,6 +678,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1101</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-moviemenu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Movies.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Movies.DisableSubmenu)">
                         <param name="window_id">1101</param>
@@ -697,6 +727,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1102</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-tvshowmenu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.TVShows.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.TVShows.DisableSubmenu)">
                         <param name="window_id">1102</param>
@@ -745,6 +776,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1103</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-musicmenu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Music.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Music.DisableSubmenu)">
                         <param name="window_id">1103</param>
@@ -793,6 +825,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1104</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-pvrmenu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.PVR.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.PVR.DisableSubmenu)">
                         <param name="window_id">1104</param>
@@ -841,6 +874,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1106</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-custom01menu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Custom01.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Custom01.DisableSubmenu)">
                         <param name="window_id">1106</param>
@@ -889,6 +923,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1107</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-custom02menu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Custom02.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Custom02.DisableSubmenu)">
                         <param name="window_id">1107</param>
@@ -937,6 +972,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1108</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-custom03menu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Custom03.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Custom03.DisableSubmenu)">
                         <param name="window_id">1108</param>
@@ -985,6 +1021,7 @@
             <include content="Hub_Menu_Group">
                 <include content="Hub_Menu_Grouplist">
                     <param name="window_id">1109</param>
+                    <param name="target">$INFO[Skin.String(skinshortcuts-custom04menu-widgetTarget)]</param>
                     <param name="widgets_only">Skin.HasSetting(Hub.Custom04.DisableSubmenu)</param>
                     <include content="Hub_Menu_List" condition="!Skin.HasSetting(Hub.Custom04.DisableSubmenu)">
                         <param name="window_id">1109</param>

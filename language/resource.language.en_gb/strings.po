@@ -1638,12 +1638,32 @@ msgctxt "#31358"
 msgid "Waiting for plugins"
 msgstr ""
 
+#: /1080i/DialogContextMenu.xml
+msgctxt "#31359"
+msgid "Add Node"
+msgstr ""
+
 msgctxt "#31360"
 msgid "Disable all ratings"
 msgstr ""
 
 msgctxt "#31361"
 msgid "Customise background image"
+msgstr ""
+
+#: /1080i/Includes_Items.xml
+msgctxt "#31362"
+msgid "Side items"
+msgstr ""
+
+#: /1080i/Includes_Items.xml
+msgctxt "#31363"
+msgid "Menu items"
+msgstr ""
+
+#: /shortcuts/powersubmenu.DATA.xml
+msgctxt "#31364"
+msgid "Reload"
 msgstr ""
 
 msgctxt "#31368"
