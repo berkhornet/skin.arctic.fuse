@@ -127,8 +127,8 @@
     </variable>
 
 	<variable name="Image_Foreground_FlixArt">
-	    <!-- PVR006: Customised Variable for EPG -->
-		<value condition="Window.IsVisible(10702)">$VAR[Custom_Image_Foreground_FlixArt]</value>
+	    <!-- PVR006: Customised Variable for EPG and PVR Widgets-->
+		<value condition="Window.IsVisible(10702) | String.IsEqual(System.CurrentControlID,1604)">$VAR[Custom_Image_Foreground_FlixArt]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(BlurImage.Original)) + String.IsEmpty(Window(Home).Property(TMDbHelper.Image.Override))">$INFO[Window(Home).Property(BlurImage.Original)]</value>		
 		<value>$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage.Original)]</value>
     </variable>
