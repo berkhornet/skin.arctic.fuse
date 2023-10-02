@@ -2149,8 +2149,8 @@
                         <align>center</align>
                         <top>20</top>
                         <bottom>-20</bottom>
-						<!-- MISC003: Remove Progress Line and Label from Home Page Recent TV widget (visibility tag added) -->
-						<visible>!String.IsEqual(System.CurrentControlID,1604) + !String.IsEqual(System.CurrentControlID,303)</visible>
+						<!-- MISC003: Remove Progress Line and Label from Home Page Recent TV widget (visibility tag added) DISABLED -->
+						<!-- visible>!String.IsEqual(System.CurrentControlID,1604) + !String.IsEqual(System.CurrentControlID,303)</visible -->
                     </control>
                 </control>
             </control>
