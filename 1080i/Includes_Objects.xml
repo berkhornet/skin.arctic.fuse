@@ -640,7 +640,8 @@
                 <midtexture colordiffuse="main_logo" border="8,0,8,0">progress/progress-end.png</midtexture>
                 <righttexture colordiffuse="main_logo" border="8,0,8,0">progress/progress-right.png</righttexture>
                 <info>$PARAM[listitem].Progress</info>
-                <visible>!Integer.IsEqual($PARAM[listitem].Progress,0)</visible>
+                <!-- MISC003: Remove Progress Line and Label from Home Page Recent TV widget (visibility condition added) -->
+                <visible>!Integer.IsEqual($PARAM[listitem].Progress,0) + !String.IsEqual(System.CurrentControlID,1604)</visible>
             </control>
         </definition>
     </include>
