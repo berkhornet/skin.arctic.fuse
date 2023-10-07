@@ -30,6 +30,7 @@
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_ColourPresets)">Items_Settings_ColourPresets</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_ColourHighlights)">Items_Settings_ColourHighlights</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_BackgroundDialogImage)">Items_Settings_BackgroundDialogImage</include>
+        <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_BackgroundStyle)">Items_Settings_BackgroundStyle</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_BackgroundImage)">Items_Settings_BackgroundImage</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_ColourThemes)">Items_Settings_ColourThemes</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_Indicators)">Items_Settings_Indicators</include>
@@ -1566,6 +1567,55 @@
             <label>$LOCALIZE[31203]</label>
             <onclick>ActivateWindow(1111)</onclick>
             <selected>$EXP[Exp_ColourHighlight_IsCustom]</selected>
+        </include>
+    </include>
+
+
+
+    <include name="Items_Settings_BackgroundStyle">
+        <include content="Settings_Button">
+            <param name="dialog">true</param>
+            <param name="id">8001</param>
+            <param name="control">radiobutton</param>
+            <selected>Skin.HasSetting(TMDbHelper.EnableBlur) + String.IsEmpty(Skin.String(Background.ArtworkStyle)) + !Skin.HasSetting(Display.EnablePanels)</selected>
+            <label>$LOCALIZE[31269] $LOCALIZE[39173]</label>
+            <label2>       $LOCALIZE[31267]       </label2>
+            <onclick>Skin.SetBool(TMDbHelper.EnableBlur)</onclick>
+            <onclick>Skin.Reset(Background.ArtworkStyle)</onclick>
+            <onclick>Skin.Reset(Display.EnablePanels)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <onclick>AlarmClock(refocusblura,SetFocus(3,1,absolute),00:00,silent)</onclick>
+            <onclick>AlarmClock(refocusblurb,SetFocus(2012),00:00,silent)</onclick>
+        </include>
+
+        <include content="Settings_Button">
+            <param name="dialog">true</param>
+            <param name="id">8002</param>
+            <param name="control">radiobutton</param>
+            <selected>!Skin.HasSetting(TMDbHelper.EnableBlur) + String.IsEmpty(Skin.String(Background.ArtworkStyle)) + !Skin.HasSetting(Display.EnablePanels)</selected>
+            <label>$LOCALIZE[31268] $LOCALIZE[39173]</label>
+            <label2>       $LOCALIZE[31254]       </label2>
+            <onclick>Skin.Reset(TMDbHelper.EnableBlur)</onclick>
+            <onclick>Skin.Reset(Background.ArtworkStyle)</onclick>
+            <onclick>Skin.Reset(Display.EnablePanels)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <onclick>AlarmClock(refocusblura,SetFocus(3,1,absolute),00:00,silent)</onclick>
+            <onclick>AlarmClock(refocusblurb,SetFocus(2012),00:00,silent)</onclick>
+        </include>
+
+        <include content="Settings_Button">
+            <param name="dialog">true</param>
+            <param name="id">8003</param>
+            <param name="control">radiobutton</param>
+            <selected>!Skin.HasSetting(TMDbHelper.EnableBlur) + Skin.String(Background.ArtworkStyle,Fanart) + !Skin.HasSetting(Display.EnablePanels)</selected>
+            <label>$LOCALIZE[20445]</label>
+            <label2>       $LOCALIZE[31254]       </label2>
+            <onclick>Skin.Reset(TMDbHelper.EnableBlur)</onclick>
+            <onclick>Skin.SetString(Background.ArtworkStyle,Fanart)</onclick>
+            <onclick>Skin.Reset(Display.EnablePanels)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <onclick>AlarmClock(refocusblura,SetFocus(3,1,absolute),00:00,silent)</onclick>
+            <onclick>AlarmClock(refocusblurb,SetFocus(2012),00:00,silent)</onclick>
         </include>
     </include>
 

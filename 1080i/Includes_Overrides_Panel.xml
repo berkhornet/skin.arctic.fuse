@@ -169,6 +169,7 @@
                         <texture colordiffuse="dialog_fg_12">common/white.png</texture>
                     </include>
                 </control>
+                <include>$PARAM[dialog_size]</include>
                 <nested />
             </control>
         </definition>
