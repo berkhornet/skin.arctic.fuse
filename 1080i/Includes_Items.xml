@@ -1575,8 +1575,10 @@
             <param name="id">8001</param>
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31143]</label>
-            <selected>String.IsEmpty(Skin.String(Background.DialogImage))</selected>
+            <selected>String.IsEmpty(Skin.String(Background.DialogImage)) | [Skin.String(Background.DialogImage,Adaptive) + !$EXP[Exp_DialogTheme_Adaptive_IsEnabled]]</selected>
             <onclick>Skin.Reset(Background.DialogImage)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1585,6 +1587,8 @@
             <label>$LOCALIZE[762]</label>
             <selected>Skin.String(Background.DialogImage,Blue)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Blue)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1593,6 +1597,8 @@
             <label>$LOCALIZE[31220]</label>
             <selected>Skin.String(Background.DialogImage,Purple)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Purple)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1601,6 +1607,8 @@
             <label>$LOCALIZE[31224]</label>
             <selected>Skin.String(Background.DialogImage,Pink)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Pink)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1609,6 +1617,8 @@
             <label>$LOCALIZE[13341]</label>
             <selected>Skin.String(Background.DialogImage,Green)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Green)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1617,6 +1627,8 @@
             <label>$LOCALIZE[31221]</label>
             <selected>Skin.String(Background.DialogImage,Slate)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Slate)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1625,6 +1637,8 @@
             <label>$LOCALIZE[31222]</label>
             <selected>Skin.String(Background.DialogImage,Coal)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Coal)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1633,6 +1647,8 @@
             <label>$LOCALIZE[31225]</label>
             <selected>Skin.String(Background.DialogImage,Chalk)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Chalk)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
         <include content="Settings_Button">
             <param name="dialog">true</param>
@@ -1641,6 +1657,19 @@
             <label>$LOCALIZE[31226]</label>
             <selected>Skin.String(Background.DialogImage,Blush)</selected>
             <onclick>Skin.SetString(Background.DialogImage,Blush)</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">ReloadSkin()</onclick>
+            <onclick condition="Skin.String(Background.DialogImage,Adaptive)">AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="dialog">true</param>
+            <param name="id">8010</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31432]</label>
+            <visible>$EXP[Exp_DialogTheme_Adaptive_IsEnabled]</visible>
+            <selected>$EXP[Exp_DialogTheme_IsAdaptive]</selected>
+            <onclick>Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <onclick>AlarmClock(reload,ActivateWindow(1118),00:00,silent)</onclick>
         </include>
     </include>
 
