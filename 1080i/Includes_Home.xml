@@ -5,7 +5,10 @@
         <include>Defs_TMDbHelper_Loader</include>
         <include>Background_Main</include>
         <include>Background_Transition</include>
-        <include condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">Home_Fullscreen_Widget_List</include>
+        <include condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)" content="Home_Fullscreen_Widget_List">
+            <visible>String.IsEmpty(Container(300).ListItem.Property(widgetPath.Spotlight))</visible>
+        </include>
+        <include condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">skinshortcuts-template-home-fullscreen</include>
         <include>Home_Widgets</include>
         <include>Home_Transitions</include>
         <include>Home_Fade</include>
@@ -73,6 +76,7 @@
 
     <include name="Home_Bumper">
         <param name="groupid">320</param>
+        <param name="menuid">303</param>
         <definition>
             <control type="button" id="330">
                 <width>1</width>
@@ -88,8 +92,8 @@
                 <width>1</width>
                 <height>1</height>
                 <left>-1000</left>
-                <onfocus>SetFocus(303)</onfocus>
-                <onclick>SetFocus(303)</onclick>
+                <onfocus>SetFocus($PARAM[menuid])</onfocus>
+                <onclick>SetFocus($PARAM[menuid])</onclick>
                 <visible allowhiddenfocus="true">Control.HasFocus(331)</visible>
                 <animation effect="fade" time="300" start="0" end="0">Focus</animation>
             </control>
@@ -235,6 +239,7 @@
             <icon>special://skin/extras/icons/film.png</icon>
             <property name="expression">movies</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.Movies))">ActivateWindow(1101)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.Movies))">$INFO[Skin.String(CustomShortcut.Movies)]</onclick>
         </item>
@@ -246,6 +251,7 @@
             <icon>special://skin/extras/icons/tv.png</icon>
             <property name="expression">tvshows</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.TVShows))">ActivateWindow(1102)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.TVShows))">$INFO[Skin.String(CustomShortcut.TVShows)]</onclick>
         </item>
@@ -257,6 +263,7 @@
             <icon>special://skin/extras/icons/songs.png</icon>
             <property name="expression">music</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.Music))">ActivateWindow(1103)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.Music))">$INFO[Skin.String(CustomShortcut.Music)]</onclick>
         </item>
@@ -268,6 +275,7 @@
             <icon>special://skin/extras/icons/livetv.png</icon>
             <property name="expression">livetv</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.PVR))">ActivateWindow(1104)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.PVR))">$INFO[Skin.String(CustomShortcut.PVR)]</onclick>
         </item>
@@ -279,6 +287,7 @@
             <icon>special://skin/extras/icons/addons.png</icon>
             <property name="expression">addons</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.Addons))">ActivateWindow(1132)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.Addons))">$INFO[Skin.String(CustomShortcut.Addons)]</onclick>
         </item>
@@ -290,6 +299,7 @@
             <icon>special://skin/extras/icons/video.png</icon>
             <property name="expression">videos</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.Videos))">ActivateWindow(videos,-,return)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.Videos))">$INFO[Skin.String(CustomShortcut.Videos)]</onclick>
         </item>
@@ -301,6 +311,7 @@
             <icon>special://skin/extras/icons/image.png</icon>
             <property name="expression">pictures</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick condition="String.IsEmpty(Skin.String(CustomShortcut.Pictures))">ActivateWindow(pictures,-,return)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomShortcut.Pictures))">$INFO[Skin.String(CustomShortcut.Pictures)]</onclick>
         </item>
@@ -312,6 +323,7 @@
             <icon>special://skin/extras/icons/sun.png</icon>
             <property name="expression">weather</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick>ActivateWindow(weather)</onclick>
         </item>
     </include>
@@ -322,6 +334,7 @@
             <icon>$INFO[Skin.String(CustomShortcut.Custom$PARAM[id].Icon)]</icon>
             <property name="expression">custom$PARAM[id]</property>
             <onclick>$PARAM[preaction]</onclick>
+            <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
             <onclick>$INFO[Skin.String(CustomShortcut.Custom$PARAM[id])]</onclick>
             <visible>!String.IsEmpty(Skin.String(CustomShortcut.Custom$PARAM[id]))</visible>
         </item>
@@ -378,6 +391,7 @@
                     <icon>special://skin/extras/icons/home.png</icon>
                     <property name="expression">home</property>
                     <onclick>$PARAM[preaction]</onclick>
+                    <!-- <onclick>SetProperty(RefocusHub,300,Home)</onclick> -->
                     <onclick>ActivateWindow(home)</onclick>
                 </item>
                 <include content="Home_Menu_Item">
@@ -470,7 +484,7 @@
 
     <include name="Home_Menu_Fade_Labels">
         <control type="group">
-            <visible>Control.HasFocus(303) | Control.HasFocus(308) | Control.HasFocus(309)</visible>
+            <visible>$EXP[Exp_HomeMenu_HasFocus]</visible>
             <include>Animation_Home_Menu</include>
             <control type="image">
                 <left>0</left>
@@ -637,6 +651,8 @@
                     <param name="content">$PARAM[content]</param>
                 </include>
 
+                <nested />
+
             </control>
         </definition>
     </include>
@@ -666,11 +682,20 @@
                     <include content="Action_Widget_Top">
                         <param name="id">311</param>
                     </include>
-                    <include content="Action_View_Movement_OnLeft" condition="!Skin.String(Rows.ContentLoopback,Wrap)">
+
+                    <include content="Action_View_Movement_OnLeft">
                         <param name="id">311</param>
+                        <param name="string">Movement.Spotlight.OnLeft</param>
                     </include>
-                    <onleft condition="Skin.String(Rows.ContentLoopback,Wrap)">Control.Move(301,1)</onleft>
-                    <onright>Control.Move(301,1)</onright>
+                    <onleft condition="Skin.String(Movement.Spotlight.OnLeft,Move)">Control.Move(301,-1)</onleft>
+
+                    <include content="Action_View_Movement_OnRight">
+                        <param name="id">311</param>
+                        <param name="string">Movement.Spotlight.OnRight</param>
+                        <param name="refocus">False</param>
+                    </include>
+                    <onright condition="Skin.String(Movement.Spotlight.OnRight,Move)">Control.Move(301,1)</onright>
+
                     <include content="Action_Menu_Movement_OnBack">
                         <param name="id">311</param>
                     </include>
@@ -719,15 +744,13 @@
                         <texturenofocus />
                         <texturefocus />
                         <onclick>SetFocus(301)</onclick>
+                        <onclick condition="Container(301).ListItem.IsFolder">SetProperty(RefocusHub,311,Home)</onclick>
                         <onclick condition="!String.IsEqual(Window(Home).Property(TMDbHelper.KodiSetting.DefaultSelectAction),$NUMBER[3])">Action(Select)</onclick>
+                        <onclick condition="!Container(301).ListItem.IsFolder">SetFocus(311)</onclick>
                         <onclick condition="String.IsEqual(Window(Home).Property(TMDbHelper.KodiSetting.DefaultSelectAction),$NUMBER[3]) + Container(301).ListItem.IsFolder">ActivateWindow($PARAM[target],$INFO[Container(301).ListItem.FolderPath],return)</onclick>
                         <onclick condition="String.IsEqual(Window(Home).Property(TMDbHelper.KodiSetting.DefaultSelectAction),$NUMBER[3]) + !Container(301).ListItem.IsFolder + !String.IsEmpty(Container(301).ListItem.FileNameAndPath)">PlayMedia($ESCINFO[Container(301).ListItem.FileNameAndPath])</onclick>
                         <onclick condition="String.IsEqual(Window(Home).Property(TMDbHelper.KodiSetting.DefaultSelectAction),$NUMBER[3]) + !Container(301).ListItem.IsFolder + String.IsEmpty(Container(301).ListItem.FileNameAndPath) + !String.IsEmpty(Container(301).ListItem.FolderPath)">PlayMedia($ESCINFO[Container(301).ListItem.FolderPath])</onclick>
-
-                        <!-- <onclick condition="String.IsEqual(Window(Home).Property(TMDbHelper.KodiSetting.DefaultSelectAction),$NUMBER[3])">Action(ContextMenu)</onclick> -->
-                        <onclick>SetFocus(311)</onclick>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,301,$PARAM[window_id])</onfocus>
-                        <onfocus>SetProperty(FullscreenWidgetRefocus,311,$PARAM[window_id])</onfocus>
                         <onfocus>ClearProperty(Slide.WidgetContainer,$PARAM[window_id])</onfocus>
                     </control>
 
@@ -742,7 +765,6 @@
                         <onclick>Action(Info)</onclick>
                         <onclick>SetFocus(312)</onclick>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,301,$PARAM[window_id])</onfocus>
-                        <onfocus>SetProperty(FullscreenWidgetRefocus,312,$PARAM[window_id])</onfocus>
                         <onfocus>ClearProperty(Slide.WidgetContainer,$PARAM[window_id])</onfocus>
                     </include>
                 </control>
@@ -818,7 +840,7 @@
     </include>
 
     <include name="_Home_Selector_Widget_PreItemFade">
-        <animation effect="fade" start="100" end="0" delay="200" time="400" tween="quadratic" reversible="false" condition="!Container($PARAM[id]).OnNext">Conditional</animation>
+        <animation effect="fade" start="100" end="0" delay="100" time="300" tween="quadratic" reversible="false" condition="!Container($PARAM[id]).OnNext">Conditional</animation>
     </include>
 
     <include name="Home_Selector_Widget">
@@ -831,8 +853,8 @@
         <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_Temp</param>
         <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)</param>
         <param name="shorten">False</param>
-        <param name="preitem_fade">[Skin.String(Rows.ContentLoopback,Loop) | Skin.String(Rows.ContentLoopback,Wrap)]</param>
-        <param name="wraplist">[Skin.String(Rows.ContentLoopback,Loop) | Skin.String(Rows.ContentLoopback,Wrap)]</param>
+        <param name="preitem_fade">[True]</param>
+        <param name="wraplist">[True]</param>
 
         <param name="hitrect_x">0</param>
         <param name="hitrect_y">0</param>
@@ -1010,7 +1032,7 @@
                     <visible>Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)</visible>
                 </include>
                 <include content="Info_Viewline">
-                    <param name="label">$INFO[Skin.String(skinshortcuts-mainmenu-widgetName)]</param>
+                    <param name="label">$VAR[Label_Hub_Spotlight]</param>
                     <param name="secondary_label">$LOCALIZE[31371] $LOCALIZE[13278]</param>
                     <param name="sort_condition">True</param>
                     <param name="sort_descending">False</param>
@@ -1135,7 +1157,7 @@
                 <param name="id">$PARAM[id]</param>
             </include>
 
-            <include content="Action_Widget_End" condition="Skin.HasSetting(Hub.Home.DisableSubmenu) | !Skin.String(Hubs.WidgetsLoopback,Loop)">
+            <include content="Action_Widget_End" condition="Skin.HasSetting(Hub.Home.DisableSubmenu) | !Skin.String(Movement.Content.OnDown,Loop)">
                 <param name="topid">$PARAM[topid]</param>
                 <param name="id">$PARAM[id]</param>
             </include>

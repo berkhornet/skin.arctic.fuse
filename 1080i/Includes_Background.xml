@@ -62,14 +62,20 @@
         <param name="fadetime">background_fadetime</param>
         <definition>
 			<!-- PVR006: Original definition for NOT Basic (Full Screen) EPG using Flixart-->
-            <include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + ![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
+            <include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + !Skin.String(Background.ArtworkStyle,Simple)"+ ![Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
                 <param name="fadetime">$PARAM[fadetime]</param>
             </include>
 			<!-- PVR006: New definition for Basic (Full Screen) EPG using Flixart only -->
-			<include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
+			<include content="Background_FlixArt" condition="!Skin.String(Background.ArtworkStyle,Fanart) + !Skin.String(Background.ArtworkStyle,Simple)"+ [Window.IsVisible(10702) + Skin.HasSetting(Views.UseFullPVRGuide) + Skin.HasSetting(Views.FullPVRGuideFlixart)]">
                 <param name="fadetime">$PARAM[fadetime]</param>
 				<param name="diffuse">diffuse/flixart.png</param>
 				<param name="colordiffuse">panel_fg_50</param>
+            </include>
+            <include content="Background_FlixArt" condition="Skin.String(Background.ArtworkStyle,Simple)">
+                <param name="fadetime">$PARAM[fadetime]</param>
+                <param name="flixart_size_w">flixart_large_size_w</param>
+                <param name="flixart_size_h">flixart_large_size_h</param>
+                <param name="diffuse">diffuse/flixart_new.png</param>
             </include>
             <include content="Background_Fanart" condition="Skin.String(Background.ArtworkStyle,Fanart)">
                 <param name="fadetime">$PARAM[fadetime]</param>
@@ -270,7 +276,7 @@
             <control type="group">
                 <animation effect="fade" start="0" end="100" time="background_fadetime">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="background_fadetime">Hidden</animation>
-                <include>Background_Blur</include>
+                <include condition="!Skin.String(Background.ArtworkStyle,Simple)">Background_Blur</include>
                 <include>Background_Artwork</include>
             </control>
             <nested />
