@@ -26,17 +26,20 @@
     </include>
 
     <include name="Home_Menu_Content">
-        <include content="Object_ContentDynamic" condition="!Skin.HasSetting(Home.HideSideMenu)">
-            <param name="content">plugin://script.skinvariables/?info=get_shortcuts_node&amp;menu=sidemenu&amp;skin=skin.arctic.fuse&amp;reload=$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload)]</param>
-        </include>
-        <include content="Object_ContentNested" condition="Skin.HasSetting(Home.HideSideMenu)">
-            <item>
-                <label>$LOCALIZE[33061]</label>
-                <icon>special://skin/extras/icons/list-check.png</icon>
-                <property name="showlabel">True</property>
-                <property name="path">ActivateWindow(1170)</property>
-            </item>
-        </include>
+        <param name="condition">!Skin.HasSetting(Home.HideSideMenu)</param>
+        <definition>
+            <include content="Object_ContentDynamic" condition="$PARAM[condition]">
+                <param name="content">plugin://script.skinvariables/?info=get_shortcuts_node&amp;menu=sidemenu&amp;skin=skin.arctic.fuse&amp;reload=$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload)]</param>
+            </include>
+            <include content="Object_ContentNested" condition="![$PARAM[condition]]">
+                <item>
+                    <label>$LOCALIZE[33061]</label>
+                    <icon>special://skin/extras/icons/list-check.png</icon>
+                    <property name="showlabel">True</property>
+                    <property name="path">ActivateWindow(1170)</property>
+                </item>
+            </include>
+        </definition>
     </include>
 
     <include name="Home_Menu_List">

@@ -193,16 +193,18 @@
             <param name="id">8001</param>
             <param name="control">button</param>
             <param name="dialog">true</param>
-            <onclick>Close</onclick>
-            <onclick>RunScript(TODO_SKINVARIABLES,type=manage&amp;group=powermenu)</onclick>
+            <!-- <onclick>Close</onclick> -->
+            <onclick>SetProperty(EditMenu,menu=powermainmenu,1115)</onclick>
+            <onclick>ActivateWindow(1115)</onclick>
             <label>$LOCALIZE[31363]</label>
         </include>
         <include content="Settings_Button">
             <param name="id">8002</param>
             <param name="control">button</param>
             <param name="dialog">true</param>
-            <onclick>Close</onclick>
-            <onclick>RunScript(TODO_SKINVARIABLES,type=manage&amp;group=powersubmenu)</onclick>
+            <!-- <onclick>Close</onclick> -->
+            <onclick>SetProperty(EditMenu,menu=powersidemenu,1115)</onclick>
+            <onclick>ActivateWindow(1115)</onclick>
             <label>$LOCALIZE[31362]</label>
         </include>
         <include content="Settings_Label">
@@ -283,44 +285,6 @@
             <onclick>Close</onclick>
             <selected>Skin.String(CustomRating.$PARAM[content].$PARAM[item],$PARAM[type])</selected>
         </include>
-    </include>
-
-    <include name="Items_Dialog_WideSettings_Menu">
-        <item>
-            <label>$VAR[Label_Home]</label>
-            <icon>$VAR[Image_Home]</icon>
-            <property name="head">[CAPITALIZE]$LOCALIZE[31276][/CAPITALIZE]</property>
-            <property name="item">Items_Settings_HomeMenu</property>
-            <property name="highlight">MenuHome</property>
-        </item>
-        <item>
-            <label>$LOCALIZE[31025] 1</label>
-            <icon>$VAR[Image_Setting_SideIcon_C1]</icon>
-            <property name="head">[CAPITALIZE]$LOCALIZE[31277] 1[/CAPITALIZE]</property>
-            <property name="item">Items_Settings_SideMenu_1</property>
-            <property name="highlight">MenuItem01</property>
-        </item>
-        <item>
-            <label>$LOCALIZE[31025] 2</label>
-            <icon>$VAR[Image_Setting_SideIcon_C2]</icon>
-            <property name="head">[CAPITALIZE]$LOCALIZE[31277] 2[/CAPITALIZE]</property>
-            <property name="item">Items_Settings_SideMenu_2</property>
-            <property name="highlight">MenuItem02</property>
-        </item>
-        <item>
-            <label>$LOCALIZE[31025] 3</label>
-            <icon>$VAR[Image_Setting_SideIcon_C3]</icon>
-            <property name="head">[CAPITALIZE]$LOCALIZE[31277] 3[/CAPITALIZE]</property>
-            <property name="item">Items_Settings_SideMenu_3</property>
-            <property name="highlight">MenuItem03</property>
-        </item>
-        <item>
-            <label>$LOCALIZE[31025] 4</label>
-            <icon>$VAR[Image_Setting_SideIcon_C4]</icon>
-            <property name="head">[CAPITALIZE]$LOCALIZE[31277] 4[/CAPITALIZE]</property>
-            <property name="item">Items_Settings_SideMenu_4</property>
-            <property name="highlight">MenuItem04</property>
-        </item>
     </include>
 
     <include name="Items_Dialog_RatingType">

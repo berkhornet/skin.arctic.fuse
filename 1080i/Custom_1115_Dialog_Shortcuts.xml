@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1115">
     <defaultcontrol always="true">22000</defaultcontrol>
-    <onload condition="String.IsEmpty(EditMenu)">SetProperty(EditMenu,menu=homemenu)</onload>
+    <onload condition="String.IsEmpty(Window.Property(EditMenu))">SetProperty(EditMenu,menu=homemenu)</onload>
     <onload>ClearProperty(EditMode)</onload>
     <onload>ClearProperty(EditGUID)</onload>
     <controls>
@@ -196,6 +196,8 @@
                                     <onclick condition="String.IsEmpty(Container(22001).ListItem.Property(submenulist_path))">RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_choose&amp;&amp;submenulist])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Window.Property(EditMode))</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
                                 </include>
 
                                 <!-- Edit Submenu -->
@@ -212,6 +214,8 @@
                                     <onclick>SetProperty(EditGUID,guid=$INFO[Container(22001).ListItem.Property(guid)])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Window.Property(EditMode))</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
                                 </include>
 
                                 <!-- Use As Widget -->
@@ -223,6 +227,9 @@
                                     <selected>String.IsEqual(Container(22001).ListItem.Property(use_as_widget),True)</selected>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_toggle&amp;&amp;use_as_widget])</onclick>
                                     <onback>24000</onback>
+                                    <visible>String.IsEmpty(Window.Property(EditMode))</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
                                 </include>
 
                                 <!-- Widget Style -->
@@ -230,10 +237,39 @@
                                     <param name="dialog">true</param>
                                     <param name="id">23007</param>
                                     <param name="control">button</param>
-                                    <label>Widget style</label>
+                                    <label>Style</label>
                                     <label2>$INFO[Container(22001).ListItem.Property(widget_style)]</label2>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_edit&amp;&amp;widget_style&amp;&amp;Poster&amp;Landscape&amp;Square&amp;Banner&amp;Card&amp;Apps&amp;Text&amp;&amp;Style&amp;&amp;True])</onclick>
                                     <onback>24000</onback>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
+                                </include>
+
+                                <!-- Widget Sort -->
+                                <include content="Settings_Button">
+                                    <param name="dialog">true</param>
+                                    <param name="id">23012</param>
+                                    <param name="control">button</param>
+                                    <label>Sort by</label>
+                                    <label2>[CAPITALIZE]$INFO[Container(22001).ListItem.Property(widget_sortby)][/CAPITALIZE]</label2>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_edit&amp;&amp;widget_sortby&amp;&amp;default&amp;label&amp;random&amp;dateadded&amp;lastplayed&amp;playcount&amp;year&amp;rating&amp;userrating&amp;votes&amp;genre&amp;country&amp;studio&amp;playlist&amp;episodenumber&amp;season&amp;totalepisodes&amp;watchedepisodes&amp;tvshowstatus&amp;tvshowtitle&amp;file&amp;title&amp;track&amp;time&amp;artist&amp;album&amp;lastupdated&amp;lastused&amp;date&amp;&amp;Sort by&amp;&amp;True])</onclick>
+                                    <onback>24000</onback>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
+                                </include>
+
+                                <!-- Widget Sort -->
+                                <include content="Settings_Button">
+                                    <param name="dialog">true</param>
+                                    <param name="id">23013</param>
+                                    <param name="control">radiobutton</param>
+                                    <label>Reverse sort order</label>
+                                    <selected>!String.IsEmpty(Container(22001).ListItem.Property(widget_sortorder))</selected>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_toggle&amp;&amp;widget_sortorder])</onclick>
+                                    <onback>24000</onback>
+                                    <visible>!String.IsEqual(Container(22001).ListItem.Property(widget_sortby),random)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
                                 </include>
 
                                 <!-- Edit Widgets -->
@@ -246,10 +282,12 @@
                                     <onclick>SetProperty(EditGUID,guid=$INFO[Container(22001).ListItem.Property(guid)])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Window.Property(EditMode))</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window.Property(EditMenu),menu=powersidemenu)</visible>
                                 </include>
 
                                 <!-- Edit Main -->
-                                <include content="Settings_Button">
+                                <!-- <include content="Settings_Button">
                                     <param name="dialog">true</param>
                                     <param name="id">23010</param>
                                     <param name="control">button</param>
@@ -258,7 +296,7 @@
                                     <onclick>ClearProperty(EditGUID)</onclick>
                                     <onback>24000</onback>
                                     <visible>!String.IsEmpty(Window.Property(EditMode))</visible>
-                                </include>
+                                </include> -->
                             </control>
                         </include>
                     </control>

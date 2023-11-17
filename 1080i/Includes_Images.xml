@@ -2,7 +2,6 @@
 <includes>
 
     <variable name="Image_Home">
-        <value condition="!String.IsEmpty(Skin.String(Home.Icon))">$INFO[Skin.String(Home.Icon)]</value>
         <value>special://skin/extras/icons/home.png</value>
     </variable>
 
