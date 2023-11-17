@@ -20,75 +20,6 @@
         </control>
     </include>
 
-    <include name="Layout_DialogWideSettings_Menu">
-        <param name="selected">false</param>
-        <param name="detailed">false</param>
-        <param name="color">dialog_fg</param>
-        <definition>
-            <control type="group">
-                <centerleft>50%</centerleft>
-                <centertop>50%</centertop>
-                <height>40</height>
-                <width>40</width>
-                <include content="Object_Control" condition="$PARAM[detailed]">
-                    <param name="control">image</param>
-                    <centerleft>50%</centerleft>
-                    <centertop>50%</centertop>
-                    <height>80</height>
-                    <width>80</width>
-                    <texture colordiffuse="3300ddff" border="20">common/box.png</texture>
-                    <visible>String.IsEqual(Window(Home).PRoperty(CustomDialogSettingsItems),ListItem.Property(item))</visible>
-                </include>
-                <include content="Object_Control" condition="![$PARAM[selected]]">
-                    <param name="control">group</param>
-                    <control type="image">
-                        <include>Texture_Circle_Highlight_V</include>
-                        <aspectratio>keep</aspectratio>
-                        <width>10</width>
-                        <height>10</height>
-                        <include content="Object_CenterLeft" condition="![$PARAM[detailed]]">
-                            <param name="centerleft">50%</param>
-                        </include>
-                        <include content="Object_Bottom" condition="![$PARAM[detailed]]">
-                            <param name="bottom">-16</param>
-                        </include>
-                        <include content="Object_CenterTop" condition="$PARAM[detailed]">
-                            <param name="centertop">50%</param>
-                        </include>
-                        <include content="Object_Left" condition="$PARAM[detailed]">
-                            <param name="left">-16</param>
-                        </include>
-                        <visible>String.IsEqual(Window(Home).PRoperty(CustomDialogSettingsItems),ListItem.Property(item))</visible>
-                    </control>
-                    <control type="image">
-                        <texture colordiffuse="$PARAM[color]_90">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>keep</aspectratio>
-                        <bordersize>icon_home_bordersize</bordersize>
-                        <visible>String.IsEqual(Window(Home).PRoperty(CustomDialogSettingsItems),ListItem.Property(item))</visible>
-                    </control>
-                    <control type="image">
-                        <texture colordiffuse="$PARAM[color]_30">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>keep</aspectratio>
-                        <bordersize>icon_home_bordersize</bordersize>
-                        <visible>!String.IsEqual(Window(Home).PRoperty(CustomDialogSettingsItems),ListItem.Property(item))</visible>
-                    </control>
-                </include>
-                <include content="Object_Control" condition="$PARAM[selected]">
-                    <param name="control">group</param>
-                    <control type="image">
-                        <include>Texture_CircleButtonDialog_Highlight_V</include>
-                        <bordersize>-60</bordersize>
-                    </control>
-                    <control type="image">
-                        <texture colordiffuse="$VAR[ColorSelected]">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>keep</aspectratio>
-                        <bordersize>icon_home_bordersize</bordersize>
-                    </control>
-                </include>
-            </control>
-        </definition>
-    </include>
-
     <include name="Layout_IconList">
         <param name="selected">false</param>
         <param name="detailed">false</param>
@@ -414,6 +345,63 @@
                 <texture>$VAR[Image_PVRGuide_Indicator]</texture>
             </control>
 
+        </definition>
+    </include>
+
+    <include name="Layout_Shortcuts">
+        <param name="detailed">false</param>
+        <param name="selected">false</param>
+        <param name="misc">200</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Menu_Highlight_H</include>
+            </include>
+            <control type="image">
+                <width>$PARAM[item_h]</width>
+                <bordersize>18</bordersize>
+                <texture background="true">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="group">
+                <left>$PARAM[item_h]</left>
+                <control type="textbox">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <right>80</right>
+                    <font>font_main</font>
+                    <aligny>center</aligny>
+                    <top>8</top>
+                    <bottom>12</bottom>
+                    <autoscroll>false</autoscroll>
+                    <label>$INFO[ListItem.Label]</label>
+                    <visible>String.IsEmpty(ListItem.Property(path))</visible>
+                </control>
+                <control type="group">
+                    <height>80</height>
+                    <centertop>50%</centertop>
+                    <right>80</right>
+                    <visible>![String.IsEmpty(ListItem.Property(path))]</visible>
+                    <control type="label">
+                        <height>40</height>
+                        <top>4</top>
+                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <textcolor>dialog_fg_90</textcolor>
+                        <selectedcolor>dialog_fg_90</selectedcolor>
+                        <font>font_main_bold</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <height>40</height>
+                        <font>font_tiny</font>
+                        <bottom>4</bottom>
+                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <textcolor>dialog_fg_90</textcolor>
+                        <selectedcolor>dialog_fg_90</selectedcolor>
+                        <label>$INFO[ListItem.Property(path)]</label>
+                    </control>
+                </control>
+            </control>
         </definition>
     </include>
 

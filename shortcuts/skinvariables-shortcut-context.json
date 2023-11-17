@@ -1,6 +1,7 @@
 {
     "mainmenu": [
-        ["Refresh shortcuts", "do_refresh", []],
+        ["Use as widget : {use_as_widget}", "do_toggle", ["use_as_widget"]],
+        ["Style: {widget_style}", "do_edit", ["widget_style", "Poster&Landscape&Square&Banner&Card&Apps&Text", "Style", "True"]],
         ["Restore shortcuts", "do_refresh", ["True"]],
         ["Choose spotlight", "do_choose", ["spotlight"]],
         ["Choose submenu list", "do_choose", ["submenulist"]],
@@ -8,6 +9,6 @@
         ["Configure widgets", "do_widgets", []]
     ],
     "widgets": [
-        ["Style", "do_edit", ["widget_style", "Poster&Landscape&Square&Banner&Card&Apps&Text", "Style", "True"]]
+        ["Style: {widget_style}", "do_edit", ["widget_style", "Poster&Landscape&Square&Banner&Card&Apps&Text", "Style", "True"]]
     ]
 }

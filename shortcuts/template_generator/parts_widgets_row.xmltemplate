@@ -18,13 +18,15 @@
     <param name="shortstack_id">{widget_shortstack_id}</param>
     <param name="shortstack_visible">{widget_shortstack_visible}</param>
 
+    <description>{description}</description>
+
     <content>
         <item>
             <label2>$LOCALIZE[31345]</label2>
             <label>$LOCALIZE[231]</label>
             <property name="null_widget">True</property>
             <visible>[{widget_stacked} | Skin.HasSetting(Hubs.WidgetSelector)] + [Container({widget_id}).IsUpdating | Integer.IsEqual(Container({widget_id}).NumItems,0) | [Integer.IsEqual(Container({widget_id}).NumItems,1) + !String.IsEmpty(Container({widget_id}).ListItemAbsolute(0).Property(null_widget))]]</visible>
-            <visible>Flse</visible>
+            <visible>False</visible>
         </item>
     </content>
 

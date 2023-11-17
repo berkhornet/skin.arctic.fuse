@@ -82,6 +82,14 @@
                             "includes_name": "Hub_Menu_Group",
                             "includes_part": {
                                 "template": "template_generator/parts_widgets_grouplist.xmltemplate",
+                                "all_adapative_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "submenu", "condition": "{item_use_as_widget}==True", "for_each": [
+                                    {
+                                        "jsonfile": "template_generator/setup_widgets_row.json",
+                                        "template": "template_generator/parts_widgets_row.xmltemplate",
+                                        "widget_visible": "String.IsEqual(Container(302).ListItem.Property(guid),{item_guid})",
+                                        "condition": "{item_path}!="
+                                    }
+                                ]},
                                 "all_standard_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
                                     {
                                         "jsonfile": "template_generator/setup_widgets_row.json",

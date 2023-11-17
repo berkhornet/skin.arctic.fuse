@@ -1,13 +1,13 @@
 {
-    "widget_id": "$MATH[{parent_item_x} * 1000 + 600 + {item_x} + 1]",
-    "widget_group_id": "$MATH[{parent_item_x} * 1000 + 700 + {item_x} + 1]",
+    "widget_id": "$MATH[{parent_item_x} * 1000 + 600 + {item_sum_x}]",
+    "widget_group_id": "$MATH[{parent_item_x} * 1000 + 700 + {item_sum_x}]",
     "widget_label": "{item_label}",
     "widget_path": "{item_path}",
     "widget_visible": "True",
     "widget_altvisible": "False",
     "widget_isautoscroll": "False",
-    "widget_shortstack_visible": "[Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 2]) | Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 3]) | Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 4])]",
-    "widget_shortstack_id": "$MATH[{parent_item_x} * 1000 + 800 + {item_x} + 1]",
+    "widget_shortstack_visible": "[Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_sum_x} + 1]) | Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_sum_x} + 2]) | Control.IsVisible($MATH[{parent_item_x} * 1000 + 600 + {item_sum_x} + 3])]",
+    "widget_shortstack_id": "$MATH[{parent_item_x} * 1000 + 800 + {item_sum_x}]",
     "widget_shortstack": [
         {
             "condition":"{item_widget_style}==Apps",
@@ -17,9 +17,21 @@
             "condition":"{item_widget_style}==Text",
             "value" : "True"
         },
+        {
+            "condition": ["{item_widget_style}==", "{parent_item_widget_style}==Apps"],
+            "value" : "True"
+        },
+        {
+            "condition": ["{item_widget_style}==", "{parent_item_widget_style}==Text"],
+            "value" : "True"
+        },
         "False"
     ],
     "widget_include": [
+        {
+            "condition":"{item_widget_style}==Landscape",
+            "value" : "List_Landscape_Row"
+        },
         {
             "condition":"{item_widget_style}==Poster",
             "value" : "List_Poster_Row"
@@ -44,11 +56,43 @@
             "condition":"{item_widget_style}==Text",
             "value" : "List_Apps_Row"
         },
+        {
+            "condition":"{parent_item_widget_style}==Landscape",
+            "value" : "List_Landscape_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Poster",
+            "value" : "List_Poster_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Square",
+            "value" : "List_Square_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Card",
+            "value" : "List_Card_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Banner",
+            "value" : "List_Banner_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Apps",
+            "value" : "List_Apps_Row"
+        },
+        {
+            "condition":"{parent_item_widget_style}==Text",
+            "value" : "List_Apps_Row"
+        },
         "List_Landscape_Row"
     ],
     "widget_detailed": [
         {
             "condition":"{item_widget_style}==Text",
+            "value" : "True"
+        },
+        {
+            "condition": ["{item_widget_style}==", "{parent_item_widget_style}==Text"],
             "value" : "True"
         },
         "False"
