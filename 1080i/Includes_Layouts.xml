@@ -351,54 +351,66 @@
     <include name="Layout_Shortcuts">
         <param name="detailed">false</param>
         <param name="selected">false</param>
-        <param name="misc">200</param>
         <definition>
             <include content="Object_Control" condition="$PARAM[selected]">
                 <param name="control">image</param>
                 <include>Texture_Menu_Highlight_H</include>
             </include>
-            <control type="image">
-                <width>$PARAM[item_h]</width>
-                <bordersize>18</bordersize>
-                <texture background="true">$INFO[ListItem.Icon]</texture>
-            </control>
             <control type="group">
-                <left>$PARAM[item_h]</left>
-                <control type="textbox">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <right>80</right>
-                    <font>font_main</font>
-                    <aligny>center</aligny>
-                    <top>8</top>
-                    <bottom>12</bottom>
-                    <autoscroll>false</autoscroll>
-                    <label>$INFO[ListItem.Label]</label>
-                    <visible>String.IsEmpty(ListItem.Property(path))</visible>
+                <animation effect="fade" start="100" end="40" condition="String.IsEqual(ListItem.Property(disabled),True)">Conditional</animation>
+                <control type="image">
+                    <width>$PARAM[item_h]</width>
+                    <bordersize>18</bordersize>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,special://skin/extras/icons)</visible>
+                    <texture background="true" diffuse="diffuse/circle_120.png" fallback="special://skin/extras/icons/shapes.png">$INFO[ListItem.Icon]</texture>
+                </control>
+                <control type="image">
+                    <width>$PARAM[item_h]</width>
+                    <bordersize>26</bordersize>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,special://skin/extras/icons)]</visible>
+                    <texture background="true" diffuse="diffuse/circle_120.png" fallback="fallback/kodi-logo.png">$INFO[ListItem.Icon]</texture>
                 </control>
                 <control type="group">
-                    <height>80</height>
-                    <centertop>50%</centertop>
-                    <right>80</right>
-                    <visible>![String.IsEmpty(ListItem.Property(path))]</visible>
-                    <control type="label">
-                        <height>40</height>
-                        <top>4</top>
+                    <left>$PARAM[item_h]</left>
+                    <right>160</right>
+                    <control type="textbox">
                         <include condition="$PARAM[selected]">Color_SelectedText</include>
                         <textcolor>dialog_fg_90</textcolor>
                         <selectedcolor>dialog_fg_90</selectedcolor>
-                        <font>font_main_bold</font>
-                        <label>$INFO[ListItem.Label]</label>
+                        <right>80</right>
+                        <font>font_main</font>
+                        <aligny>center</aligny>
+                        <top>8</top>
+                        <bottom>12</bottom>
+                        <autoscroll>false</autoscroll>
+                        <label>$VAR[Label_Shortcut_LabelOne]</label>
+                        <visible>String.IsEmpty(ListItem.Property(path))</visible>
                     </control>
-                    <control type="label">
-                        <height>40</height>
-                        <font>font_tiny</font>
-                        <bottom>4</bottom>
-                        <include condition="$PARAM[selected]">Color_SelectedText</include>
-                        <textcolor>dialog_fg_90</textcolor>
-                        <selectedcolor>dialog_fg_90</selectedcolor>
-                        <label>$INFO[ListItem.Property(path)]</label>
+                    <control type="group">
+                        <height>80</height>
+                        <centertop>50%</centertop>
+                        <right>80</right>
+                        <visible>![String.IsEmpty(ListItem.Property(path))]</visible>
+                        <control type="label">
+                            <height>40</height>
+                            <top>4</top>
+                            <include condition="$PARAM[selected]">Color_SelectedText</include>
+                            <textcolor>dialog_fg_90</textcolor>
+                            <selectedcolor>dialog_fg_90</selectedcolor>
+                            <font>font_main_bold</font>
+                            <label>$VAR[Label_Shortcut_LabelOne]</label>
+                        </control>
+                        <control type="label">
+                            <height>40</height>
+                            <font>font_tiny</font>
+                            <bottom>4</bottom>
+                            <include condition="$PARAM[selected]">Color_SelectedText</include>
+                            <textcolor>dialog_fg_90</textcolor>
+                            <selectedcolor>dialog_fg_90</selectedcolor>
+                            <label>$VAR[Label_Shortcut_LabelTwo]</label>
+                        </control>
                     </control>
                 </control>
             </control>

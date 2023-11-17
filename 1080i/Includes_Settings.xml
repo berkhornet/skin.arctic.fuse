@@ -326,6 +326,67 @@
         </definition>
     </include>
 
+    <include name="Settings_Stacked_Button">
+        <param name="control">button</param>
+        <param name="dialog">false</param>
+        <param name="enable">true</param>
+        <definition>
+            <control type="$PARAM[control]" id="$PARAM[id]">
+                <nested />
+                <align>left</align>
+                <font />
+                <height>80</height>
+                <textoffsetx>40</textoffsetx>
+                <texturenofocus />
+                <alttexturenofocus />
+                <include condition="$PARAM[dialog]">defs_dialog_$PARAM[control]</include>
+                <enable>$PARAM[enable]</enable>
+            </control>
+            <control type="group" id="$PARAM[groupid]">
+                <nested />
+                <height>80</height>
+                <top>-80</top>
+                <animation effect="fade" start="100" end="40" condition="![$PARAM[enable]]">Conditional</animation>
+                <control type="group">
+                    <visible>!Control.HasFocus($PARAM[id])</visible>
+                    <control type="label">
+                        <font>font_main</font>
+                        <label>$PARAM[toplabel]</label>
+                        <textoffsetx>40</textoffsetx>
+                        <textcolor>dialog_fg_70</textcolor>
+                        <animation effect="slide" start="0" end="0,-16" condition="$PARAM[sublabel_visible]">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <font>font_tiny</font>
+                        <top>24</top>
+                        <label>$PARAM[sublabel]</label>
+                        <textoffsetx>40</textoffsetx>
+                        <textcolor>dialog_fg_70</textcolor>
+                        <visible>$PARAM[sublabel_visible]</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>Control.HasFocus($PARAM[id])</visible>
+                    <control type="label">
+                        <font>font_main</font>
+                        <label>$PARAM[toplabel]</label>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <textoffsetx>40</textoffsetx>
+                        <animation effect="slide" start="0" end="0,-16" condition="$PARAM[sublabel_visible]">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <font>font_tiny</font>
+                        <top>24</top>
+                        <label>$PARAM[sublabel]</label>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <textoffsetx>40</textoffsetx>
+                        <visible>$PARAM[sublabel_visible]</visible>
+                    </control>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="Settings_ButtonImage">
         <param name="control">button</param>
         <param name="dialog">false</param>
