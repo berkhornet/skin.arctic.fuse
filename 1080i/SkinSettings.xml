@@ -53,12 +53,12 @@
                             </itemlayout>
                             <focusedlayout height="80">
                                 <control type="label">
-                                    <visible>[ControlGroup(30000).HasFocus() | ControlGroup(30030).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus() | Window.IsVisible(script-skinshortcuts.xml)]</visible>
+                                    <visible>[ControlGroup(30000).HasFocus() | ControlGroup(30030).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus()]</visible>
                                     <textoffsetx>40</textoffsetx>
                                     <label>$INFO[ListItem.Label]</label>
                                 </control>
                                 <control type="group">
-                                    <visible>![ControlGroup(30000).HasFocus() | ControlGroup(30030).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus() | Window.IsVisible(script-skinshortcuts.xml)]</visible>
+                                    <visible>![ControlGroup(30000).HasFocus() | ControlGroup(30030).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus()]</visible>
                                     <control type="image">
                                         <include>Texture_Menu_Highlight_H</include>
                                     </control>
@@ -139,14 +139,6 @@
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
 
-                        <include content="Settings_Button" description="Restore a prebuilt menu">
-                            <param name="id">1014</param>
-                            <param name="control">button</param>
-                            <label>Restore a prebuilt shortcut configuration</label>
-                            <include>Action_SkinShortcuts_Prebuilt_OnClick</include>
-                            <visible>Container(3).HasFocus(1)</visible>
-                        </include>
-
                         <include content="Settings_Label" description="SideMenu Label">
                             <param name="id">1000</param>
                             <label>$LOCALIZE[31416]</label>
@@ -157,7 +149,7 @@
                             <param name="control">button</param>
                             <label>$LOCALIZE[31396]</label>
                             <label2>$VAR[Label_Settings_MenuStyle]</label2>
-                            <onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31396],separator=||,list=$LOCALIZE[602] ($LOCALIZE[31274])||$LOCALIZE[31118] ($LOCALIZE[31425])||$LOCALIZE[31423] ($LOCALIZE[31424]),preselect=$VAR[Label_Settings_MenuStyle_Preselect],"executebuiltin_0=Skin.Reset(Home.HideSideMenu)||Skin.Reset(Home.SideLabels)","executebuiltin_1=Skin.Reset(Home.HideSideMenu)||Skin.SetBool(Home.SideLabels)","executebuiltin_2=Skin.SetBool(Home.HideSideMenu)||Skin.Reset(Home.SideLabels)")</onclick>
+                            <onclick>Skin.ToggleSetting(Home.HideSideMenu)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
                         <include content="Settings_ButtonImage" description="Search Menu">
@@ -436,7 +428,7 @@
                             <param name="control">button</param>
                             <label>$LOCALIZE[31447]</label>
                             <visible>Container(3).HasFocus(3)</visible>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=exploremenu)</onclick>
+                            <onclick>RunScript(TODO_SKINVARIABLES,type=manage&amp;group=exploremenu)</onclick>
                         </include>
 
                         <!-- Navigation -->
@@ -959,7 +951,8 @@
                             <visible>Container(3).HasFocus(8)</visible>
                             <onclick>SetProperty(StartupReplaceWindow,skinsettings,Home)</onclick>
                             <onclick>Skin.ResetSettings</onclick>
-                            <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+                            <onclick>ActivateWindow(1198)</onclick>
+                            <!-- <onclick>RunScript(TODO_SKINVARIABLES,type=resetall)</onclick> -->
                         </include>
                         <include content="Settings_Button" description="Startup Init Screen">
                             <param name="id">8082</param>
@@ -997,18 +990,6 @@
                             <onclick condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)">EnableAddon(plugin.video.themoviedb.helper)</onclick>
                             <onclick condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)">Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
                             <selected>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)</selected>
-                        </include>
-
-                        <include content="Settings_Button">
-                            <param name="id">8002</param>
-                            <param name="control">radiobutton</param>
-                            <label>script.skinshortcuts</label>
-                            <label2>$INFO[System.AddonVersion(script.skinshortcuts),v,       ]</label2>
-                            <visible>Container(3).HasFocus(8)</visible>
-                            <onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
-                            <onclick condition="!System.AddonIsEnabled(script.skinshortcuts) + System.HasAddon(script.skinshortcuts)">EnableAddon(script.skinshortcuts)</onclick>
-                            <onclick condition="System.AddonIsEnabled(script.skinshortcuts) + System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
-                            <selected>System.AddonIsEnabled(script.skinshortcuts) + System.HasAddon(script.skinshortcuts)</selected>
                         </include>
 
                         <include content="Settings_Button">

@@ -197,7 +197,6 @@ msgctxt "#31039"
 msgid "Customise fallback menu"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31040"
 msgid "Use as widget"
 msgstr ""
@@ -400,7 +399,6 @@ msgctxt "#31083"
 msgid "Combined"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31084"
 msgid "Widget style"
 msgstr ""
@@ -1235,7 +1233,6 @@ msgctxt "#31272"
 msgid "Foreground logo"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31273"
 msgid "Choose end row widgets"
 msgstr ""
@@ -1513,7 +1510,6 @@ msgctxt "#31332"
 msgid "Categories and widgets"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31333"
 msgid "Customise fallback submenu"
 msgstr ""
@@ -1977,7 +1973,6 @@ msgctxt "#31436"
 msgid "Wrap list"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31437"
 msgid "Choose spotlight"
 msgstr ""
@@ -2002,12 +1997,10 @@ msgctxt "#31441"
 msgid "FlixArt Size"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31442"
 msgid "Choose submenu"
 msgstr ""
 
-#: /1080i/script-skinshortcuts.xml
 msgctxt "#31443"
 msgid "Choose submenu items"
 msgstr ""
@@ -2250,4 +2243,9 @@ msgstr ""
 #: /1080i/SkinSettings.xml
 msgctxt "#31491"
 msgid "Miscellaneous"
+msgstr ""
+
+#: /1080i/Includes_Actions.xml
+msgctxt "#31492"
+msgid "Add-ons hub"
 msgstr ""

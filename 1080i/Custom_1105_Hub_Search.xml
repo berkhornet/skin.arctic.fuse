@@ -22,7 +22,7 @@
         <include>Background_Main</include>
 
         <control type="group">
-            <include>skinshortcuts-template-searchmenu</include>
+            <include>TODO_SKINVARIABLES_template-searchmenu</include>
         </control>
 
         <include>Background_Transition</include>

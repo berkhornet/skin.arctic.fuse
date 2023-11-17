@@ -11,9 +11,9 @@
         <include content="Hub_Controls">
             <param name="window_id">1104</param>
             <param name="widgets_only">Skin.HasSetting(Hub.PVR.DisableSubmenu)</param>
-            <param name="include">skinshortcuts-template-pvrmenu</param>
-            <param name="categories_include">skinshortcuts-group-pvrmenu</param>
-            <param name="widgets_include">skinshortcuts-template-pvrwidgets</param>
+            <param name="include">TODO_SKINVARIABLES_pvrmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_pvrmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_pvrwidgets</param>
         </include>
     </controls>
 </window>

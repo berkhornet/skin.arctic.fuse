@@ -1,0 +1,6 @@
+<include content="Spotlight_List">
+    <param name="window_id">{window_id}</param>
+    <param name="content">{item_spotlight_path}</param>
+    <param name="target">{item_spotlight_target}</param>
+    <visible>String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})</visible>
+</include>

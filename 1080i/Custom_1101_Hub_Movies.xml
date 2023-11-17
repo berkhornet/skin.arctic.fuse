@@ -9,9 +9,9 @@
         <include content="Hub_Controls">
             <param name="window_id">1101</param>
             <param name="widgets_only">Skin.HasSetting(Hub.Movies.DisableSubmenu)</param>
-            <param name="include">skinshortcuts-template-moviemenu</param>
-            <param name="categories_include">skinshortcuts-group-moviemenu</param>
-            <param name="widgets_include">skinshortcuts-template-moviewidgets</param>
+            <param name="include">TODO_SKINVARIABLES_template-moviemenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_group-moviemenu</param>
+            <param name="widgets_include">TODO_SKINVARIABLES_template-moviewidgets</param>
         </include>
     </controls>
 </window>

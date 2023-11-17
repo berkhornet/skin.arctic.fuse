@@ -1,0 +1,129 @@
+{
+    "icons": {
+        "DefaultGenre.png": "special://skin/extras/icons/genre.png",
+        "DefaultShortcut.png": "special://skin/extras/icons/shortcut.png",
+        "Events.png": "special://skin/extras/icons/clipboard.png",
+        "DefaultVideo.png": "special://skin/extras/icons/video.png",
+        "DefaultMovies.png": "special://skin/extras/icons/film.png",
+        "DefaultTVShows.png": "special://skin/extras/icons/tv.png",
+        "DefaultAudio.png": "special://skin/extras/icons/songs.png",
+        "DefaultMusicAlbums.png": "special://skin/extras/icons/songs.png",
+        "DefaultMusicVideos.png": "special://skin/extras/icons/musicvideo.png",
+        "DefaultPicture.png": "special://skin/extras/icons/pictures.png",
+        "DefaultProgram.png": "special://skin/extras/icons/addons.png",
+        "DefaultDVDFull.png": "special://skin/extras/icons/cd.png",
+        "DefaultFolder.png": "special://skin/extras/icons/folder.png",
+        "UnknownUser.png": "special://skin/extras/icons/actor.png",
+        "DefaultVideoPlaylists.png": "special://skin/extras/icons/playlist.png",
+        "DefaultMusicPlaylists.png": "special://skin/extras/icons/playlist.png",
+        "DefaultRecentlyAddedMovies.png": "special://skin/extras/icons/recentlyadded.png",
+        "DefaultActor.png": "special://skin/extras/icons/artist.png",
+        "DefaultCountry.png": "special://skin/extras/icons/world.png",
+        "DefaultDirector.png": "special://skin/extras/icons/director.png",
+        "DefaultGenre.png": "special://skin/extras/icons/genre.png",
+        "DefaultMusicGenre.png": "special://skin/extras/icons/audiogenre.png",
+        "DefaultSets.png": "special://skin/extras/icons/sets.png",
+        "DefaultStudios.png": "special://skin/extras/icons/director.png",
+        "DefaultTags.png": "special://skin/extras/icons/tags.png",
+        "DefaultMovieTitle.png": "special://skin/extras/icons/film.png",
+        "DefaultTVShowTitle.png": "special://skin/extras/icons/tv.png",
+        "DefaultMusicVideoTitle.png": "special://skin/extras/icons/musicvideo.png",
+        "DefaultYear.png": "special://skin/extras/icons/year.png",
+        "DefaultRecentlyAddedEpisodes.png": "special://skin/extras/icons/recentlyadded.png",
+        "DefaultRecentlyAddedMusicVideos.png": "special://skin/extras/icons/recentlyadded.png",
+        "DefaultInProgressShows.png": "special://skin/extras/icons/recentlyadded.png",
+        "DefaultMusicArtists.png": "special://skin/extras/icons/artist.png",
+        "DefaultMusicGenres.png": "special://skin/extras/icons/audiogenre.png",
+        "DefaultMusicSongs.png": "special://skin/extras/icons/song.png",
+        "DefaultMusicYears.png": "special://skin/extras/icons/years.png",
+        "DefaultMusicTop100.png": "special://skin/extras/icons/top100.png",
+        "DefaultMusicRecentlyAdded.png": "special://skin/extras/icons/recentlyadded.png",
+        "DefaultMusicRecentlyPlayed.png": "special://skin/extras/icons/recent.png",
+        "DefaultAddonVideo.png": "special://skin/extras/icons/video-addons.png",
+        "DefaultAddonMusic.png": "special://skin/extras/icons/songs.png",
+        "DefaultAddonProgram.png": "special://skin/extras/icons/addons.png"
+    },
+    "grouping://shortcuts/basedir/": [
+        {
+            "name": "Videos",
+            "path": "videodb://",
+            "icon": "special://skin/extras/icons/video.png",
+            "link": "false",
+            "node": "videos"
+        },
+        {
+            "name": "Music",
+            "path": "musicdb://",
+            "icon": "special://skin/extras/icons/music.png",
+            "link": "false",
+            "node": "music"
+        },
+        {
+            "name": "Video Add-ons",
+            "path": "addons://sources/video/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false",
+            "node": "videos"
+        },
+        {
+            "name": "Music Add-ons",
+            "path": "addons://sources/audio/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false",
+            "node": "music"
+        }
+    ],
+    "grouping://shortcuts/tmdbhelper/": [
+        {
+            "name": "TMDbHelper Nodes",
+            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_custom_node",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "false",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "node": "videos"
+        },
+        {
+            "name": "TMDbHelper Movies",
+            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_movie",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "false",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "node": "videos"
+        },
+        {
+            "name": "TMDbHelper TV Shows",
+            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_tv",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "false",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "node": "videos"
+        },
+        {
+            "name": "TMDbHelper Randomised",
+            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_random",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "false",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "node": "videos"
+        },
+        {
+            "name": "TMDbHelper All",
+            "path": "plugin://plugin.video.themoviedb.helper/",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "false",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "node": "videos"
+        }
+    ],
+    "grouping://shortcuts/": [
+        "grouping://shortcuts/basedir/",
+        "grouping://shortcuts/tmdbhelper/",
+        {
+            "name": "TMDbHelper Test",
+            "path": "ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/,return)",
+            "icon": "special://skin/extras/icons/plug.png",
+            "link": "true",
+            "rule": "System.HasAddon(plugin.video.themoviedb.helper)"
+        }
+    ]
+}

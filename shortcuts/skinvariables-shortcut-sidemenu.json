@@ -1,0 +1,37 @@
+[
+    {
+        "label": "Home",
+        "icon": "special://skin/extras/icons/home.png",
+        "path": "ActivateWindow(Home)",
+        "expression": "home",
+        "target": ""
+    },
+    {
+        "label": "Movies Hub",
+        "icon": "special://skin/extras/icons/film.png",
+        "path": "ActivateWindow(1101)",
+        "expression": "movies",
+        "target": ""
+    },
+    {
+        "label": "TV Shows Hub",
+        "icon": "special://skin/extras/icons/tv.png",
+        "path": "ActivateWindow(1102)",
+        "expression": "tvshows",
+        "target": ""
+    },
+    {
+        "label": "Music Hub",
+        "icon": "special://skin/extras/icons/songs.png",
+        "path": "ActivateWindow(1103)",
+        "expression": "music",
+        "target": ""
+    },
+    {
+        "label": "Movies Hub",
+        "icon": "special://skin/extras/icons/livetv.png",
+        "path": "ActivateWindow(1104)",
+        "expression": "livetv",
+        "target": ""
+    }
+]

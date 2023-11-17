@@ -1,0 +1,13 @@
+{
+    "mainmenu": [
+        ["Refresh shortcuts", "do_refresh", []],
+        ["Restore shortcuts", "do_refresh", ["True"]],
+        ["Choose spotlight", "do_choose", ["spotlight"]],
+        ["Choose submenu list", "do_choose", ["submenulist"]],
+        ["Configure submenu", "do_submenu", []],
+        ["Configure widgets", "do_widgets", []]
+    ],
+    "widgets": [
+        ["Style", "do_edit", ["widget_style", "Poster&Landscape&Square&Banner&Card&Apps&Text", "Style", "True"]]
+    ]
+}

@@ -9,9 +9,9 @@
         <include content="Hub_Controls">
             <param name="window_id">1103</param>
             <param name="widgets_only">Skin.HasSetting(Hub.Music.DisableSubmenu)</param>
-            <param name="include">skinshortcuts-template-musicmenu</param>
-            <param name="categories_include">skinshortcuts-group-musicmenu</param>
-            <param name="widgets_include">skinshortcuts-template-musicwidgets</param>
+            <param name="include">TODO_SKINVARIABLES_musicmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_musicmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_musicwidgets</param>
         </include>
     </controls>
 </window>

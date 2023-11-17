@@ -76,7 +76,7 @@
                         <ondown>noop</ondown>
                         <onright>9000</onright>
                         <onleft>Close</onleft>
-                        <include>skinshortcuts-template-powermenu</include>
+                        <include>TODO_SKINVARIABLES_template-powersubmenu</include>
                         <visible>!String.IsEmpty(Window.Property(ToggleMenu))</visible>
                     </control>
                 </include>
@@ -92,7 +92,7 @@
                         <param name="icon">special://skin/extras/icons/circle-xmark.png</param>
                         <onclick>Close</onclick>
                     </include>
-                    <include>skinshortcuts-template-powersubmenu</include>
+                    <include>TODO_SKINVARIABLES_template-powersubmenu</include>
                 </include>
             </include>
         </include>

@@ -108,8 +108,7 @@
 
     <include name="Hub_Widget_Splash">
         <control type="group">
-            <visible>Integer.IsEqual(Container(301).NumItems,0)</visible>
-            <visible>Container(301).IsUpdating</visible>
+            <visible>[Skin.HasSetting(Startup.WaitForLoad) + [[Integer.IsEqual(Container(301).NumItems,0) + Container(301).IsUpdating] | [Container(303).IsUpdating + Integer.IsEqual(Container(303).NumItems,0)]]]</visible>
             <visible>System.HasAlarm(SplashTimeOut)</visible>
             <include>Background_StartUp</include>
             <include>Object_StartUp_Logo</include>
@@ -170,18 +169,6 @@
             <include content="Hub_Main_Group">
                 <param name="widgets_only">[$PARAM[widgets_only]]</param>
 
-                <!-- Spotlight: Individual -->
-                <include content="Spotlight_List" condition="![[$PARAM[widgets_only]]]">
-                    <param name="window_id">$PARAM[window_id]</param>
-                    <param name="sortby">$PARAM[fullscreen_sortby]</param>
-                    <param name="sortorder">$PARAM[fullscreen_sortorder]</param>
-                    <param name="target">$PARAM[fullscreen_target]</param>
-                    <param name="limit">$PARAM[fullscreen_limit]</param>
-                    <param name="browse">never</param>
-                    <param name="content">$PARAM[fullscreen_content]</param>
-                    <visible>String.IsEmpty(Container(300).ListItem.Property(widgetPath.Spotlight))</visible>
-                </include>
-
                 <include condition="![[$PARAM[widgets_only]]]">$PARAM[include]</include>
 
                 <include content="Hub_Widgets_Only" condition="[$PARAM[widgets_only]]">
@@ -193,6 +180,18 @@
                         <param name="categories_include">$PARAM[categories_include]</param>
                         <param name="window_id">$PARAM[window_id]</param>
                     </include>
+                </include>
+
+                <!-- Spotlight list at end to load last -->
+                <include content="Spotlight_List" condition="![[$PARAM[widgets_only]]]">
+                    <param name="window_id">$PARAM[window_id]</param>
+                    <param name="sortby">$PARAM[fullscreen_sortby]</param>
+                    <param name="sortorder">$PARAM[fullscreen_sortorder]</param>
+                    <param name="target">$PARAM[fullscreen_target]</param>
+                    <param name="limit">$PARAM[fullscreen_limit]</param>
+                    <param name="browse">never</param>
+                    <param name="content">$PARAM[fullscreen_content]</param>
+                    <visible>String.IsEmpty(Container(300).ListItem.Property(spotlight_path))</visible>
                 </include>
 
             </include>
@@ -244,7 +243,6 @@
                 <include content="Hub_Widgets_Grouplist">
                     <param name="id">400</param>
                     <param name="topid">401</param>
-                    <param name="mainmenuid"></param>
                     <param name="widgets_only">True</param>
                     <param name="visible">True</param>
                     <control type="group" id="401">
@@ -260,18 +258,31 @@
         </include>
     </include>
 
-    <include name="Hub_Home">
-        <include condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">skinshortcuts-template-home-spotlight</include>
+    <variable name="Hub_Submenu_Content">
+        <value condition="!String.IsEmpty(Container(300).ListItem.Property(submenulist_path))">$INFO[Container(300).ListItem.Property(submenulist_path)]</value>
+        <value>plugin://script.skinvariables/?info=get_shortcuts_node$INFO[Container(300).ListItem.Property(menu),&amp;menu=,]$INFO[Container(300).ListItem.Property(list),&amp;node=,]$INFO[Container(300).ListItem.Property(skin),&amp;skin=,]$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload),&amp;reload=,]</value>
+    </variable>
 
+    <include name="Hub_Home">
         <include content="Hub_Menu_Group">
             <include content="Hub_Submenu_Group" condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">
-                <include>skinshortcuts-template-home-submenulist</include>
+                <include>skinvariables-homemenu-submenu</include>
             </include>
         </include>
 
         <include content="Hub_Widgets_Group">
-            <include>skinshortcuts-template-widgets</include>
+            <include>skinvariables-homemenu-widgets</include>
         </include>
+
+        <include content="Home_Widgets_Infopanel">
+            <include content="Info_Panel">
+                <param name="container">Container.</param>
+                <visible>!Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)</visible>
+            </include>
+        </include>
+
+        <include condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">skinvariables-homemenu-spotlight</include>
+
 
     </include>
 
@@ -323,17 +334,16 @@
                 <ondown condition="!Skin.HasSetting(Hubs.HideSubmenus)">302</ondown>
                 <ondown condition="Skin.HasSetting(Hubs.HideSubmenus)">340</ondown>
                 <onfocus>SetProperty(TMDbHelper.WidgetContainer,301,$PARAM[window_id])</onfocus>
-
-                <!-- <include content="Animation_Fade_In">
-                    <param name="condition">![!String.IsEmpty(Window.Property(Slide.WidgetContainer))]</param>
-                    <param name="delay">200</param>
-                </include>
-                <include content="Animation_ConditionalFade">
-                    <param name="condition">[!String.IsEmpty(Window.Property(Slide.WidgetContainer))]</param>
-                </include> -->
-                <content>
+                <!-- <content>
                     <include>$PARAM[categories_include]</include>
-                </content>
+                </content> -->
+                <include content="Action_SkinVariables_ShortcutList_Onclick">
+                    <param name="id">$PARAM[id]</param>
+                </include>
+                <content>plugin://script.skinvariables/?info=get_shortcuts_node&amp;menu=homemenu&amp;skin=skin.arctic.fuse&amp;reload=$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload)]</content>
+                <!-- <content>
+                    <include>skinvariables-staticmenu-mainmenu</include>
+                </content> -->
             </include>
         </control>
     </include>

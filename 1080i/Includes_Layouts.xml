@@ -89,27 +89,6 @@
         </definition>
     </include>
 
-    <include name="Layout_SkinShortcuts">
-        <param name="selected">false</param>
-        <param name="detailed">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="label">
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <include content="Object_Width" condition="$PARAM[detailed]">
-                    <param name="width">400</param>
-                </include>
-                <textoffsetx>40</textoffsetx>
-                <textcolor>dialog_fg_70</textcolor>
-                <selectedcolor>dialog_fg_70</selectedcolor>
-                <label>$INFO[ListItem.Label]</label>
-            </control>
-        </definition>
-    </include>
-
     <include name="Layout_IconList">
         <param name="selected">false</param>
         <param name="detailed">false</param>

@@ -16,28 +16,16 @@
         <value>plugin://script.skinvariables/?info=get_number_sum&amp;expression=0$INFO[Container(5001).NumItems,+,]$INFO[Container(5002).NumItems,+,]$INFO[Container(5003).NumItems,+,]$INFO[Container(5004).NumItems,+,]$INFO[Container(5005).NumItems,+,]$INFO[Container(5006).NumItems,+,]$INFO[Container(5007).NumItems,+,]$INFO[Container(5008).NumItems,+,]$INFO[Container(5009).NumItems,+,]$INFO[Container(5010).NumItems,+,]$INFO[Container(5011).NumItems,+,]$INFO[Container(5012).NumItems,+,]$INFO[Container(5013).NumItems,+,]$INFO[Container(5014).NumItems,+,]$INFO[Container(5015).NumItems,+,]$INFO[Container(5016).NumItems,+,]$INFO[Container(5017).NumItems,+,]$INFO[Container(5018).NumItems,+,]$INFO[Container(5019).NumItems,+,]$INFO[Container(5020).NumItems,+,]</value>
     </variable>
 
-    <variable name="Path_Hub_WidgetOnly_Content">
-        <value condition="Window.IsVisible(Home)">$INFO[Skin.String(skinshortcuts-mainmenu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1101)">$INFO[Skin.String(skinshortcuts-moviemenu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1102)">$INFO[Skin.String(skinshortcuts-tvshowmenu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1103)">$INFO[Skin.String(skinshortcuts-musicmenu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1104)">$INFO[Skin.String(skinshortcuts-pvrmenu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1106)">$INFO[Skin.String(skinshortcuts-custom01menu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1107)">$INFO[Skin.String(skinshortcuts-custom02menu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1108)">$INFO[Skin.String(skinshortcuts-custom03menu-widgetPath)]</value>
-        <value condition="Window.IsVisible(1109)">$INFO[Skin.String(skinshortcuts-custom04menu-widgetPath)]</value>
-    </variable>
-
     <variable name="Path_Hub_FallbackSlideShow_Content">
-        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(skinshortcuts-mainmenu-backgroundimage))">$INFO[Skin.String(skinshortcuts-mainmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(skinshortcuts-moviemenu-backgroundimage))">$INFO[Skin.String(skinshortcuts-moviemenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(skinshortcuts-tvshowmenu-backgroundimage))">$INFO[Skin.String(skinshortcuts-tvshowmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(skinshortcuts-musicmenu-backgroundimage))">$INFO[Skin.String(skinshortcuts-musicmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(skinshortcuts-pvrmenu-backgroundimage))">$INFO[Skin.String(skinshortcuts-pvrmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(skinshortcuts-custom01menu-backgroundimage))">$INFO[Skin.String(skinshortcuts-custom01menu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(skinshortcuts-custom02menu-backgroundimage))">$INFO[Skin.String(skinshortcuts-custom02menu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(skinshortcuts-custom03menu-backgroundimage))">$INFO[Skin.String(skinshortcuts-custom03menu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(skinshortcuts-custom04menu-backgroundimage))">$INFO[Skin.String(skinshortcuts-custom04menu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-mainmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-mainmenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-moviemenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-moviemenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-tvshowmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-tvshowmenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-musicmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-musicmenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-pvrmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-pvrmenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom01menu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-custom01menu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom02menu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-custom02menu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom03menu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-custom03menu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom04menu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-custom04menu-backgroundimage)]</value>
         <value>$VAR[Image_SimpleBackground]</value>
     </variable>
 
@@ -62,15 +50,15 @@
     </variable>
 
     <variable name="Path_Hub_WidgetOnly_Target">
-        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(skinshortcuts-mainmenu-widgetTarget))">$INFO[Skin.String(skinshortcuts-mainmenu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(skinshortcuts-moviemenu-widgetTarget))">$INFO[Skin.String(skinshortcuts-moviemenu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(skinshortcuts-tvshowmenu-widgetTarget))">$INFO[Skin.String(skinshortcuts-tvshowmenu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(skinshortcuts-musicmenu-widgetTarget))">$INFO[Skin.String(skinshortcuts-musicmenu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(skinshortcuts-pvrmenu-widgetTarget))">$INFO[Skin.String(skinshortcuts-pvrmenu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(skinshortcuts-custom01menu-widgetTarget))">$INFO[Skin.String(skinshortcuts-custom01menu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(skinshortcuts-custom02menu-widgetTarget))">$INFO[Skin.String(skinshortcuts-custom02menu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(skinshortcuts-custom03menu-widgetTarget))">$INFO[Skin.String(skinshortcuts-custom03menu-widgetTarget)]</value>
-        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(skinshortcuts-custom04menu-widgetTarget))">$INFO[Skin.String(skinshortcuts-custom04menu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-mainmenu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-mainmenu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-moviemenu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-moviemenu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-tvshowmenu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-tvshowmenu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-musicmenu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-musicmenu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-pvrmenu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-pvrmenu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom01menu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-custom01menu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom02menu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-custom02menu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom03menu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-custom03menu-widgetTarget)]</value>
+        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-custom04menu-widgetTarget))">$INFO[Skin.String(TODO_SKINVARIABLES-custom04menu-widgetTarget)]</value>
         <value>$VAR[Path_Hub_Target]</value>
     </variable>
 

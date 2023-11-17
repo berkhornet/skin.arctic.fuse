@@ -10,9 +10,9 @@
         <include content="Hub_Controls">
             <param name="window_id">1107</param>
             <param name="widgets_only">Skin.HasSetting(Hub.Custom02.DisableSubmenu)</param>
-            <param name="include">skinshortcuts-template-custom02menu</param>
-            <param name="categories_include">skinshortcuts-group-custom02menu</param>
-            <param name="widgets_include">skinshortcuts-template-custom02widgets</param>
+            <param name="include">TODO_SKINVARIABLES_custom02menu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_custom02menu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_custom02widgets</param>
         </include>
     </controls>
 </window>

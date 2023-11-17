@@ -1,0 +1,10 @@
+<include content="Hub_Widgets_Grouplist">
+    <param name="id">$MATH[{item_x} * 1000 + 400]</param>
+    <param name="topid">$MATH[{item_x} * 1000 + 401]</param>
+    <param name="widgets_only">Skin.HasSetting(Hub.{window_id}.DisableSubmenu)</param>
+    <param name="visible">String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})</param>
+    <control type="group" id="$MATH[{item_x} * 1000 + 401]">
+        <height>widget_tbump_h</height>
+    </control>
+    {all_standard_widgets}
+</include>

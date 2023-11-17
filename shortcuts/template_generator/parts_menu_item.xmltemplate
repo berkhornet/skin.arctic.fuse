@@ -1,0 +1,13 @@
+<item>
+    <label>{item_label}</label>
+    <icon>{item_icon}</icon>
+    <property name="target">{item_target}</property>
+    <property name="path">{item_path}</property>
+    <property name="menu">{item_menu}</property>
+    <property name="mode">{item_mode}</property>
+    <property name="node">{item_node}</property>
+    <property name="item">{item_x}</property>
+    <property name="guid">{item_guid}</property>
+    <onclick>{parts_onclick}</onclick>
+    <visible>{parts_visible}</visible>
+</item>

@@ -9,9 +9,9 @@
         <include content="Hub_Controls">
             <param name="window_id">1102</param>
             <param name="widgets_only">Skin.HasSetting(Hub.TVSHows.DisableSubmenu)</param>
-            <param name="include">skinshortcuts-template-tvshowmenu</param>
-            <param name="categories_include">skinshortcuts-group-tvshowmenu</param>
-            <param name="widgets_include">skinshortcuts-template-tvshowwidgets</param>
+            <param name="include">TODO_SKINVARIABLES_tvshowmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_tvshowmenu</param>
+            <param name="categories_include">TODO_SKINVARIABLES_tvshowwidgets</param>
         </include>
     </controls>
 </window>
