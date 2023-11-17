@@ -67,7 +67,14 @@
                     "includes_part": {"menu": "{item}", "for_each": [
                         {
                             "template": "template_generator/parts_widgets_spotlight.xmltemplate",
-                            "condition": ["{item_spotlight_path}!=", "!Skin.HasSetting(Hub.{window_id}.DisableSubmenu)"]
+                            "condition": ["{item_spotlight_path}!=", "!Skin.HasSetting(Hub.{window_id}.DisableSubmenu)"],
+                            "widget_sortby": [
+                                {
+                                    "condition":"{item_spotlight_sortorder}==True",
+                                    "value" : "descending"
+                                },
+                                "ascending"
+                            ]
                         }
                     ]}
                 },
