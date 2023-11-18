@@ -58,6 +58,7 @@
                             "condition": "{item_submenulist_path}=="
                         },
                         {
+                            "jsonfile": "template_generator/setup_submenu_row.json",
                             "template": "template_generator/parts_submenu_dynamic.xmltemplate",
                             "parts_visible": {"template": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})"},
                             "condition": "{item_submenulist_path}!="
@@ -93,7 +94,17 @@
                             "includes_name": "Hub_Menu_Group",
                             "includes_part": {
                                 "template": "template_generator/parts_widgets_grouplist.xmltemplate",
+                                "grouplist_widgets_only": "False",
                                 "grouplist_visible": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})",
+                                "all_content_adapative_widgets":
+                                {
+                                    "jsonfile": "template_generator/setup_widgets_row.json",
+                                    "template": "template_generator/parts_widgets_row.xmltemplate",
+                                    "widget_altvisible": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})",
+                                    "widget_path": "$INFO[Window.Property(Item.{item_x}302.SpecialFolderPath)]",
+                                    "widget_label": "$INFO[Window.Property(Item.{item_x}302.SpecialFolderLabel)]",
+                                    "condition": ["{item_use_as_widget}==True", "{item_submenulist_path}!="]
+                                },
                                 "all_adapative_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "submenu", "condition": "{item_use_as_widget}==True", "for_each": [
                                     {
                                         "jsonfile": "template_generator/setup_widgets_row.json",
@@ -187,6 +198,7 @@
                     "includes_part": {
                         "template": "template_generator/parts_widgets_grouplist.xmltemplate",
                         "window_id": "Home",
+                        "grouplist_widgets_only": "Skin.HasSetting(Hub.Home.DisableSubmenu)",
                         "grouplist_visible": "String.IsEqual(Container(303).ListItem.Property(guid),{item_guid})",
                         "all_standard_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
                             {

@@ -44,7 +44,7 @@
 
     <include name="Hub_Submenu_List">
         <param name="ondown">340</param>
-        <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_View</param>
+        <!-- <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_View</param> -->
         <definition>
             <include content="Categories_Selector" condition="!Skin.HasSetting(Hubs.HideSubmenus)">
                 <param name="id">$PARAM[id]</param>
@@ -319,7 +319,7 @@
                 <param name="hitrect_w">1640</param>
                 <param name="hitrect_h">80</param>
                 <param name="shorten">True</param>
-                <param name="hidden_button_prefix">Item.$INFO[Container(300).ListItem.Property(id)]302.</param>
+                <param name="hidden_button_prefix">Item.$INFO[Container(300).ListItem.Property(item)]302.</param>
                 <param name="slide">Skin.HasSetting(Slide.WidgetContainer)</param>
 
                 <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">311</onup>

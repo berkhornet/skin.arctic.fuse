@@ -45,6 +45,12 @@
     },
     "grouping://shortcuts/basedir/": [
         {
+            "name": "None",
+            "path": "noop",
+            "icon": "special://skin/extras/icons/watched-hide.png",
+            "link": "true"
+        },
+        {
             "name": "Videos",
             "path": "videodb://",
             "icon": "special://skin/extras/icons/video.png",

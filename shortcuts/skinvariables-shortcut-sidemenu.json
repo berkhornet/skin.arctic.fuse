@@ -14,11 +14,16 @@
             },
             {
                 "label": "New Movies",
-                "path": "special://skin/extras/playlists/NewMovies.xsp"
+                "path": "special://skin/extras/playlists/NewMovies.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
+
             },
             {
                 "label": "New Episodes",
-                "path": "special://skin/extras/playlists/NewEpisodes.xsp"
+                "path": "special://skin/extras/playlists/NewEpisodes.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
             }
         ]
     },
@@ -31,19 +36,27 @@
         "widgets": [
             {
                 "label": "In-Progress",
-                "path": "special://skin/extras/playlists/InProgressMovies.xsp"
+                "path": "special://skin/extras/playlists/InProgressMovies.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
             },
             {
                 "label": "Top Rated",
-                "path": "special://skin/extras/playlists/TopRatedMovies.xsp"
+                "path": "special://skin/extras/playlists/TopRatedMovies.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
             },
             {
                 "label": "Recent",
-                "path": "special://skin/extras/playlists/RecentMovies.xsp"
+                "path": "special://skin/extras/playlists/RecentMovies.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
             },
             {
                 "label": "Random",
-                "path": "special://skin/extras/playlists/RandomMovies.xsp"
+                "path": "special://skin/extras/playlists/RandomMovies.xsp",
+                "widget_style": "Landscape",
+                "target": "videos"
             }
         ]
     },
@@ -57,21 +70,25 @@
             {
                 "label": "In-Progress",
                 "path": "library://video/tvshows/inprogressshows.xml",
+                "widget_style": "Landscape",
                 "target": "videos"
             },
             {
                 "label": "Top Rated",
                 "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
+                "widget_style": "Landscape",
                 "target": "videos"
             },
             {
                 "label": "Recent",
                 "path": "special://skin/extras/playlists/RecentTvShows.xsp",
+                "widget_style": "Landscape",
                 "target": "videos"
             },
             {
                 "label": "Random",
                 "path": "special://skin/extras/playlists/RandomTvShows.xsp",
+                "widget_style": "Landscape",
                 "target": "videos"
             }
         ]

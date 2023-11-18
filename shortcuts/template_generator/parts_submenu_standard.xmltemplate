@@ -2,7 +2,7 @@
     <param name="id">302</param>
     <param name="ondown">340</param>
     <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_Home</param>
-    <param name="hidden_button_prefix">Item.$MATH[{parent_item_x} * 1000 + 302].</param>
+    <param name="hidden_button_prefix">Item.{item_x}302.</param>
     <param name="window_id">{window_id}</param>
     <include content="Action_SkinVariables_ShortcutList_Onclick">
         <param name="id">302</param>
