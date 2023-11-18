@@ -127,9 +127,9 @@
         ]
     },
     {
-        "label": "Live TV Hub",
+        "label": "Live TV",
         "icon": "special://skin/extras/icons/livetv.png",
-        "path": "ActivateWindow(1104)",
+        "path": "ActivateWindow(TVGuide)",
         "expression": "livetv",
         "target": "",
         "widgets": [
