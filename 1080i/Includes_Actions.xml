@@ -71,7 +71,7 @@
         <menucontrol>30000</menucontrol>
     </include>
 
-    <include name="Action_Hub_Onload">
+    <include name="Action_Hubs_Onload">
         <include>Action_BuildShortcuts_OnLoad</include>
         <onunload>CancelAlarm(playtrailer,silent)</onunload>
     </include>

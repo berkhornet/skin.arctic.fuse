@@ -13,7 +13,11 @@
     "genxml": [
         {
             "list": [
-                ["homemenu", {"window_id": "Home"}]
+                ["homemenu", {"window_id": "Home"}],
+                ["1101menu", {"window_id": "1101"}],
+                ["1102menu", {"window_id": "1102"}],
+                ["1103menu", {"window_id": "1103"}],
+                ["1104menu", {"window_id": "1104"}]
             ],
             "for_each": [
                 {

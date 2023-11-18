@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1115">
+<window type="window" id="1115">
     <defaultcontrol always="true">22000</defaultcontrol>
-    <onload condition="String.IsEmpty(Window.Property(EditMenu))">SetProperty(EditMenu,menu=homemenu)</onload>
+    <onload condition="String.IsEmpty(Window.Property(EditMenu))">SetProperty(EditMenu,menu=sidemenu)</onload>
     <onload>ClearProperty(EditMode)</onload>
     <onload>ClearProperty(EditGUID)</onload>
     <onload>ClearProperty(PrevMenu)</onload>
@@ -123,6 +123,12 @@
                         <bottom>-20</bottom>
                         <right>20</right>
                         <width>600</width>
+
+                        <include content="Settings_Arrows">
+                            <param name="arrow_prev_visible">Container(23000).HasPrevious</param>
+                            <param name="arrow_next_visible">Container(23000).HasNext</param>
+                        </include>
+
                         <include content="Dialog_Outline_Box">
                             <control type="grouplist" id="23000">
                                 <onleft>22005</onleft>
@@ -358,34 +364,29 @@
                                     <visible>String.IsEqual(Window.Property(EditMenu),menu=sidemenu)</visible>
                                 </include>
 
-                                <!-- Customise Hub -->
-                                <include content="Settings_Button">
+                                <!-- Hub Customisation Sub Label -->
+                                <include content="Settings_Label">
                                     <param name="dialog">true</param>
                                     <param name="id">23018</param>
-                                    <param name="control">button</param>
                                     <label>Customise hub</label>
-                                    <onback>24000</onback>
-                                    <onclick>SetProperty(PrevMenu,$INFO[Window.Property(EditMenu)])</onclick>
-                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home))">SetProperty(EditMenu,menu=homemenu)</onclick>
-                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101))">SetProperty(EditMenu,menu=hubamenu)</onclick>
-                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102))">SetProperty(EditMenu,menu=hubbmenu)</onclick>
-                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103))">SetProperty(EditMenu,menu=hubcmenu)</onclick>
-                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))">SetProperty(EditMenu,menu=hubdmenu)</onclick>
-                                    <!-- <visible>String.IsEqual(Window.Property(EditMenu),menu=sidemenu)</visible> -->
                                     <visible>String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))</visible>
                                 </include>
 
-                                <!-- Edit Main -->
-                                <!-- <include content="Settings_Button">
+                                <!-- Customise Hub -->
+                                <include content="Settings_Button">
                                     <param name="dialog">true</param>
-                                    <param name="id">23010</param>
+                                    <param name="id">23019</param>
                                     <param name="control">button</param>
-                                    <label>Edit main menu</label>
-                                    <onclick>ClearProperty(EditMode)</onclick>
-                                    <onclick>ClearProperty(EditGUID)</onclick>
+                                    <label>Edit categories</label>
                                     <onback>24000</onback>
-                                    <visible>!String.IsEmpty(Window.Property(EditMode))</visible>
-                                </include> -->
+                                    <onclick>SetProperty(PrevMenu,$INFO[Window.Property(EditMenu)])</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home))">SetProperty(EditMenu,menu=homemenu)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101))">SetProperty(EditMenu,menu=1101menu)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102))">SetProperty(EditMenu,menu=1102menu)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103))">SetProperty(EditMenu,menu=1103menu)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))">SetProperty(EditMenu,menu=1104menu)</onclick>
+                                    <visible>String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))</visible>
+                                </include>
                             </control>
                         </include>
                     </control>

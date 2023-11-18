@@ -53,23 +53,11 @@
                 <bottom>260</bottom>
                 <width>view_side</width>
 
-                <control type="image">
-                    <centerleft>50%</centerleft>
-                    <top>-20</top>
-                    <texture flipy="false" colordiffuse="main_fg_30">special://skin/extras/icons/angle-up.png</texture>
-                    <width>40</width>
-                    <height>40</height>
-                    <visible>Container($PARAM[id]).HasPrevious</visible>
-                </control>
-
-                <control type="image">
-                    <centerleft>50%</centerleft>
-                    <bottom>-20</bottom>
-                    <texture flipy="true" colordiffuse="main_fg_30">special://skin/extras/icons/angle-up.png</texture>
-                    <width>40</width>
-                    <height>40</height>
-                    <visible>Container($PARAM[id]).HasNext</visible>
-                </control>
+                <include content="Settings_Arrows">
+                    <param name="arrow_prev_visible">Container($PARAM[id]).HasPrevious</param>
+                    <param name="arrow_next_visible">Container($PARAM[id]).HasNext</param>
+                    <param name="colordiffuse">main_fg_30</param>
+                </include>
 
                 <control type="fixedlist" id="$PARAM[id]">
                     <focusposition>2</focusposition>
