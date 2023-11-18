@@ -156,7 +156,7 @@
                             <param name="id">1002</param>
                             <param name="groupid">1102</param>
                             <param name="icon">$VAR[Image_Home]</param>
-                            <label>$LOCALIZE[31493]</label>
+                            <label>$LOCALIZE[31496]</label>
                             <onclick>SetProperty(Shortcuts.EditMenu,menu=sidemenu,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>

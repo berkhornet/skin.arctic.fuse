@@ -4,34 +4,130 @@
         "icon": "special://skin/extras/icons/home.png",
         "path": "ActivateWindow(Home)",
         "expression": "home",
-        "target": ""
+        "target": "",
+        "widgets": [
+            {
+                "label": "Videos",
+                "path": "videodb://",
+                "widget_style": "Apps",
+                "target": "videos"
+            },
+            {
+                "label": "New Movies",
+                "path": "special://skin/extras/playlists/NewMovies.xsp"
+            },
+            {
+                "label": "New Episodes",
+                "path": "special://skin/extras/playlists/NewEpisodes.xsp"
+            }
+        ]
     },
     {
         "label": "Movies Hub",
         "icon": "special://skin/extras/icons/film.png",
         "path": "ActivateWindow(1101)",
         "expression": "movies",
-        "target": ""
+        "target": "",
+        "widgets": [
+            {
+                "label": "In-Progress",
+                "path": "special://skin/extras/playlists/InProgressMovies.xsp"
+            },
+            {
+                "label": "Top Rated",
+                "path": "special://skin/extras/playlists/TopRatedMovies.xsp"
+            },
+            {
+                "label": "Recent",
+                "path": "special://skin/extras/playlists/RecentMovies.xsp"
+            },
+            {
+                "label": "Random",
+                "path": "special://skin/extras/playlists/RandomMovies.xsp"
+            }
+        ]
     },
     {
         "label": "TV Shows Hub",
         "icon": "special://skin/extras/icons/tv.png",
         "path": "ActivateWindow(1102)",
         "expression": "tvshows",
-        "target": ""
+        "target": "",
+        "widgets": [
+            {
+                "label": "In-Progress",
+                "path": "library://video/tvshows/inprogressshows.xml",
+                "target": "videos"
+            },
+            {
+                "label": "Top Rated",
+                "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
+                "target": "videos"
+            },
+            {
+                "label": "Recent",
+                "path": "special://skin/extras/playlists/RecentTvShows.xsp",
+                "target": "videos"
+            },
+            {
+                "label": "Random",
+                "path": "special://skin/extras/playlists/RandomTvShows.xsp",
+                "target": "videos"
+            }
+        ]
     },
     {
         "label": "Music Hub",
         "icon": "special://skin/extras/icons/songs.png",
         "path": "ActivateWindow(1103)",
         "expression": "music",
-        "target": ""
+        "target": "",
+        "widgets": [
+            {
+                "label": "New",
+                "path": "musicdb://recentlyaddedalbums/",
+                "widget_style": "Square",
+                "target": "music"
+            },
+            {
+                "label": "Top 100",
+                "path": "musicdb://top100/albums/",
+                "widget_style": "Square",
+                "target": "music"
+            },
+            {
+                "label": "Recent",
+                "path": "musicdb://recentlyplayedalbums/",
+                "widget_style": "Square",
+                "target": "music"
+            },
+            {
+                "label": "Random",
+                "path": "special://skin/extras/playlists/RandomAlbums.xsp",
+                "widget_style": "Square",
+                "target": "music"
+            }
+        ]
     },
     {
         "label": "Live TV Hub",
         "icon": "special://skin/extras/icons/livetv.png",
         "path": "ActivateWindow(1104)",
         "expression": "livetv",
-        "target": ""
+        "target": "",
+        "widgets": [
+            {
+                "label": "$LOCALIZE[568]",
+                "path": "pvr://channels/tv/*",
+                "widget_style": "Square",
+                "target": "tvguide"
+            },
+            {
+                "label": "$LOCALIZE[19017]",
+                "path": "pvr://recordings/tv/active?view=flat",
+                "widget_style": "Square",
+                "target": "tvguide"
+            }
+        ]
     }
 ]

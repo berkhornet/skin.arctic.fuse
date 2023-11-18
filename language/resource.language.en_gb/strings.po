@@ -2264,3 +2264,8 @@ msgstr ""
 msgctxt "#31495"
 msgid "Unlocked"
 msgstr ""
+
+#: /1080i/Includes_Items.xml
+msgctxt "#31496"
+msgid "Customise widgets"
+msgstr ""

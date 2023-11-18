@@ -3,6 +3,7 @@
     "widget_group_id": "$MATH[{parent_item_x} * 1000 + 700 + {item_sum_x}]",
     "widget_label": "{item_label}",
     "widget_path": "{item_path}",
+    "widget_target": "{item_target}",
     "widget_sortby": "{item_widget_sortby}",
     "widget_sortorder": [
         {

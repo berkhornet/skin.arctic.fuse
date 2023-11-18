@@ -382,7 +382,7 @@
             </control>
             <include content="Object_Hidden_Button">
                 <param name="id">393</param>
-                <onfocus condition="Skin.HasSetting(Hub.Home.DisableSubmenu)">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</onfocus>
+                <onfocus condition="Skin.HasSetting(Hub.Home.DisableSubmenu)">$VAR[Action_Menu_Position]</onfocus>
                 <onfocus condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">SetFocus(300)</onfocus>
             </include>
         </definition>

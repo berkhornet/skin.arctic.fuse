@@ -18,6 +18,7 @@
         <include content="Hub_Controls">
             <param name="window_id">Home</param>
             <param name="widgets_only">Skin.HasSetting(Hub.Home.DisableSubmenu)</param>
+            <param name="widgets_include">skinvariables-homemenu-widgetsonly</param>
             <param name="categories">homemenu</param>
         </include>
 

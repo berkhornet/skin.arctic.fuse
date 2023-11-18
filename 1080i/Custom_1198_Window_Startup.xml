@@ -49,6 +49,17 @@
     <onload>Skin.SetString(SkinConstant.Numeric.18,$NUMBER[18])</onload>
     <onload>Skin.SetString(SkinConstant.Numeric.19,$NUMBER[19])</onload>
 
+    <!-- Set Default Spotlights -->
+    <onload condition="String.IsEmpty(Skin.String(Hub.Home.Spotlight.Path))">Skin.SetString(Hub.Home.Spotlight.Path,special://skin/extras/playlists/RandomMovies.xsp)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.Home.Spotlight.Target))">Skin.SetString(Hub.Home.Spotlight.Target,videos)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1101.Spotlight.Path))">Skin.SetString(Hub.1101.Spotlight.Path,special://skin/extras/playlists/RandomMovies.xsp)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1101.Spotlight.Target))">Skin.SetString(Hub.1101.Spotlight.Target,videos)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1102.Spotlight.Path))">Skin.SetString(Hub.1102.Spotlight.Path,special://skin/extras/playlists/RandomTvShows.xsp)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1102.Spotlight.Target))">Skin.SetString(Hub.1102.Spotlight.Target,videos)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1103.Spotlight.Path))">Skin.SetString(Hub.1103.Spotlight.Path,special://skin/extras/playlists/RandomArtists.xsp)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1103.Spotlight.Target))">Skin.SetString(Hub.1103.Spotlight.Target,music)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1104.Spotlight.Path))">Skin.SetString(Hub.1104.Spotlight.Path,pvr://channels/tv/*)</onload>
+    <onload condition="String.IsEmpty(Skin.String(Hub.1104.Spotlight.Target))">Skin.SetString(Hub.1104.Spotlight.Target,tvguide)</onload>
 
     <!-- Set Default Ratings -->
     <onload condition="String.IsEmpty(Skin.String(CustomRating.Movies.Item01))">Skin.SetString(CustomRating.Movies.Item01,Kodi)</onload>

@@ -123,7 +123,7 @@
             <include content="Action_Widget_Top_HomeLoop" condition="Skin.String(Movement.Content.OnUp,Loop)">
                 <param name="condition">$PARAM[condition]</param>
             </include>
-            <onup condition="$PARAM[condition] + Skin.String(Movement.Content.OnUp,Menu)">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</onup>
+            <onup condition="$PARAM[condition] + Skin.String(Movement.Content.OnUp,Menu)">$VAR[Action_Menu_Position]</onup>
             <onup condition="$PARAM[condition] + !Skin.String(Movement.Content.OnUp,Loop) + !Skin.String(Movement.Content.OnUp,Menu)">333</onup>
         </definition>
     </include>
@@ -133,17 +133,14 @@
         <ondown>SetProperty(List.ViewContainer,$NUMBER[$PARAM[id]])</ondown>
         <ondown condition="Skin.String(Movement.Content.OnDown,Loop)">$PARAM[topid]</ondown>
         <ondown condition="Skin.String(Movement.Content.OnDown,Loop)">AlarmClock(refocus,SetFocus(311),00:00,silent)</ondown>
-        <ondown condition="Skin.String(Movement.Content.OnDown,Menu)">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</ondown>
+        <ondown condition="Skin.String(Movement.Content.OnDown,Menu)">$VAR[Action_Menu_Position]</ondown>
         <ondown condition="!Skin.String(Movement.Content.OnDown,Loop) + !Skin.String(Movement.Content.OnDown,Menu)">330</ondown>
     </include>
 
-    <variable name="Action_Menu_ID">
-        <value>303</value>
-    </variable>
-
     <!-- TODO_SKINVARIABLES :: Positioned based upon widget stack positions -->
     <variable name="Action_Menu_Position">
-        <value>1</value>
+        <value>SetFocus(303)</value>
+        <value>SetFocus(303,1,absolute)</value>
     </variable>
 
     <include name="Action_UpdateSearchTerm">
@@ -166,9 +163,10 @@
         <definition>
 
             <!-- OnLeft: Loop -->
-            <onleft condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)],99999,absolute)</onleft>
-            <onleft condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)])</onleft>
-            <onleft condition="String.IsEmpty(Window.Property(List.ViewContainer)) + Skin.String(Movement.Menu.OnLeft,Loop)">$PARAM[onlist]</onleft>
+            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)],99999,absolute)</onleft>
+            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)])</onleft>
+            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + String.IsEmpty(Window.Property(List.ViewContainer)) + Skin.String(Movement.Menu.OnLeft,Loop)">$PARAM[onlist]</onleft>
+            <onleft condition="[Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + Skin.String(Movement.Menu.OnLeft,Loop)">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onleft>
 
             <!-- OnLeft: Bump -->
             <onleft condition="Skin.String(Movement.Menu.OnLeft,Bump)">331</onleft>
@@ -177,9 +175,10 @@
             <onleft condition="Skin.String(Movement.Menu.OnLeft,Menu)">$PARAM[onmenu]</onleft>
 
             <!-- OnRight: Refocus Content Always -->
-            <onright condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)],0,absolute)</onright>
-            <onright condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)])</onright>
-            <onright condition="String.IsEmpty(Window.Property(List.ViewContainer))">$PARAM[onlist]</onright>
+            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)],0,absolute)</onright>
+            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)])</onright>
+            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + String.IsEmpty(Window.Property(List.ViewContainer))">$PARAM[onlist]</onright>
+            <onright condition="[Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)]">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onright>
 
         </definition>
     </include>
@@ -291,7 +290,7 @@
     <include name="Action_View_Movement_OnUp">
         <onup condition="Skin.String(Movement.Library.OnUp,Wall)">$VAR[Action_Var_ToWallView]</onup>
         <onup condition="Skin.String(Movement.Library.OnUp,Plot)">ActivateWindow(1113)</onup>
-        <onup condition="Skin.String(Movement.Library.OnUp,Menu)">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</onup>
+        <onup condition="Skin.String(Movement.Library.OnUp,Menu)">$VAR[Action_Menu_Position]</onup>
         <onup condition="Skin.String(Movement.Library.OnUp,Bump)">SetFocus(333)</onup>
         <onup condition="Skin.String(Movement.Library.OnUp,View)">$VAR[Action_Var_ToMediaFilter]</onup>
         <onup condition="Skin.String(Movement.Library.OnUp,Jump)">$VAR[Action_Var_ToScrollBar]</onup>
@@ -300,7 +299,7 @@
     <include name="Action_View_Movement_OnDown">
         <ondown condition="Skin.String(Movement.Library.OnDown,Wall)">$VAR[Action_Var_ToWallView]</ondown>
         <ondown condition="Skin.String(Movement.Library.OnDown,Plot)">ActivateWindow(1113)</ondown>
-        <ondown condition="Skin.String(Movement.Library.OnDown,Menu)">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</ondown>
+        <ondown condition="Skin.String(Movement.Library.OnDown,Menu)">$VAR[Action_Menu_Position]</ondown>
         <ondown condition="Skin.String(Movement.Library.OnDown,Bump)">SetFocus(330)</ondown>
         <ondown condition="Skin.String(Movement.Library.OnDown,View)">$VAR[Action_Var_ToMediaFilter]</ondown>
         <ondown condition="Skin.String(Movement.Library.OnDown,Jump)">$VAR[Action_Var_ToScrollBar]</ondown>
@@ -310,12 +309,12 @@
         <onback>303</onback>
         <onback>SetProperty(List.ViewContainer.Reset,$NUMBER[$PARAM[id]])</onback>
         <onback>SetProperty(List.ViewContainer,$NUMBER[$PARAM[id]])</onback>
-        <onback>SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</onback>
+        <onback>$VAR[Action_Menu_Position]</onback>
     </include>
 
     <include name="Action_View_Movement_OnLeft">
         <param name="string">Movement.Content.OnLeft</param>
-        <param name="onmenu">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</param>
+        <param name="onmenu">$VAR[Action_Menu_Position]</param>
         <definition>
 
             <!-- Menu -->
@@ -336,7 +335,7 @@
     <include name="Action_View_Movement_OnRight">
         <param name="string">Movement.Content.OnRight</param>
         <param name="refocus">Skin.String(Movement.Content.OnRight,Menu)</param>
-        <param name="onmenu">SetFocus($VAR[Action_Menu_ID],$VAR[Action_Menu_Position],absolute)</param>
+        <param name="onmenu">$VAR[Action_Menu_Position]</param>
         <definition>
 
             <!-- Menu -->

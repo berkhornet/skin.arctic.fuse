@@ -200,15 +200,6 @@
             <onclick>ActivateWindow(1180)</onclick>
         </include>
 
-        <include content="Settings_Button" description="Categories slide up on focus">
-            <param name="id">8003</param>
-            <param name="dialog">true</param>
-            <param name="control">radiobutton</param>
-            <label>$LOCALIZE[31488]</label>
-            <onclick>Skin.ToggleSetting(Slide.WidgetContainer)</onclick>
-            <selected>Skin.HasSetting(Slide.WidgetContainer)</selected>
-        </include>
-
         <include content="Settings_Label" description="SideMenu Label">
             <param name="id">8005</param>
             <param name="dialog">true</param>
@@ -231,7 +222,7 @@
             <param name="dialog">true</param>
             <param name="groupid">8107</param>
             <param name="icon">$VAR[Image_Home]</param>
-            <label>$LOCALIZE[31493]</label>
+            <label>$LOCALIZE[31496]</label>
             <onclick>SetProperty(Shortcuts.EditMenu,menu=sidemenu,Home)</onclick>
             <onclick>ActivateWindow(1115)</onclick>
         </include>
@@ -255,6 +246,23 @@
             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_PowerMenuConfigure,Home)</onclick>
             <onclick>AlarmClock(reopen,ActivateWindow(1118),00:01,silent)</onclick>
         </include>
+
+        <include content="Settings_Label" description="SideMenu Label">
+            <param name="id">8010</param>
+            <param name="dialog">true</param>
+            <label>$LOCALIZE[33063]</label>
+        </include>
+
+        <include content="Settings_Button" description="Categories slide up on focus">
+            <param name="id">8011</param>
+            <param name="dialog">true</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31488]</label>
+            <onclick>Skin.ToggleSetting(Slide.WidgetContainer)</onclick>
+            <selected>Skin.HasSetting(Slide.WidgetContainer)</selected>
+        </include>
+
+
     </include>
 
 

@@ -26,7 +26,7 @@
     </include>
 
     <include name="Home_Menu_Content">
-        <param name="condition">!Skin.HasSetting(Home.HideSideMenu)</param>
+        <param name="condition">$EXP[Exp_HomeMenu_DontHide]</param>
         <definition>
             <include content="Object_ContentDynamic" condition="$PARAM[condition] + Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
                 <param name="content">plugin://script.skinvariables/?info=get_shortcuts_node&amp;menu=sidemenu&amp;skin=skin.arctic.fuse&amp;reload=$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload)]</param>
@@ -35,12 +35,15 @@
                 <include>skinvariables-sidemenu-staticitems</include>
             </include>
             <include content="Object_ContentNested" condition="![$PARAM[condition]]">
-                <item>
+                <include>skinvariables-sidemenu-staticbutton</include>
+                <!-- <item>
                     <label>$LOCALIZE[33061]</label>
                     <icon>special://skin/extras/icons/list-check.png</icon>
                     <property name="showlabel">True</property>
                     <property name="path">ActivateWindow(1170)</property>
-                </item>
+                    <property name="guid">5a5554b7</property>
+                    <property name="widgets_only_focus">SetFocus(400)</property>
+                </item> -->
             </include>
         </definition>
     </include>
@@ -78,14 +81,15 @@
                         <param name="numitems">3</param>
                     </include>
 
-                    <onup condition="!Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Home.DisableSearchAndOptions)">308</onup>
-                    <ondown condition="!Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Home.DisableSearchAndOptions)">309</ondown>
+                    <onup condition="$EXP[Exp_HomeMenu_DontHide] + !Skin.HasSetting(Home.DisableSearchAndOptions)">308</onup>
+                    <ondown condition="$EXP[Exp_HomeMenu_DontHide] + !Skin.HasSetting(Home.DisableSearchAndOptions)">309</ondown>
 
                     <onback>$PARAM[onlist]</onback>
                     <onback>SetFocus($PARAM[onlist])</onback>
                     <onback condition="!Window.IsVisible(Home)">PreviousMenu</onback>
 
                     <onfocus>CancelAlarm(SplashTimeOut,silent)</onfocus>
+                    <onfocus condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)">SetProperty(TMDbHelper.WidgetContainer,301)</onfocus>
 
                     <include content="Action_HomeMenu_OnRightLeft">
                         <param name="onlist">$PARAM[onlist]</param>
@@ -193,7 +197,7 @@
             <visible>!$EXP[Exp_InfoDialogs]</visible>
             <control type="group">
                 <!-- Search -->
-                <include content="Home_Menu_Button_Icon" condition="!Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Home.DisableSearchAndOptions)">
+                <include content="Home_Menu_Button_Icon" condition="$EXP[Exp_HomeMenu_DontHide] + !Skin.HasSetting(Home.DisableSearchAndOptions)">
                     <param name="id">308</param>
                     <param name="icon">special://skin/extras/icons/search.png</param>
                     <param name="label">$LOCALIZE[137]</param>
@@ -214,7 +218,7 @@
                 </include>
 
                 <!-- Settings -->
-                <include content="Home_Menu_Button_Icon" condition="!Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Home.DisableSearchAndOptions)">
+                <include content="Home_Menu_Button_Icon" condition="$EXP[Exp_HomeMenu_DontHide] + !Skin.HasSetting(Home.DisableSearchAndOptions)">
                     <param name="id">309</param>
                     <param name="icon">special://skin/extras/icons/bars.png</param>
                     <param name="label">$LOCALIZE[33063]</param>

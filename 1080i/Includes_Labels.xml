@@ -1060,12 +1060,13 @@
     <variable name="Label_WidgetTitle">
         <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_tvshowtitle))">$INFO[Container(99950).ListItem.Property(base_tvshowtitle)]</value>
         <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_title))">$INFO[Container(99950).ListItem.Property(base_title)]</value>
-        <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_label))">$INFO[Container(99950).ListItem.Property(base_label)]</value>
+        <!-- <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_label))">$INFO[Container(99950).ListItem.Property(base_label)]</value> -->
         <value>$VAR[Label_TitleFallback]</value>
     </variable>
 
     <variable name="Label_TitleFallback">
-        <value>$LOCALIZE[33006][CR]$INFO[Weather.Conditions]</value>
+        <value condition="!String.IsEmpty(Weather.Conditions) + Weather.IsFetched">$INFO[Weather.Conditions,, ]$INFO[Weather.Temperature][CR]$INFO[Window(Weather).Property(Location)]</value>
+        <value>$INFO[System.Time][CR]$INFO[System.Date]</value>
     </variable>
 
 </includes>

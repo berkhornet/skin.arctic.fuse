@@ -1142,6 +1142,18 @@
                     <param name="textcolor">$PARAM[colordiffuse]_90</param>
                 </include>
 
+
+                <include content="Info_Line_Item">
+                    <param name="label">$INFO[System.ProfileName]</param>
+                    <param name="visible">String.IsEmpty(Container(99950).ListItem.Label)</param>
+                    <param name="textcolor">$PARAM[colordiffuse]_90</param>
+                </include>
+                <include content="Info_Line_Item">
+                    <param name="label">$INFO[System.BuildVersionCode,v,]</param>
+                    <param name="visible">String.IsEmpty(Container(99950).ListItem.Label)</param>
+                    <param name="textcolor">$PARAM[colordiffuse]_90</param>
+                </include>
+
                 <nested />
             </control>
 

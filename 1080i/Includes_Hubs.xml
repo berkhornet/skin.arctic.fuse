@@ -223,13 +223,13 @@
 
         <include content="Object_Hidden_Button">
             <param name="id">300</param>
-            <onfocus condition="!Integer.IsEqual(Container(400).NumItems,0)">SetFocus(400)</onfocus>
-            <onleft>SetFocus($VAR[Action_Menu_ID])</onleft>
-            <onright>SetFocus($VAR[Action_Menu_ID])</onright>
-            <ondown>SetFocus($VAR[Action_Menu_ID])</ondown>
-            <onup>SetFocus($VAR[Action_Menu_ID])</onup>
-            <onback>SetFocus($VAR[Action_Menu_ID])</onback>
-            <onclick>SetFocus($VAR[Action_Menu_ID])</onclick>
+            <onfocus>SetFocus(303)</onfocus>
+            <onleft>SetFocus(303)</onleft>
+            <onright>SetFocus(303)</onright>
+            <ondown>SetFocus(303)</ondown>
+            <onup>SetFocus(303)</onup>
+            <onback>SetFocus(303)</onback>
+            <onclick>SetFocus(303)</onclick>
         </include>
 
         <include>Background_Transition</include>
@@ -240,22 +240,7 @@
                     <param name="container">Container.</param>
                 </include>
             </include>
-            <include content="Hub_Menu_Group">
-                <include content="Hub_Widgets_Grouplist">
-                    <param name="id">400</param>
-                    <param name="topid">401</param>
-                    <param name="widgets_only">True</param>
-                    <param name="visible">True</param>
-                    <control type="group" id="401">
-                        <height>widget_tbump_h</height>
-                    </control>
-
-                    <include>$PARAM[widgets_include]</include>
-
-                    <control type="group" id="499">
-                    </control>
-                </include>
-            </include>
+            <include>$PARAM[widgets_include]</include>
         </include>
     </include>
 

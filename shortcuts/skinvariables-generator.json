@@ -93,6 +93,7 @@
                             "includes_name": "Hub_Menu_Group",
                             "includes_part": {
                                 "template": "template_generator/parts_widgets_grouplist.xmltemplate",
+                                "grouplist_visible": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})",
                                 "all_adapative_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "submenu", "condition": "{item_use_as_widget}==True", "for_each": [
                                     {
                                         "jsonfile": "template_generator/setup_widgets_row.json",
@@ -159,6 +160,42 @@
                 {
                     "template": "template_generator/parts_menu_item.xmltemplate",
                     "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"]
+                }
+            ]}
+        },
+        {
+            "comments": "Static Sidemenu Button",
+            "template": "template_generator/parts_basic_include.xmltemplate",
+            "includes_name": "skinvariables-sidemenu-staticbutton",
+            "includes_part": {"menu": "sidemenu", "for_each": [
+                {
+                    "template": "template_generator/parts_menu_buttonitem.xmltemplate",
+                    "condition": "{item_x}==0",
+                    "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"]
+                }
+            ]}
+        },
+        {
+            "comments": "Home Widgets Only",
+            "template": "template_generator/parts_basic_include.xmltemplate",
+            "includes_name": "skinvariables-homemenu-widgetsonly",
+            "includes_part": {"menu": "sidemenu", "for_each": [
+                {
+                    "comments": "Widget Group",
+                    "template": "template_generator/parts_basic_content.xmltemplate",
+                    "includes_name": "Hub_Menu_Group",
+                    "includes_part": {
+                        "template": "template_generator/parts_widgets_grouplist.xmltemplate",
+                        "window_id": "Home",
+                        "grouplist_visible": "String.IsEqual(Container(303).ListItem.Property(guid),{item_guid})",
+                        "all_standard_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
+                            {
+                                "jsonfile": "template_generator/setup_widgets_row.json",
+                                "template": "template_generator/parts_widgets_row.xmltemplate",
+                                "condition": "{item_path}!="
+                            }
+                        ]}
+                    }
                 }
             ]}
         }
