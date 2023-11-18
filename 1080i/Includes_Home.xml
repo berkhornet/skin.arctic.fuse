@@ -28,8 +28,11 @@
     <include name="Home_Menu_Content">
         <param name="condition">!Skin.HasSetting(Home.HideSideMenu)</param>
         <definition>
-            <include content="Object_ContentDynamic" condition="$PARAM[condition]">
+            <include content="Object_ContentDynamic" condition="$PARAM[condition] + Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
                 <param name="content">plugin://script.skinvariables/?info=get_shortcuts_node&amp;menu=sidemenu&amp;skin=skin.arctic.fuse&amp;reload=$INFO[Window(Home).Property(SkinVariables.ShortcutsNode.Reload)]</param>
+            </include>
+            <include content="Object_ContentNested" condition="$PARAM[condition] + !Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
+                <include>skinvariables-sidemenu-staticitems</include>
             </include>
             <include content="Object_ContentNested" condition="![$PARAM[condition]]">
                 <item>

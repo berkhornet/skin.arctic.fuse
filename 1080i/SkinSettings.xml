@@ -110,7 +110,7 @@
 
                         <include content="Settings_Label" description="SideMenu Label">
                             <param name="id">1010</param>
-                            <label>Configure</label>
+                            <label>$LOCALIZE[24020]</label>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
                         <include content="Settings_Button" description="Wizard">
@@ -152,23 +152,21 @@
                             <onclick>Skin.ToggleSetting(Home.HideSideMenu)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
+                        <include content="Settings_ButtonImage" description="Home Menu">
+                            <param name="id">1002</param>
+                            <param name="groupid">1102</param>
+                            <param name="icon">$VAR[Image_Home]</param>
+                            <label>$LOCALIZE[31493]</label>
+                            <onclick>SetProperty(Shortcuts.EditMenu,menu=sidemenu,Home)</onclick>
+                            <onclick>ActivateWindow(1115)</onclick>
+                            <visible>Container(3).HasFocus(1)</visible>
+                        </include>
                         <include content="Settings_ButtonImage" description="Search Menu">
                             <param name="id">1001</param>
                             <param name="groupid">1101</param>
                             <param name="icon">special://skin/extras/icons/search.png</param>
                             <label>$LOCALIZE[31275]</label>
-                            <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31275][/CAPITALIZE],Home)</onclick>
-                            <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SearchMenu,Home)</onclick>
-                            <onclick>ActivateWindow(1115)</onclick>
-                            <visible>Container(3).HasFocus(1)</visible>
-                        </include>
-                        <include content="Settings_ButtonImage" description="Home Menu">
-                            <param name="id">1002</param>
-                            <param name="groupid">1102</param>
-                            <param name="icon">$VAR[Image_Home]</param>
-                            <label>$LOCALIZE[31276]</label>
-                            <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31276][/CAPITALIZE],Home)</onclick>
-                            <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_HomeMenu,Home)</onclick>
+                            <onclick>SetProperty(Shortcuts.EditMenu,menu=searchmenu,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>

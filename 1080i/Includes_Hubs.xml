@@ -134,9 +134,6 @@
     <include name="Hub_Controls">
         <param name="fullscreen_content">$VAR[Path_Hub_WidgetOnly_Content]</param>
         <param name="fullscreen_target">$VAR[Path_Hub_WidgetOnly_Target]</param>
-        <param name="fullscreen_label">$VAR[Label_Hub_Spotlight]</param>
-        <param name="fullscreen_sort">$VAR[Label_Hub_Sort]</param>
-        <param name="fullscreen_descending">False</param>
         <param name="fullscreen_sortby">random</param>
         <param name="widgets_only">false</param>
         <param name="include">Hub_Standard</param>
@@ -352,11 +349,11 @@
                 <ondown condition="!Skin.HasSetting(Hubs.HideSubmenus)">302</ondown>
                 <ondown condition="Skin.HasSetting(Hubs.HideSubmenus)">340</ondown>
                 <onfocus>SetProperty(TMDbHelper.WidgetContainer,301,$PARAM[window_id])</onfocus>
-                <include content="Hub_Categories_Dynamic" condition="!Skin.HasSetting(Hubs.KioskMode)">
+                <include content="Hub_Categories_Dynamic" condition="Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
                     <param name="id">$PARAM[id]</param>
                     <param name="categories">$PARAM[categories]</param>
                 </include>
-                <include content="Hub_Categories_Static" condition="Skin.HasSetting(Hubs.KioskMode)">
+                <include content="Hub_Categories_Static" condition="!Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
                     <param name="id">$PARAM[id]</param>
                     <param name="categories">$PARAM[categories]</param>
                 </include>

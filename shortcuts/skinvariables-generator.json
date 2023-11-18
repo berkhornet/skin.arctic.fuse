@@ -150,6 +150,17 @@
                     "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"]
                 }
             ]}
+        },
+        {
+            "comments": "Static Sidemenu",
+            "template": "template_generator/parts_basic_include.xmltemplate",
+            "includes_name": "skinvariables-sidemenu-staticitems",
+            "includes_part": {"menu": "sidemenu", "for_each": [
+                {
+                    "template": "template_generator/parts_menu_item.xmltemplate",
+                    "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"]
+                }
+            ]}
         }
     ]
 }

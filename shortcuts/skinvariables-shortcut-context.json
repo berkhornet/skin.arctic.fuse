@@ -1,5 +1,5 @@
 {
     "mainmenu": [
-        ["More configuration options...", "do_executebuiltin", ["SetProperty(EditMenu,menu={menu},1115)", "ActivateWindow(1115)"]]
+        ["More configuration options...", "do_executebuiltin", ["SetProperty(Shortcuts.EditMenu,menu={menu},Home)", "ActivateWindow(1115)"]]
     ]
 }

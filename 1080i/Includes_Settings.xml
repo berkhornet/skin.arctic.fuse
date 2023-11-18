@@ -358,6 +358,7 @@
                 <alttexturenofocus />
                 <include condition="$PARAM[dialog]">defs_dialog_$PARAM[control]</include>
                 <enable>$PARAM[enable]</enable>
+                <label>$PARAM[sublabel]</label>
             </control>
             <control type="group" id="$PARAM[groupid]">
                 <nested />

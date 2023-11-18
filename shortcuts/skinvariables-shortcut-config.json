@@ -115,15 +115,47 @@
             "node": "videos"
         }
     ],
-    "grouping://shortcuts/": [
-        "grouping://shortcuts/basedir/",
-        "grouping://shortcuts/tmdbhelper/",
+    "grouping://shortcuts/hubs/": [
         {
-            "name": "TMDbHelper Test",
-            "path": "ActivateWindow(videos,plugin://plugin.video.themoviedb.helper/,return)",
-            "icon": "special://skin/extras/icons/plug.png",
-            "link": "true",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)"
+            "name": "Home",
+            "path": "ActivateWindow(Home)",
+            "icon": "special://skin/extras/icons/home.png",
+            "link": "true"
+        },
+        {
+            "name": "Movies Hub",
+            "path": "ActivateWindow(1101)",
+            "icon": "special://skin/extras/icons/film.png",
+            "link": "true"
+        },
+        {
+            "name": "TV Shows Hub",
+            "path": "ActivateWindow(1102)",
+            "icon": "special://skin/extras/icons/tv.png",
+            "link": "true"
+        },
+        {
+            "name": "Music Hub",
+            "path": "ActivateWindow(1103)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "link": "true"
+        },
+        {
+            "name": "Live TV Hub",
+            "path": "ActivateWindow(1104)",
+            "icon": "special://skin/extras/icons/livetv.png",
+            "link": "true"
         }
+    ],
+    "grouping://shortcuts/": [
+        {
+            "name": "Hubs",
+            "path": "grouping://shortcuts/hubs/",
+            "icon": "special://skin/extras/icons/home.png",
+            "link": "false",
+            "rule": "True"
+        },
+        "grouping://shortcuts/basedir/",
+        "grouping://shortcuts/tmdbhelper/"
     ]
 }
