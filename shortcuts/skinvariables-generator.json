@@ -147,6 +147,7 @@
             "includes_part": {"menu": "powermainmenu", "for_each": [
                 {
                     "template": "template_generator/parts_dialog_item.xmltemplate",
+                    "condition": ["{item_disabled}!=True", "{item_label}!="],
                     "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"],
                     "item_label": [
                         {"condition": "{item_label}==$LOCALIZE[12600]", "value": "$INFO[Weather.Temperature, • ,]"},
@@ -173,6 +174,7 @@
             "includes_part": {"menu": "powersidemenu", "for_each": [
                 {
                     "template": "template_generator/parts_dialog_sideitem.xmltemplate",
+                    "condition": ["{item_disabled}!=True", "{item_label}!="],
                     "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"]
                 }
             ]}

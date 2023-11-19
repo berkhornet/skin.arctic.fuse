@@ -143,7 +143,7 @@
                                 </include>
 
                                 <!-- Disable / Enable -->
-                                <!-- <include content="Settings_Button">
+                                <include content="Settings_Button">
                                     <param name="dialog">true</param>
                                     <param name="id">23001</param>
                                     <param name="control">togglebutton</param>
@@ -154,7 +154,14 @@
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_toggle])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
-                                </include> -->
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=homemenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=1101menu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=1102menu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=1103menu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=1104menu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)</visible>
+                                </include>
 
                                 <!-- Choose Shortcut -->
                                 <include content="Settings_Button">
