@@ -152,6 +152,20 @@
 
             </control>
 
+            <!-- <control type="group">
+                <left>160</left>
+                <top>40</top>
+                <width>1120</width>
+                <height>340</height>
+                <include content="Dialog_Background_Blur">
+                    <param name="diffuse">diffuse/dialog_w1120_h400.png</param>
+                    <control type="image">
+                        <top>120</top>
+                        <texture colordiffuse="dialog_fg_12" border="20" flipy="false">common/dialog_overlay_v.png</texture>
+                    </control>
+                </include>
+            </control> -->
+
             <include content="Furniture_Top">
                 <param name="label">$VAR[Label_Setting_SearchStyle][CAPITALIZE]$VAR[Label_Search_HeadingFilter,: ,][/CAPITALIZE]</param>
                 <visible>Skin.HasSetting(Search.EnableDiscover) | [ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus] | $EXP[Exp_HomeMenu_HasFocus]]</visible>

@@ -240,27 +240,28 @@
             ]}
         },
         {
-            "comments": "Search Menu",
+            "comments": "Search Menu Widgets",
             "template": "template_generator/parts_basic_include.xmltemplate",
-            "includes_name": "skinvariables-searchmenu",
-            "includes_part": {
-                "template": "template_generator/parts_search_group.xmltemplate",
-                "window_id": "1105",
-                "all_search_widgets": {"menu": "searchmenu", "for_each": [
-                    {
-                        "jsonfile": "template_generator/setup_search_row.json",
-                        "template": "template_generator/parts_search_row.xmltemplate",
-                        "condition": "{item_path}!="
-                    }
-                ]},
-                "all_search_footers": {"menu": "searchmenu", "for_each": [
-                    {
-                        "template": "template_generator/parts_search_footer_item.xmltemplate",
-                        "widget_id": "$MATH[5000 + {item_x} + 1]",
-                        "widget_icon": "{item_icon}",
-                        "condition": "{item_path}!="
-                    }
-                ]}
+            "includes_name": "skinvariables-searchmenu-widgets",
+            "includes_part": {"menu": "searchmenu", "for_each": [
+                {
+                    "jsonfile": "template_generator/setup_search_row.json",
+                    "template": "template_generator/parts_search_row.xmltemplate",
+                    "condition": "{item_path}!="
+                }]
+            }
+        },
+        {
+            "comments": "Search Menu Footers",
+            "template": "template_generator/parts_basic_include.xmltemplate",
+            "includes_name": "skinvariables-searchmenu-footers",
+            "includes_part": {"menu": "searchmenu", "for_each": [
+                {
+                    "template": "template_generator/parts_search_footer_item.xmltemplate",
+                    "widget_id": "$MATH[5000 + {item_x} + 1]",
+                    "widget_icon": "{item_icon}",
+                    "condition": "{item_path}!="
+                }]
             }
         }
     ]
