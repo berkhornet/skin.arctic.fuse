@@ -5,6 +5,7 @@
     "widget_path": "{item_path}",
     "widget_target": "{item_target}",
     "widget_sortby": "{item_widget_sortby}",
+    "widget_limit": "{item_widget_limit}",
     "widget_sortorder": [
         {
             "condition":"{item_widget_sortorder}==True",

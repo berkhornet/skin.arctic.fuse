@@ -25,11 +25,11 @@
     </variable>
 
     <variable name="Path_Hub_FallbackSlideShow_Content">
-        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-mainmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-mainmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-moviemenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-moviemenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-tvshowmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-tvshowmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-musicmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-musicmenu-backgroundimage)]</value>
-        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(TODO_SKINVARIABLES-pvrmenu-backgroundimage))">$INFO[Skin.String(TODO_SKINVARIABLES-pvrmenu-backgroundimage)]</value>
+        <value condition="Window.IsVisible(Home) + !String.IsEmpty(Skin.String(Hub.Home.Spotlight.Fallback))">$INFO[Skin.String(Hub.Home.Spotlight.Fallback)]</value>
+        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(Hub.1101.Spotlight.Fallback))">$INFO[Skin.String(Hub.1101.Spotlight.Fallback)]</value>
+        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(Hub.1102.Spotlight.Fallback))">$INFO[Skin.String(Hub.1102.Spotlight.Fallback)]</value>
+        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(Hub.1103.Spotlight.Fallback))">$INFO[Skin.String(Hub.1103.Spotlight.Fallback)]</value>
+        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(Hub.1104.Spotlight.Fallback))">$INFO[Skin.String(Hub.1104.Spotlight.Fallback)]</value>
         <value>$VAR[Image_SimpleBackground]</value>
     </variable>
 

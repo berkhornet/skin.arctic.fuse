@@ -381,13 +381,13 @@
                             <selected>!Skin.HasSetting(DisableDefaultExploreMenu)</selected>
                         </include>
 
-                        <include content="Settings_Button" description="Media Filter Items">
+                        <!-- <include content="Settings_Button" description="Media Filter Items">
                             <param name="id">3033</param>
                             <param name="control">button</param>
                             <label>$LOCALIZE[31447]</label>
                             <visible>Container(3).HasFocus(3)</visible>
                             <onclick>RunScript(TODO_SKINVARIABLES,type=manage&amp;group=exploremenu)</onclick>
-                        </include>
+                        </include> -->
 
                         <!-- Navigation -->
                         <include content="Settings_Label" description="Spotlight">

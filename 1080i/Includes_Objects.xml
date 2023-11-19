@@ -1285,6 +1285,13 @@
         <onclick>Number9</onclick>
     </include>
 
+    <include name="Object_SearchLetter_Click__"> <!-- Space -->
+        <onclick>Number0</onclick>
+    </include>
+    <include name="Object_SearchLetter_Click_&lt;"> <!-- Backspace -->
+        <onclick>Backspace</onclick>
+    </include>
+
     <include name="Object_SearchLetter_Click_0">
         <onclick>Number0</onclick>
         <onclick>Number0</onclick>

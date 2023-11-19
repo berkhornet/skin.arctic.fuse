@@ -62,6 +62,13 @@
             "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
         },
         {
+            "name": "Default",
+            "path": "grouping://shortcuts/default/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "rule": "String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
+        },
+        {
             "name": "Videos",
             "path": "videodb://",
             "icon": "special://skin/extras/icons/video.png",
@@ -82,9 +89,47 @@
             "link": "false"
         },
         {
-            "name": "Default",
-            "path": "grouping://shortcuts/default/",
+            "name": "Live TV and PVR",
+            "path": "grouping://shortcuts/links/pvr/",
+            "icon": "special://skin/extras/icons/livetv.png",
+            "link": "false",
+            "node": "tvguide",
+            "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
+        },
+        {
+            "name": "Playlists",
+            "path": "grouping://shortcuts/playlists/",
             "icon": "special://skin/extras/icons/folder.png",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/playlists/": [
+        {
+            "name": "Video Playlists",
+            "path": "special://videoplaylists/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "node": "videos",
+            "link": "false"
+        },
+        {
+            "name": "Music Playlists",
+            "path": "special://musicplaylists/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "node": "music",
+            "link": "false"
+        },
+        {
+            "name": "Skin Playlists",
+            "path": "special://skin/extras/playlists/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "node": "videos",
+            "link": "false"
+        },
+        {
+            "name": "Hub Playlists",
+            "path": "special://skin/extras/hub/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "node": "videos",
             "link": "false"
         }
     ],
@@ -140,7 +185,7 @@
         },
         {
             "name": "Genres",
-            "icon": "special://skin/extras/icons/genres.png",
+            "icon": "special://skin/extras/icons/genre.png",
             "path": "DefaultSearch-Genres",
             "node": "videos",
             "link": "true"
@@ -154,14 +199,14 @@
         },
         {
             "name": "Studio",
-            "icon": "special://skin/extras/icons/studio.png",
+            "icon": "special://skin/extras/icons/clapperboard.png",
             "path": "DefaultSearch-Studio",
             "node": "videos",
             "link": "true"
         },
         {
             "name": "Country",
-            "icon": "special://skin/extras/icons/country.png",
+            "icon": "special://skin/extras/icons/world.png",
             "path": "DefaultSearch-Country",
             "node": "videos",
             "link": "true"
@@ -308,7 +353,7 @@
         },
         {
             "name": "Trakt Lists",
-            "icon": "special://skin/extras/icons/trakt.png",
+            "icon": "special://skin/extras/icons/trakttv.png",
             "path": "DefaultSearch-TMDBListsTrakt",
             "node": "videos",
             "link": "true"
@@ -319,7 +364,15 @@
             "path": "DefaultSearch-TMDBListsMDBList",
             "node": "videos",
             "link": "true"
+        },
+        {
+            "name": "Other",
+            "icon": "special://skin/extras/icons/folder.png",
+            "path": "grouping://shortcuts/",
+            "node": "",
+            "link": "false"
         }
+
     ],
     "grouping://shortcuts/addons/": [
         {
@@ -406,7 +459,43 @@
             "name": "Movies",
             "path": "grouping://shortcuts/default/movies/",
             "icon": "special://skin/extras/icons/folder.png",
-            "link": "false"
+            "link": "false",
+            "node": "videos"
+        },
+        {
+            "name": "TV Shows",
+            "path": "grouping://shortcuts/default/tvshows/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "videos"
+        },
+        {
+            "name": "Episodes",
+            "path": "grouping://shortcuts/default/episodes/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "videos"
+        },
+        {
+            "name": "Music",
+            "path": "grouping://shortcuts/default/music/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "music"
+        },
+        {
+            "name": "Live TV and PVR",
+            "path": "grouping://shortcuts/default/livetv/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "tvguide"
+        },
+        {
+            "name": "Radio",
+            "path": "grouping://shortcuts/default/radio/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "radioguide"
         }
     ],
     "grouping://shortcuts/default/movies/": [
@@ -479,6 +568,333 @@
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
+        }
+    ],
+    "grouping://shortcuts/default/tvshows/": [
+        {
+            "name": "New Tv Shows",
+            "icon": "DefaultRecentlyAddedMovies.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/NewShows.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Recent Tv Shows",
+            "icon": "DefaultMusicRecentlyPlayed.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/RecentTvShows.xsp",
+            "link": "false"
+        },
+        {
+            "name": "In-Progress",
+            "icon": "special://skin/extras/icons/timer.png",
+            "node": "videos",
+            "path": "library://video/tvshows/inprogressshows.xml",
+            "link": "false"
+        },
+        {
+            "name": "Random Tv Shows",
+            "icon": "DefaultTVShows.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/RandomTvShows.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Top Rated Tv Shows",
+            "icon": "DefaultMusicTop100Albums.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Tv Show Nodes",
+            "icon": "special://skin/extras/icons/title.png",
+            "node": "videos",
+            "path": "library://video/tvshows/",
+            "link": "false"
+        },
+        {
+            "name": "Tv Show Genres",
+            "icon": "DefaultGenre.png",
+            "node": "videos",
+            "path": "library://video/tvshows/genres.xml",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/default/episodes/": [
+        {
+            "name": "New Episodes",
+            "icon": "DefaultRecentlyAddedMovies.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/NewEpisodes.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Recent Episodes",
+            "icon": "DefaultMusicRecentlyPlayed.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/RecentEpisodes.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Random Episodes",
+            "icon": "DefaultTVShows.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/RandomEpisodes.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Unwatched Episodes",
+            "icon": "DefaultTVShows.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/UnwatchedEpisodes.xsp",
+            "link": "false"
+        },
+        {
+            "name": "In-Progress Episodes",
+            "icon": "special://skin/extras/icons/timer.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/InProgressEpisodes.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Top Rated Episodes",
+            "icon": "DefaultMusicTop100Albums.png",
+            "node": "videos",
+            "path": "special://skin/extras/playlists/TopRatedEpisodes.xsp",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/default/music/": [
+        {
+            "name": "New Albums",
+            "icon": "DefaultMusicRecentlyAdded.png",
+            "node": "music",
+            "path": "musicdb://recentlyaddedalbums/",
+            "link": "false"
+        },
+        {
+            "name": "Recent Albums",
+            "icon": "DefaultMusicRecentlyPlayed.png",
+            "node": "music",
+            "path": "musicdb://recentlyplayedalbums/",
+            "link": "false"
+        },
+        {
+            "name": "Top Albums",
+            "icon": "DefaultMusicTop100Albums.png",
+            "node": "music",
+            "path": "musicdb://top100/albums/",
+            "link": "false"
+        },
+        {
+            "name": "Random Albums",
+            "icon": "DefaultMusicAlbums.png",
+            "node": "music",
+            "path": "special://skin/extras/playlists/RandomAlbums.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Random Artists",
+            "icon": "DefaultMusicArtists.png",
+            "node": "music",
+            "path": "special://skin/extras/playlists/RandomArtists.xsp",
+            "link": "false"
+        },
+        {
+            "name": "Music Nodes",
+            "icon": "special://skin/extras/icons/title.png",
+            "node": "music",
+            "path": "library://music/",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/default/livetv/": [
+        {
+            "name": "Last Played Channels",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvguide",
+            "path": "pvr://channels/tv/*?view=lastplayed",
+            "link": "true"
+        },
+        {
+            "name": "All Channels",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvchannels",
+            "path": "pvr://channels/tv/*",
+            "link": "true"
+        },
+        {
+            "name": "Active Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvrecordings",
+            "path": "pvr://recordings/tv/active?view=flat",
+            "link": "true"
+        },
+        {
+            "name": "Grouped Active Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvrecordings",
+            "path": "pvr://recordings/tv/active?view=grouped",
+            "link": "true"
+        },
+        {
+            "name": "Deleted Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvrecordings",
+            "path": "pvr://recordings/tv/deleted?view=flat",
+            "link": "true"
+        },
+        {
+            "name": "Grouped Deleted Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvrecordings",
+            "path": "pvr://recordings/tv/deleted?view=grouped",
+            "link": "true"
+        },
+        {
+            "name": "Timers",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "tvtimers",
+            "path": "pvr://timers/tv/timers",
+            "link": "true"
+        }
+    ],
+    "grouping://shortcuts/default/radio/": [
+        {
+            "name": "Radio Last Played Channels",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radioguide",
+            "path": "pvr://channels/radio/*?view=lastplayed",
+            "link": "false"
+        },
+        {
+            "name": "Radio All Channels",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiochannels",
+            "path": "pvr://channels/radio/*",
+            "link": "false"
+        },
+        {
+            "name": "Radio Active Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiorecordings",
+            "path": "pvr://recordings/radio/active?view=flat",
+            "link": "false"
+        },
+        {
+            "name": "Radio Grouped Active Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiorecordings",
+            "path": "pvr://recordings/radio/active?view=grouped",
+            "link": "false"
+        },
+        {
+            "name": "Radio Deleted Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiorecordings",
+            "path": "pvr://recordings/radio/deleted?view=flat",
+            "link": "false"
+        },
+        {
+            "name": "Radio Grouped Deleted Recordings",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiorecordings",
+            "path": "pvr://recordings/radio/deleted?view=grouped",
+            "link": "false"
+        },
+        {
+            "name": "Radio Timers",
+            "icon": "DefaultAddonPVRClient.png",
+            "node": "radiotimers",
+            "path": "pvr://timers/radio/timers",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/links/pvr/":[
+        {
+            "name": "TV Channels",
+            "path": "ActivateWindow(TVChannels)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "TV Guide",
+            "path": "ActivateWindow(TVGuide)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "TV Recordings",
+            "path": "ActivateWindow(TVRecordings)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "TV Timers",
+            "path": "ActivateWindow(TVTimers)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "TV TimerRules",
+            "path": "ActivateWindow(TVTimerRules)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "TV Search",
+            "path": "ActivateWindow(TVSearch)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/livetv.png"
+        },
+        {
+            "name": "Radio Channels",
+            "path": "ActivateWindow(RadioChannels)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
+        },
+        {
+            "name": "Radio Guide",
+            "path": "ActivateWindow(RadioGuide)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
+        },
+        {
+            "name": "Radio Recordings",
+            "path": "ActivateWindow(RadioRecordings)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
+        },
+        {
+            "name": "Radio Timers",
+            "path": "ActivateWindow(RadioTimers)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
+        },
+        {
+            "name": "Radio TimerRules",
+            "path": "ActivateWindow(RadioTimerRules)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
+        },
+        {
+            "name": "Radio Search",
+            "path": "ActivateWindow(RadioSearch)",
+            "node": "tvguide",
+            "link": "true",
+            "icon": "special://skin/extras/icons/radio.png"
         }
     ],
     "grouping://shortcuts/hubs/": [

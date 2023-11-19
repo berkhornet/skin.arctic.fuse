@@ -73,7 +73,7 @@
                         {
                             "template": "template_generator/parts_widgets_spotlight.xmltemplate",
                             "condition": ["{item_spotlight_path}!=", "!Skin.HasSetting(Hub.{window_id}.DisableSubmenu)"],
-                            "widget_sortby": [
+                            "widget_sortorder": [
                                 {
                                     "condition":"{item_spotlight_sortorder}==True",
                                     "value" : "descending"

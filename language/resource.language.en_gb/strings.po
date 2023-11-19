@@ -2274,3 +2274,8 @@ msgstr ""
 msgctxt "#31497"
 msgid "Minimise menu"
 msgstr ""
+
+#: /1080i/Includes_Search.xml
+msgctxt "#31498"
+msgid "Filters"
+msgstr ""

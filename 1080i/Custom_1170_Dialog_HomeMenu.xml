@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1170">
-    <defaultcontrol always="true">8000</defaultcontrol>
-    <onload>SetFocus(8000,0,absolute)</onload>
+    <defaultcontrol always="true">7021</defaultcontrol>
+    <onload>AlarmClock(Refocus,SetFocus(7021),00:00,silent)</onload>
     <include>Action_ButtonMenu_Onload</include>
     <controls>
 
@@ -54,8 +54,7 @@
                             <item>
                                 <label>$LOCALIZE[137]</label>
                                 <icon>special://skin/extras/icons/search.png</icon>
-                                <onclick>Close</onclick>
-                                <onclick>ActivateWindow(1105)</onclick>
+                                <property name="path">ActivateWindow(1105)</property>
                             </item>
                         </content>
 
@@ -63,10 +62,10 @@
                             <param name="condition">[True]</param>
                         </include>
 
-                        <visible>String.IsEmpty(Window.Property(ToggleMenu))</visible>
+                        <!-- <visible>String.IsEmpty(Window.Property(ToggleMenu))</visible> -->
                     </include>
 
-                    <control type="grouplist" id="8000">
+                    <!-- <control type="grouplist" id="8000">
                         <top>320</top>
                         <bottom>0</bottom>
                         <orientation>vertical</orientation>
@@ -76,7 +75,7 @@
                         <onleft>Close</onleft>
                         <include>skinvariables-powermainmenu-staticitems</include>
                         <visible>!String.IsEmpty(Window.Property(ToggleMenu))</visible>
-                    </control>
+                    </control> -->
                 </include>
 
 

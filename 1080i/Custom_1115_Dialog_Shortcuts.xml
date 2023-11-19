@@ -162,9 +162,10 @@
                                     <param name="id">23002</param>
                                     <param name="control">button</param>
                                     <label>Choose shortcut</label>
-                                    <onclick condition="String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))">SetProperty(Shortcuts.Groupings.Hubs,True,Home)</onclick>
-                                    <onclick condition="!String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))">ClearProperty(Shortcuts.Groupings.Hubs,Home)</onclick>
-                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_choose])</onclick>
+                                    <onclick condition="String.IsEmpty(Window(Home).Property(Shortcuts.EditMode)) + !String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">SetProperty(Shortcuts.Groupings.Hubs,True,Home)</onclick>
+                                    <onclick condition="!String.IsEmpty(Window(Home).Property(Shortcuts.EditMode)) | String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">ClearProperty(Shortcuts.Groupings.Hubs,Home)</onclick>
+                                    <onclick condition="!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_choose])</onclick>
+                                    <onclick condition="String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_choose&amp;&amp;&amp;&amp;grouping://shortcuts/search/])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
                                 </include>
@@ -175,9 +176,10 @@
                                     <param name="id">23003</param>
                                     <param name="control">button</param>
                                     <label>Action</label>
-                                    <onclick condition="String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))">SetProperty(Shortcuts.Groupings.Hubs,True,Home)</onclick>
-                                    <onclick condition="!String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))">ClearProperty(Shortcuts.Groupings.Hubs,Home)</onclick>
-                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_action])</onclick>
+                                    <onclick condition="String.IsEmpty(Window(Home).Property(Shortcuts.EditMode)) + !String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">SetProperty(Shortcuts.Groupings.Hubs,True,Home)</onclick>
+                                    <onclick condition="!String.IsEmpty(Window(Home).Property(Shortcuts.EditMode)) | String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">ClearProperty(Shortcuts.Groupings.Hubs,Home)</onclick>
+                                    <onclick condition="!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_action])</onclick>
+                                    <onclick condition="String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)">RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_action&amp;&amp;&amp;&amp;grouping://shortcuts/search/])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
                                 </include>
@@ -305,12 +307,26 @@
                                     <param name="dialog">true</param>
                                     <param name="id">23013</param>
                                     <param name="control">radiobutton</param>
-                                    <label> -- Reverse sort order</label>
+                                    <label> -- Reverse order</label>
                                     <selected>!String.IsEmpty(Container(22001).ListItem.Property(widget_sortorder))</selected>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_toggle&amp;&amp;widget_sortorder])</onclick>
                                     <onback>24000</onback>
                                     <visible>!String.IsEmpty(Container(22001).ListItem.Property(widget_sortby))</visible>
                                     <visible>!String.IsEqual(Container(22001).ListItem.Property(widget_sortby),random)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu) | !String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powersidemenu)</visible>
+                                </include>
+
+                                <!-- Widget Limit  -->
+                                <include content="Settings_Button">
+                                    <param name="dialog">true</param>
+                                    <param name="id">23023</param>
+                                    <param name="control">button</param>
+                                    <label> -- Limit</label>
+                                    <label2>$INFO[Container(22001).ListItem.Property(widget_limit)]</label2>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_numeric&amp;&amp;widget_limit&amp;&amp;&amp;&amp;Limit])</onclick>
+                                    <onback>24000</onback>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu) | !String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powermainmenu)</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powersidemenu)</visible>
@@ -381,12 +397,29 @@
                                     <param name="dialog">true</param>
                                     <param name="id">23016</param>
                                     <param name="control">radiobutton</param>
-                                    <label> -- Reverse sort order</label>
+                                    <label> -- Reverse order</label>
                                     <selected>!String.IsEmpty(Container(22001).ListItem.Property(spotlight_sortorder))</selected>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_toggle&amp;&amp;spotlight_sortorder])</onclick>
                                     <onback>24000</onback>
                                     <visible>!String.IsEmpty(Container(22001).ListItem.Property(spotlight_sortby))</visible>
                                     <visible>!String.IsEqual(Container(22001).ListItem.Property(spotlight_sortby),random)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powermainmenu)</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powersidemenu)</visible>
+                                    <visible>!String.IsEmpty(Container(22001).ListItem.Property(spotlight_path))</visible>
+                                </include>
+
+                                <!-- Spotlight Limit  -->
+                                <include content="Settings_Button">
+                                    <param name="dialog">true</param>
+                                    <param name="id">23024</param>
+                                    <param name="control">button</param>
+                                    <label> -- Limit</label>
+                                    <label2>$INFO[Container(22001).ListItem.Property(spotlight_limit)]</label2>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_numeric&amp;&amp;spotlight_limit&amp;&amp;&amp;&amp;Limit])</onclick>
+                                    <onback>24000</onback>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu) | !String.IsEmpty(Window(Home).Property(Shortcuts.EditMode))</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=sidemenu)</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=powermainmenu)</visible>
@@ -436,6 +469,32 @@
                                     <onclick>RunScript(script.skinvariables,run_dialog=select,heading=Sort method,separator=||,list=default||label||random||dateadded||lastplayed||playcount||year||rating||userrating||votes||genre||country||studio||playlist||episodenumber||season||totalepisodes||watchedepisodes||tvshowstatus||tvshowtitle||file||title||track||time||artist||album||lastupdated||lastused||date,"executebuiltin=Skin.SetString(Hub.$VAR[Path_Shortcut_Hub_Prefix].Spotlight.SortBy,{v})")</onclick>
                                     <visible>String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))</visible>
                                     <visible>!String.IsEmpty(Control.GetLabel(23020))</visible>
+                                    <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)</visible>
+                                </include>
+
+                                <!-- Edit Spotlight Fallback Image -->
+                                <include content="Settings_Stacked_Button">
+                                    <param name="dialog">true</param>
+                                    <param name="id">23025</param>
+                                    <param name="groupid">23125</param>
+                                    <param name="control">button</param>
+                                    <param name="toplabel">Edit spotlight fallback</param>
+                                    <param name="sublabel">$VAR[Label_Shortcut_HubSpotlight_Fallback]</param>
+                                    <param name="sublabel_visible">!String.IsEmpty(Control.GetLabel(23025))</param>
+
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home))">Skin.Reset(Hub.Home.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101))">Skin.Reset(Hub.1101.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102))">Skin.Reset(Hub.1102.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103))">Skin.Reset(Hub.1103.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))">Skin.Reset(Hub.1104.Spotlight.Fallback)</onclick>
+
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home))">Skin.SetPath(Hub.Home.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101))">Skin.SetPath(Hub.1101.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102))">Skin.SetPath(Hub.1102.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103))">Skin.SetPath(Hub.1103.Spotlight.Fallback)</onclick>
+                                    <onclick condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))">Skin.SetPath(Hub.1104.Spotlight.Fallback)</onclick>
+
+                                    <visible>String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1102)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1103)) | String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1104))</visible>
                                     <visible>!String.IsEqual(Window(Home).Property(Shortcuts.EditMenu),menu=searchmenu)</visible>
                                 </include>
                             </control>
