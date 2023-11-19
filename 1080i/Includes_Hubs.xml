@@ -164,17 +164,25 @@
             </include>
             <include>Background_Transition</include>
 
+            <include content="Object_Hidden_Button" condition="$PARAM[widgets_only]">
+                <param name="id">300</param>
+                <onfocus>SetFocus(303)</onfocus>
+                <onleft>SetFocus(303)</onleft>
+                <onright>SetFocus(303)</onright>
+                <ondown>SetFocus(303)</ondown>
+                <onup>SetFocus(303)</onup>
+                <onback>SetFocus(303)</onback>
+                <onclick>SetFocus(303)</onclick>
+            </include>
+
             <include content="Hub_Main_Group">
                 <param name="widgets_only">[$PARAM[widgets_only]]</param>
-
                 <include content="Hub_Menu_Group" condition="![$PARAM[widgets_only]]">
                     <include content="Hub_Categories">
                         <param name="categories">$PARAM[categories]</param>
                         <param name="window_id">$PARAM[window_id]</param>
                     </include>
                 </include>
-
-                <!-- Lists at end to load last -->
                 <include content="Spotlight_List" condition="![$PARAM[widgets_only]]">
                     <param name="window_id">$PARAM[window_id]</param>
                     <param name="sortby">$PARAM[fullscreen_sortby]</param>
@@ -185,16 +193,13 @@
                     <param name="content">$PARAM[fullscreen_content]</param>
                     <visible>String.IsEmpty(Container(300).ListItem.Property(spotlight_path))</visible>
                 </include>
-
                 <include content="$PARAM[include]" condition="![$PARAM[widgets_only]]">
                     <param name="categories">$PARAM[categories]</param>
                         <param name="window_id">$PARAM[window_id]</param>
                 </include>
-
                 <include content="Hub_Widgets_Only" condition="$PARAM[widgets_only]">
                     <param name="widgets_include">$PARAM[widgets_include]</param>
                 </include>
-
             </include>
 
             <include>Widget_Transitions</include>
@@ -220,20 +225,7 @@
     </include>
 
     <include name="Hub_Widgets_Only">
-
-        <include content="Object_Hidden_Button">
-            <param name="id">300</param>
-            <onfocus>SetFocus(303)</onfocus>
-            <onleft>SetFocus(303)</onleft>
-            <onright>SetFocus(303)</onright>
-            <ondown>SetFocus(303)</ondown>
-            <onup>SetFocus(303)</onup>
-            <onback>SetFocus(303)</onback>
-            <onclick>SetFocus(303)</onclick>
-        </include>
-
         <include>Background_Transition</include>
-
         <include content="Hub_Widgets_Group">
             <include content="Home_Widgets_Infopanel">
                 <include content="Info_Panel">

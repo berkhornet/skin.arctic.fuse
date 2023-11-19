@@ -176,37 +176,42 @@
         <onclick>SetFocus(4001)</onclick>
     </include>
 
-    <include name="_Action_HomeMenu_OnRightLeft">
-        <param name="onlist">320</param>
-        <param name="onmenu">ActivateWindow(1170)</param>
-        <definition>
+    <include name="Action_HM_OnLeft_LoopHome_NoWidgets">
+        <onleft condition="!String.IsEmpty(Container(303).ListItem.Property(widgets_only_focus))">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onleft>
+        <onleft condition="String.IsEmpty(Container(303).ListItem.Property(widgets_only_focus))">$PARAM[onlist]</onleft>
+    </include>
+    <include name="Action_HM_OnRight_LoopHome_NoWidgets">
+        <onright condition="!String.IsEmpty(Container(303).ListItem.Property(widgets_only_focus))">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onright>
+        <onright condition="String.IsEmpty(Container(303).ListItem.Property(widgets_only_focus))">$PARAM[onlist]</onright>
+    </include>
 
-            <!-- OnLeft: Loop -->
-            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)],99999,absolute)</onleft>
-            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset)) + Skin.String(Movement.Menu.OnLeft,Loop)">SetFocus($INFO[Window.Property(List.ViewContainer)])</onleft>
-            <onleft condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + String.IsEmpty(Window.Property(List.ViewContainer)) + Skin.String(Movement.Menu.OnLeft,Loop)">$PARAM[onlist]</onleft>
-            <onleft condition="[Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + Skin.String(Movement.Menu.OnLeft,Loop)">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onleft>
-
-            <!-- OnLeft: Bump -->
-            <onleft condition="Skin.String(Movement.Menu.OnLeft,Bump)">331</onleft>
-
-            <!-- OnLeft: Menu -->
-            <onleft condition="Skin.String(Movement.Menu.OnLeft,Menu)">$PARAM[onmenu]</onleft>
-
-            <!-- OnRight: Refocus Content Always -->
-            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)],0,absolute)</onright>
-            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + !String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)])</onright>
-            <onright condition="![Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)] + String.IsEmpty(Window.Property(List.ViewContainer))">$PARAM[onlist]</onright>
-            <onright condition="[Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)]">$INFO[Container(303).ListItem.Property(widgets_only_focus)]</onright>
-
-        </definition>
+    <include name="Action_HM_OnLeft_LoopHome">
+        <onleft condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)],99999,absolute)</onleft>
+        <onleft condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)])</onleft>
+        <onleft condition="String.IsEmpty(Window.Property(List.ViewContainer))">$PARAM[onlist]</onleft>
+    </include>
+    <include name="Action_HM_OnRight_LoopHome">
+        <onright condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + !String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)],0,absolute)</onright>
+        <onright condition="!String.IsEmpty(Window.Property(List.ViewContainer)) + String.IsEqual(Window.Property(List.ViewContainer),Window.Property(List.ViewContainer.Reset))">SetFocus($INFO[Window.Property(List.ViewContainer)])</onright>
+        <onright condition="String.IsEmpty(Window.Property(List.ViewContainer))">$PARAM[onlist]</onright>
     </include>
 
     <include name="Action_HomeMenu_OnRightLeft">
-        <include content="_Action_HomeMenu_OnRightLeft">
-            <param name="onlist">$PARAM[onlist]</param>
-            <param name="onmenu">ActivateWindow(shutdownmenu)</param>
-        </include>
+        <param name="onlist">320</param>
+        <param name="onmenu">ActivateWindow(shutdownmenu)</param>
+        <definition>
+
+            <!-- On Left -->
+            <include condition="Skin.String(Movement.Menu.OnLeft,Loop) + Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)" content="Action_HM_OnLeft_LoopHome_NoWidgets"><param name="onlist">$PARAM[onlist]</param></include>
+            <include condition="Skin.String(Movement.Menu.OnLeft,Loop) + ![Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)]" content="Action_HM_OnLeft_LoopHome"><param name="onlist">$PARAM[onlist]</param></include>
+            <include condition="Skin.String(Movement.Menu.OnLeft,Bump)" content="Object_OnLeft"><param name="onleft">331</param></include>
+            <include condition="Skin.String(Movement.Menu.OnLeft,Menu)" content="Object_OnLeft"><param name="onleft">$PARAM[onmenu]</param></include>
+
+            <!-- On Right -->
+            <onright>$PARAM[onlist]</onright>
+            <!-- <include condition="Skin.String(Movement.Menu.OnRight,Loop) + Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)" content="Action_HM_OnRight_LoopHome_NoWidgets"><param name="onlist">$PARAM[onlist]</param></include>
+            <include condition="Skin.String(Movement.Menu.OnRight,Loop) + ![Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)]" content="Action_HM_OnRight_LoopHome"><param name="onlist">$PARAM[onlist]</param></include> -->
+        </definition>
     </include>
 
     <include name="Action_BuildShortcuts_OnLoad">

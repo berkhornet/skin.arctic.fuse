@@ -36,14 +36,6 @@
             </include>
             <include content="Object_ContentNested" condition="![$PARAM[condition]]">
                 <include>skinvariables-sidemenu-staticbutton</include>
-                <!-- <item>
-                    <label>$LOCALIZE[33061]</label>
-                    <icon>special://skin/extras/icons/list-check.png</icon>
-                    <property name="showlabel">True</property>
-                    <property name="path">ActivateWindow(1170)</property>
-                    <property name="guid">5a5554b7</property>
-                    <property name="widgets_only_focus">SetFocus(400)</property>
-                </item> -->
             </include>
         </definition>
     </include>
@@ -65,7 +57,7 @@
                     <param name="colordiffuse">main_fg_30</param>
                 </include>
 
-                <control type="fixedlist" id="$PARAM[id]">
+                <control type="list" id="$PARAM[id]">
                     <focusposition>2</focusposition>
                     <movement>2</movement>
 

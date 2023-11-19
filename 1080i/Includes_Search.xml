@@ -112,54 +112,6 @@
         </definition>
     </include>
 
-    <include name="Search_View_Side">
-        <control type="group">
-
-            <visible>!$EXP[Exp_InfoDialogs]</visible>
-            <control type="group">
-
-                <include content="DialogInfo_ButtonGroup_Basic">
-                    <param name="id">90000</param>
-                    <param name="dim_visible">true</param>
-                    <visible>!$EXP[Exp_InfoDialogs]</visible>
-
-                    <include content="_Action_HomeMenu_OnRightLeft">
-                        <param name="onlist">6000</param>
-                        <param name="onmenu">9001</param>
-                    </include>
-
-                    <include content="Settings_Side_Button">
-                        <param name="baseid">90</param>
-                        <param name="id">01</param>
-                        <param name="icon">$VAR[Image_Home]</param>
-                        <param name="label">$VAR[Label_Home]</param>
-                        <onclick>ActivateWindow(Home)</onclick>
-                    </include>
-                    <include content="Settings_Side_Button">
-                        <param name="baseid">90</param>
-                        <param name="id">02</param>
-                        <param name="icon">special://skin/extras/icons/keyboard.png</param>
-                        <param name="label">$LOCALIZE[137]</param>
-                        <onclick>SetFocus(9099)</onclick>
-                    </include>
-
-                    <include content="Settings_Side_Button">
-                        <param name="baseid">90</param>
-                        <param name="id">03</param>
-                        <param name="icon">special://skin/extras/icons/square-poll-horizontal.png</param>
-                        <param name="label">$VAR[Label_Search_ItemCount]</param>
-                        <onclick>Action(Right)</onclick>
-                    </include>
-                </include>
-            </control>
-            <include content="Furniture_Top">
-                <param name="label">$VAR[Label_Setting_SearchStyle][CAPITALIZE]$VAR[Label_Search_HeadingFilter,: ,][/CAPITALIZE]</param>
-                <visible>Skin.HasSetting(Search.EnableDiscover) | [ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus] | $EXP[Exp_HomeMenu_HasFocus]]</visible>
-            </include>
-
-        </control>
-    </include>
-
     <include name="Search_View_DiscoverButton_Numeric">
         <control type="button" id="$PARAM[id]">
             <label>$PARAM[label]</label>

@@ -41,8 +41,6 @@
             </include>
         </control>
 
-        <!-- <include>Search_View_Side</include> -->
-
         <include>Background_Transition</include>
         <include>Home_Fade</include>
         <include>Search_View_Panel</include>
