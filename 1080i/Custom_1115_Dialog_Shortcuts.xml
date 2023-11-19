@@ -96,7 +96,7 @@
                                     <font/>
                                     <texturenofocus colordiffuse="dialog_bg_30">buttons/plus.png</texturenofocus>
                                     <texturefocus colordiffuse="$VAR[ColorSelected]">buttons/plus.png</texturefocus>
-                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_copy])</onclick>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_new])</onclick>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
                                     <onback>24000</onback>
                                 </control>
