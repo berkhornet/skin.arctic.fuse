@@ -4,6 +4,7 @@
         "icon": "special://skin/extras/icons/home.png",
         "path": "ActivateWindow(Home)",
         "expression": "home",
+        "forced": "True",
         "target": "",
         "widgets": [
             {

@@ -103,14 +103,14 @@
                                     "widget_altvisible": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})",
                                     "widget_path": "$INFO[Window.Property(Item.{item_x}302.SpecialFolderPath)]",
                                     "widget_label": "$INFO[Window.Property(Item.{item_x}302.SpecialFolderLabel)]",
-                                    "condition": ["{item_use_as_widget}==True", "{item_submenulist_path}!="]
+                                    "condition": ["{item_use_as_widget}==True", "{item_submenulist_path}!=", "!Skin.HasSetting(Hubs.WidgetSelector)"]
                                 },
-                                "all_adapative_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "submenu", "condition": "{item_use_as_widget}==True", "for_each": [
+                                "all_adapative_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "submenu", "condition": ["{item_use_as_widget}==True", "!Skin.HasSetting(Hubs.WidgetSelector)"], "for_each": [
                                     {
                                         "jsonfile": "template_generator/setup_widgets_row.json",
                                         "template": "template_generator/parts_widgets_row.xmltemplate",
                                         "widget_visible": "String.IsEqual(Container(302).ListItem.Property(guid),{item_guid})",
-                                        "condition": "{item_path}!="
+                                        "condition": ["{item_path}!="]
                                     }
                                 ]},
                                 "all_standard_widgets": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
@@ -119,7 +119,21 @@
                                         "template": "template_generator/parts_widgets_row.xmltemplate",
                                         "condition": "{item_path}!="
                                     }
-                                ]}
+                                ]},
+                                "all_endrow_selector": {
+                                    "comments": "Widget Selector",
+                                    "template": "template_generator/parts_endrow_dynamic.xmltemplate",
+                                    "condition": "Skin.HasSetting(Hubs.WidgetSelector)",
+                                    "endrow_visible": "String.IsEqual(Container(300).ListItem.Property(guid),{item_guid})",
+                                    "all_standard_widget_items": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
+                                        {
+                                            "template": "template_generator/parts_endrow_item.xmltemplate",
+                                            "condition": "{item_path}!=",
+                                            "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"],
+                                            "parts_visible": "!Integer.IsEqual(Container($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 1]).NumItems,0) | Container($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 1]).IsUpdating"
+                                        }
+                                    ]}
+                                }
                             }
                         }
                     ]}
@@ -206,10 +220,48 @@
                                 "template": "template_generator/parts_widgets_row.xmltemplate",
                                 "condition": "{item_path}!="
                             }
-                        ]}
+                        ]},
+                        "all_endrow_selector": {
+                            "comments": "Widget Selector",
+                            "template": "template_generator/parts_endrow_dynamic.xmltemplate",
+                            "condition": "Skin.HasSetting(Hubs.WidgetSelector)",
+                            "endrow_visible": "String.IsEqual(Container(303).ListItem.Property(guid),{item_guid})",
+                            "all_standard_widget_items": {"menu": "{item_menu}", "item": "{item_x}", "mode": "widgets", "for_each": [
+                                {
+                                    "template": "template_generator/parts_endrow_item.xmltemplate",
+                                    "condition": "{item_path}!=",
+                                    "parts_onclick": [{"condition": "{item_target}!=", "value": "ActivateWindow({item_target},{item_path},return)"}, "{item_path}"],
+                                    "parts_visible": "!Integer.IsEqual(Container($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 1]).NumItems,0) | Container($MATH[{parent_item_x} * 1000 + 600 + {item_x} + 1]).IsUpdating"
+                                }
+                            ]}
+                        }
                     }
                 }
             ]}
+        },
+        {
+            "comments": "Search Menu",
+            "template": "template_generator/parts_basic_include.xmltemplate",
+            "includes_name": "skinvariables-searchmenu",
+            "includes_part": {
+                "template": "template_generator/parts_search_group.xmltemplate",
+                "window_id": "1105",
+                "all_search_widgets": {"menu": "searchmenu", "for_each": [
+                    {
+                        "jsonfile": "template_generator/setup_search_row.json",
+                        "template": "template_generator/parts_search_row.xmltemplate",
+                        "condition": "{item_path}!="
+                    }
+                ]},
+                "all_search_footers": {"menu": "searchmenu", "for_each": [
+                    {
+                        "template": "template_generator/parts_search_footer_item.xmltemplate",
+                        "widget_id": "$MATH[5000 + {item_x} + 1]",
+                        "widget_icon": "{item_icon}",
+                        "condition": "{item_path}!="
+                    }
+                ]}
+            }
         }
     ]
 }

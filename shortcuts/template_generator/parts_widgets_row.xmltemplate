@@ -20,16 +20,6 @@
 
     <description>{description}</description>
 
-    <content>
-        <item>
-            <label2>$LOCALIZE[31345]</label2>
-            <label>$LOCALIZE[231]</label>
-            <property name="null_widget">True</property>
-            <visible>[{widget_stacked} | Skin.HasSetting(Hubs.WidgetSelector)] + [Container({widget_id}).IsUpdating | Integer.IsEqual(Container({widget_id}).NumItems,0) | [Integer.IsEqual(Container({widget_id}).NumItems,1) + !String.IsEmpty(Container({widget_id}).ListItemAbsolute(0).Property(null_widget))]]</visible>
-            <visible>False</visible>
-        </item>
-    </content>
-
     <content sortby="{widget_sortby}" sortorder="{widget_sortorder}" target="{widget_target}" limit="{widget_limit}" browse="$VAR[Defs_BrowseLimitedLists]">{widget_path}</content>
 
     <include content="Defs_AutoScroll" condition="{widget_isautoscroll}">

@@ -597,7 +597,7 @@
         <param name="topid">5001</param>
         <param name="include_condition">true</param>
         <definition>
-            <include content="Categories_Selector" condition="$PARAM[include_condition]">
+            <include content="Categories_Selector">
                 <param name="id">$PARAM[id]</param>
                 <param name="grouplistid">$PARAM[groupid]</param>
                 <param name="window_id">home</param>

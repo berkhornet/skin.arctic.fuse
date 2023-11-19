@@ -157,9 +157,9 @@
             <param name="control">button</param>
             <param name="dialog">true</param>
             <label> - $LOCALIZE[31469]</label>
-            <label2>$INFO[Skin.String(OptionsTiles.0$PARAM[item].Onclick)]</label2>
+            <label2>$INFO[Skin.String(OptionsTiles.0$PARAM[item].Path)]</label2>
             <visible>$PARAM[visible]</visible>
-            <onclick>RunScript(TODO_SKINVARIABLES,type=shortcuts&amp;custom=True&amp;showNone=True&amp;skinAction=OptionsTiles.0$PARAM[item].Onclick&amp;skinLabel=OptionsTiles.0$PARAM[item].Label&amp;skinThumbnail=OptionsTiles.0$PARAM[item].Icon)</onclick>
+            <onclick>RunScript(script.skinvariables,set_shortcut=OptionsTiles.0$PARAM[item])</onclick>
             <visible>Skin.String(OptionsTiles.0$PARAM[item].Include,Custom)</visible>
         </include>
 
@@ -209,19 +209,15 @@
             <param name="id">8006</param>
             <param name="dialog">true</param>
             <param name="control">button</param>
-            <label>$LOCALIZE[31396]</label>
-            <label2>$VAR[Label_Settings_MenuStyle]</label2>
-            <onclick>Skin.ToggleSetting(Home.HideSideMenu)</onclick>
-            <onclick>ReloadSkin()</onclick>
-            <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31086][/CAPITALIZE],Home)</onclick>
-            <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_AllMenuConfigure,Home)</onclick>
-            <onclick>ActivateWindow(1118)</onclick>
+            <label>$LOCALIZE[31497]</label>
+            <label2>$INFO[Skin.String(Home.SideMenuCollapse)]</label2>
+            <onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31497],separator=||,list=Always||Library||Never,preselect=$VAR[Label_Settings_MenuStyle_Preselect],"executebuiltin=Skin.SetString(Home.SideMenuCollapse,{v})||sleep=0.2||ReloadSkin()||sleep=0.2||ActivateWindow(1118)")</onclick>
         </include>
         <include content="Settings_ButtonImage" description="Home Menu">
             <param name="id">8007</param>
             <param name="dialog">true</param>
             <param name="groupid">8107</param>
-            <param name="icon">$VAR[Image_Home]</param>
+            <param name="icon">special://skin/extras/icons/shapes.png</param>
             <label>$LOCALIZE[31496]</label>
             <onclick>SetProperty(Shortcuts.EditMenu,menu=sidemenu,Home)</onclick>
             <onclick>ActivateWindow(1115)</onclick>
@@ -260,6 +256,16 @@
             <label>$LOCALIZE[31488]</label>
             <onclick>Skin.ToggleSetting(Slide.WidgetContainer)</onclick>
             <selected>Skin.HasSetting(Slide.WidgetContainer)</selected>
+        </include>
+
+        <include content="Settings_Button" description="Combined widget stack">
+            <param name="id">8012</param>
+            <param name="dialog">true</param>
+            <param name="control">radiobutton</param>
+            <label>$LOCALIZE[31341]</label>
+            <onclick>Skin.ToggleSetting(Hubs.WidgetSelector)</onclick>
+            <onclick>RunPlugin(plugin://script.skinvariables/?info=get_shortcuts_node&amp;skin=skin.arctic.fuse&amp;menu=sidemenu&amp;func=do_refresh&amp;&amp;False&amp;&amp;ActivateWindow(1118))</onclick>
+            <selected>Skin.HasSetting(Hubs.WidgetSelector)</selected>
         </include>
 
 

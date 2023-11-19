@@ -80,7 +80,9 @@
 
     <expression name="Exp_HomeMenu_HasFocus">[Control.HasFocus(303) | Control.HasFocus(308) | Control.HasFocus(309) | ControlGroup(90000).HasFocus() | Control.HasFocus(331)]</expression>
 
-    <expression name="Exp_HomeMenu_DontHide">[!Skin.HasSetting(Home.HideSideMenu) + [[!Skin.HasSetting(Hub.Home.DisableSubmenu)] | [Skin.HasSetting(Hub.Home.DisableSubmenu) + Window.IsVisible(Home)]]]</expression>
+    <expression name="Exp_HomeMenu_DontHide">[Skin.String(Home.SideMenuCollapse,Never) | [Skin.String(Home.SideMenuCollapse,Library) + Window.IsVisible(Home)] | [Skin.String(Home.SideMenuCollapse,Library) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + $EXP[Exp_Window_IsHub]]]</expression>
+
+    <expression name="Exp_Window_IsHub">[Window.IsVisible(Home) | Window.IsVisible(1101) | Window.IsVisible(1102) | Window.IsVisible(1103) | Window.IsVisible(1104) | Window.IsVisible(1106) | Window.IsVisible(1107) | Window.IsVisible(1108) | Window.IsVisible(1109) | Window.IsVisible(1130) | Window.IsVisible(1131) | Window.IsVisible(1132)]</expression>
 
     <!-- ==== -->
     <!-- Hubs -->
@@ -183,24 +185,20 @@
     <expression name="Exp_Group_Bumper_HasFocus">[Control.HasFocus(330) | Control.HasFocus(332) | Control.HasFocus(333)]</expression>
 
 
-    <variable name="Exp_Var_Layout_IsStandard">
-        <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.1101.DisableSubmenu) + !Skin.HasSetting(Hub.1102.DisableSubmenu) + !Skin.HasSetting(Hub.1103.DisableSubmenu) + !Skin.HasSetting(Hub.1104.DisableSubmenu) + !Skin.HasSetting(Hub.1106.DisableSubmenu) + !Skin.HasSetting(Hub.1107.DisableSubmenu) + !Skin.HasSetting(Hub.1108.DisableSubmenu) + !Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + !Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Hubs.HideSubmenus)">True</value>
+    <variable name="Exp_Var_Layout_IsCategories">
+        <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.1101.DisableSubmenu) + !Skin.HasSetting(Hub.1102.DisableSubmenu) + !Skin.HasSetting(Hub.1103.DisableSubmenu) + !Skin.HasSetting(Hub.1104.DisableSubmenu) + !Skin.HasSetting(Hub.1106.DisableSubmenu) + !Skin.HasSetting(Hub.1107.DisableSubmenu) + !Skin.HasSetting(Hub.1108.DisableSubmenu) + !Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + Skin.String(Home.SideMenuCollapse,Never)">True</value>
     </variable>
 
-    <variable name="Exp_Var_Layout_IsWidgets">
-        <value condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.1101.DisableSubmenu) + Skin.HasSetting(Hub.1102.DisableSubmenu) + Skin.HasSetting(Hub.1103.DisableSubmenu) + Skin.HasSetting(Hub.1104.DisableSubmenu) + Skin.HasSetting(Hub.1106.DisableSubmenu) + Skin.HasSetting(Hub.1107.DisableSubmenu) + Skin.HasSetting(Hub.1108.DisableSubmenu) + Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + !Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Hubs.HideSubmenus)">True</value>
+    <variable name="Exp_Var_Layout_IsClassic">
+        <value condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.1101.DisableSubmenu) + Skin.HasSetting(Hub.1102.DisableSubmenu) + Skin.HasSetting(Hub.1103.DisableSubmenu) + Skin.HasSetting(Hub.1104.DisableSubmenu) + Skin.HasSetting(Hub.1106.DisableSubmenu) + Skin.HasSetting(Hub.1107.DisableSubmenu) + Skin.HasSetting(Hub.1108.DisableSubmenu) + Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + Skin.String(Home.SideMenuCollapse,Never)">True</value>
     </variable>
 
     <variable name="Exp_Var_Layout_IsCombined">
-        <value condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.1101.DisableSubmenu) + Skin.HasSetting(Hub.1102.DisableSubmenu) + Skin.HasSetting(Hub.1103.DisableSubmenu) + Skin.HasSetting(Hub.1104.DisableSubmenu) + Skin.HasSetting(Hub.1106.DisableSubmenu) + Skin.HasSetting(Hub.1107.DisableSubmenu) + Skin.HasSetting(Hub.1108.DisableSubmenu) + Skin.HasSetting(Hub.1109.DisableSubmenu) + Skin.HasSetting(Hubs.WidgetSelector) + !Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Hubs.HideSubmenus)">True</value>
+        <value condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.1101.DisableSubmenu) + Skin.HasSetting(Hub.1102.DisableSubmenu) + Skin.HasSetting(Hub.1103.DisableSubmenu) + Skin.HasSetting(Hub.1104.DisableSubmenu) + Skin.HasSetting(Hub.1106.DisableSubmenu) + Skin.HasSetting(Hub.1107.DisableSubmenu) + Skin.HasSetting(Hub.1108.DisableSubmenu) + Skin.HasSetting(Hub.1109.DisableSubmenu) + Skin.HasSetting(Hubs.WidgetSelector) + Skin.String(Home.SideMenuCollapse,Always)">True</value>
     </variable>
 
     <variable name="Exp_Var_Layout_IsCompound">
-        <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.1101.DisableSubmenu) + !Skin.HasSetting(Hub.1102.DisableSubmenu) + !Skin.HasSetting(Hub.1103.DisableSubmenu) + !Skin.HasSetting(Hub.1104.DisableSubmenu) + !Skin.HasSetting(Hub.1106.DisableSubmenu) + !Skin.HasSetting(Hub.1107.DisableSubmenu) + !Skin.HasSetting(Hub.1108.DisableSubmenu) + !Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + Skin.HasSetting(Home.HideSideMenu) + !Skin.HasSetting(Hubs.HideSubmenus)">True</value>
-    </variable>
-
-    <variable name="Exp_Var_Layout_IsComposite">
-        <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.1101.DisableSubmenu) + !Skin.HasSetting(Hub.1102.DisableSubmenu) + !Skin.HasSetting(Hub.1103.DisableSubmenu) + !Skin.HasSetting(Hub.1104.DisableSubmenu) + !Skin.HasSetting(Hub.1106.DisableSubmenu) + !Skin.HasSetting(Hub.1107.DisableSubmenu) + !Skin.HasSetting(Hub.1108.DisableSubmenu) + !Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + Skin.HasSetting(Home.HideSideMenu) + Skin.HasSetting(Hubs.HideSubmenus)">True</value>
+        <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.1101.DisableSubmenu) + !Skin.HasSetting(Hub.1102.DisableSubmenu) + !Skin.HasSetting(Hub.1103.DisableSubmenu) + !Skin.HasSetting(Hub.1104.DisableSubmenu) + !Skin.HasSetting(Hub.1106.DisableSubmenu) + !Skin.HasSetting(Hub.1107.DisableSubmenu) + !Skin.HasSetting(Hub.1108.DisableSubmenu) + !Skin.HasSetting(Hub.1109.DisableSubmenu) + !Skin.HasSetting(Hubs.WidgetSelector) + Skin.String(Home.SideMenuCollapse,Always)">True</value>
     </variable>
 
 </includes>

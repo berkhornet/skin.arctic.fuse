@@ -43,12 +43,23 @@
         "DefaultAddonMusic.png": "special://skin/extras/icons/songs.png",
         "DefaultAddonProgram.png": "special://skin/extras/icons/addons.png"
     },
+    "grouping://shortcuts/": [
+        "grouping://shortcuts/basedir/",
+        "grouping://shortcuts/tmdbhelper/"
+    ],
     "grouping://shortcuts/basedir/": [
         {
             "name": "None",
             "path": "noop",
             "icon": "special://skin/extras/icons/watched-hide.png",
             "link": "true"
+        },
+        {
+            "name": "Hubs",
+            "path": "grouping://shortcuts/hubs/",
+            "icon": "special://skin/extras/icons/home.png",
+            "link": "false",
+            "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
         },
         {
             "name": "Videos",
@@ -65,6 +76,20 @@
             "node": "music"
         },
         {
+            "name": "Add-ons",
+            "path": "grouping://shortcuts/addons/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false"
+        },
+        {
+            "name": "Default",
+            "path": "grouping://shortcuts/default/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/addons/": [
+        {
             "name": "Video Add-ons",
             "path": "addons://sources/video/",
             "icon": "special://skin/extras/icons/addon.png",
@@ -77,6 +102,28 @@
             "icon": "special://skin/extras/icons/addon.png",
             "link": "false",
             "node": "music"
+        },
+        {
+            "name": "Image Add-ons",
+            "path": "addons://sources/image/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false",
+            "node": "pictures"
+        },
+        {
+            "name": "Program Add-ons",
+            "path": "addons://sources/executable/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false",
+            "node": "programs"
+        },
+        {
+            "name": "Android Add-ons",
+            "path": "androidapp://sources/apps/",
+            "icon": "special://skin/extras/icons/addon.png",
+            "link": "false",
+            "node": "programs",
+            "rule": "System.Platform.Android"
         }
     ],
     "grouping://shortcuts/tmdbhelper/": [
@@ -121,6 +168,86 @@
             "node": "videos"
         }
     ],
+    "grouping://shortcuts/default/": [
+        {
+            "name": "Movies",
+            "path": "grouping://shortcuts/default/movies/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false"
+        }
+    ],
+    "grouping://shortcuts/default/movies/": [
+        {
+            "name": "New Movies",
+            "path": "special://skin/extras/playlists/NewMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Recent Movies",
+            "path": "special://skin/extras/playlists/RecentMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Random Movies",
+            "path": "special://skin/extras/playlists/RandomMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "In-Progress Movies",
+            "path": "special://skin/extras/playlists/InProgressMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Top Rated Movies",
+            "path": "special://skin/extras/playlists/TopRatedMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Top 250 Movies",
+            "path": "special://skin/extras/playlists/Top250Movies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Unwatched Movies",
+            "path": "special://skin/extras/playlists/UnwatchedMovies.xsp",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Movie Nodes",
+            "path": "library://video/movies/",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Movie Genres",
+            "path": "library://video/movies/genres.xml",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Movie Sets",
+            "path": "videodb://movies/sets/",
+            "node": "videos",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        }
+    ],
     "grouping://shortcuts/hubs/": [
         {
             "name": "Home",
@@ -152,16 +279,5 @@
             "icon": "special://skin/extras/icons/livetv.png",
             "link": "true"
         }
-    ],
-    "grouping://shortcuts/": [
-        {
-            "name": "Hubs",
-            "path": "grouping://shortcuts/hubs/",
-            "icon": "special://skin/extras/icons/home.png",
-            "link": "false",
-            "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
-        },
-        "grouping://shortcuts/basedir/",
-        "grouping://shortcuts/tmdbhelper/"
     ]
 }

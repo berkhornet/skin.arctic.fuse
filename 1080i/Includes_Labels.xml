@@ -44,12 +44,9 @@
     </variable>
 
     <variable name="Label_Settings_MenuStyle_Preselect">
-        <value condition="Skin.HasSetting(Home.HideSideMenu)">1</value>
-        <value>0</value>
-    </variable>
-    <variable name="Label_Settings_MenuStyle">
-        <value condition="Skin.HasSetting(Home.HideSideMenu)">$LOCALIZE[31423] ($LOCALIZE[31424])</value>
-        <value>$LOCALIZE[602] ($LOCALIZE[31274])</value>
+        <value condition="Skin.String(Home.SideMenuCollapse,Always)">0</value>
+        <value condition="Skin.String(Home.SideMenuCollapse,Library)">1</value>
+        <value>2</value>
     </variable>
 
     <variable name="Label_Settings_TrailerStyle">

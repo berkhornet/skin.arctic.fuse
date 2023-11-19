@@ -19,8 +19,20 @@
         },
         "False"
     ],
-    "widget_visible": "True",
-    "widget_altvisible": "False",
+    "widget_visible": [
+        {
+            "condition": "Skin.HasSetting(Hubs.WidgetSelector)",
+            "value": "String.IsEqual(Container($MATH[{parent_item_x} * 1000 + 419]).ListItem.Property(guid),{item_guid})"
+        },
+        "True"
+    ],
+    "widget_altvisible": [
+        {
+            "condition": "Skin.HasSetting(Hubs.WidgetSelector)",
+            "value": "String.IsEqual(Container($MATH[{parent_item_x} * 1000 + 419]).ListItem.Property(guid),{item_guid})"
+        },
+        "False"
+    ],
     "widget_isautoscroll": [
         {
             "condition":"{item_widget_autoscroll}==True",

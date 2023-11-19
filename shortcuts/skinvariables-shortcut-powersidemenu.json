@@ -8,7 +8,7 @@
     {
         "icon": "special://skin/extras/icons/shapes.png",
         "label": "Widgets",
-        "path": "RunScript(script.skinvariables,\"run_executebuiltin=SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31086][/CAPITALIZE],Home)||SetProperty(CustomDialogSettingsItems,Items_Settings_AllMenuConfigure,Home)||sleep=0.4||ActivateWindow(1118)\")",
+        "path": "RunScript(script.skinvariables,\"run_executebuiltin=SetProperty(Shortcuts.EditMenu,menu=sidemenu,Home)||sleep=0.2||ActivateWindow(1115)\")",
         "target": ""
     },
     {

@@ -4,11 +4,7 @@
     <onunload condition="!String.IsEmpty(Window(Home).Property(DialogButtonMenuRefocus))">SetFocus($INFO[Window(Home).Property(DialogButtonMenuRefocus)])</onunload>
     <onunload>ClearProperty(DialogButtonMenuRefocus,Home)</onunload>
 
-    <onload condition="String.IsEmpty(Skin.String(OptionsTiles.Layout))">Skin.SetString(OptionsTiles.Layout,$NUMBER[3])</onload>
-    <onload condition="String.IsEmpty(Skin.String(OptionsTiles.01.Include))">Skin.SetString(OptionsTiles.01.Include,Profile)</onload>
-    <onload condition="String.IsEmpty(Skin.String(OptionsTiles.02.Include))">Skin.SetString(OptionsTiles.02.Include,Settings)</onload>
-    <onload condition="String.IsEmpty(Skin.String(OptionsTiles.03.Include))">Skin.SetString(OptionsTiles.03.Include,Weather)</onload>
-    <onload condition="String.IsEmpty(Skin.String(OptionsTiles.04.Include))">Skin.SetString(OptionsTiles.04.Include,SystemInfo)</onload>
+    <include>Action_ButtonMenu_Onload</include>
 
     <controls>
 

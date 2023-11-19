@@ -44,9 +44,9 @@
 
     <include name="Hub_Submenu_List">
         <param name="ondown">340</param>
-        <!-- <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_View</param> -->
+        <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_View</param>
         <definition>
-            <include content="Categories_Selector" condition="!Skin.HasSetting(Hubs.HideSubmenus)">
+            <include content="Categories_Selector">
                 <param name="id">$PARAM[id]</param>
                 <param name="window_id">$PARAM[window_id]</param>
                 <param name="font">font_mini</param>
@@ -331,8 +331,7 @@
                 <include content="Action_Menu_Movement_OnBack">
                     <param name="id">300</param>
                 </include>
-                <ondown condition="!Skin.HasSetting(Hubs.HideSubmenus)">302</ondown>
-                <ondown condition="Skin.HasSetting(Hubs.HideSubmenus)">340</ondown>
+                <ondown>302</ondown>
                 <onfocus>SetProperty(TMDbHelper.WidgetContainer,301,$PARAM[window_id])</onfocus>
                 <include content="Hub_Categories_Dynamic" condition="Skin.HasSetting(KioskMode.HubConfigurationUnlocked)">
                     <param name="id">$PARAM[id]</param>
@@ -384,9 +383,7 @@
     </include>
 
     <include name="Hub_Widgets_Grouplist__Def_Layout_Expanded">
-        <onup condition="!Skin.HasSetting(Hubs.HideSubmenus)">302</onup>
-        <onup condition="Skin.HasSetting(Hubs.HideSubmenus)">300</onup>
-
+        <onup>302</onup>
         <include>Hub_Slide_Widgets_NoCategories</include>
         <include>Hub_Slide_Widgets_NoSubmenu</include>
     </include>

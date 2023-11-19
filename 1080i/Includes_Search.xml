@@ -981,12 +981,10 @@
 
     <include name="Search_View_DiscoverInfoPanel">
         <include content="Info_Panel">
-            <param name="line_id">0</param>
             <param name="container">Container(5081).</param>
             <visible>Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),5081)</visible>
         </include>
         <include content="Info_Panel">
-            <param name="line_id">0</param>
             <param name="container">Container(5082).</param>
             <visible>Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),5082)</visible>
         </include>

@@ -11,6 +11,7 @@
             <onfocus condition="String.IsEqual(Window(Home).Property(WizardStep),Dialog)">SetProperty(WizardStep,Themes,Home)</onfocus>
             <onfocus condition="!String.IsEmpty(Window(Home).Property(WizardStep))">SetFocus(50)</onfocus>
             <onfocus condition="String.IsEmpty(Window(Home).Property(WizardStep))">PreviousMenu</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(WizardStep))">RunPlugin(plugin://script.skinvariables/?info=get_shortcuts_node&amp;skin=skin.arctic.fuse&amp;menu=sidemenu&amp;func=do_refresh&amp;&amp;False)</onfocus>
         </include>
 
         <include>Background_Main</include>
@@ -51,98 +52,15 @@
                             <ondown>9000</ondown>
                             <focusposition>0</focusposition>
                             <preloaditems>2</preloaditems>
-
                             <orientation>horizontal</orientation>
-                            <!-- <animation effect="slide" end="260" condition="!Integer.IsGreater(Container(50).NumItems,4)">Conditional</animation> -->
-
                             <onback>8001</onback>
-
                             <itemlayout width="1180" height="760">
-                                <control type="group">
-                                    <top>40</top>
-                                    <bottom>80</bottom>
-                                    <left>180</left>
-                                    <right>-140</right>
-                                    <control type="group">
-                                        <include content="Dialog_Outline_Box">
-                                            <control type="image">
-                                                <texture background="true" border="20" colordiffuse="panel_bg">common/box.png</texture>
-                                            </control>
-                                            <control type="image">
-                                                <aspectratio scalediffuse="false">scale</aspectratio>
-                                                <texture background="true" diffuse="diffuse/landscape_w1140_h680.png">$INFO[ListItem.Icon]</texture>
-                                            </control>
-                                            <control type="group">
-                                                <width>24</width>
-                                                <height>24</height>
-                                                <right>30</right>
-                                                <bottom>30</bottom>
-                                                <control type="image">
-                                                    <bordersize>-12</bordersize>
-                                                    <texture colordiffuse="panel_bg">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <bordersize>-8</bordersize>
-                                                    <texture colordiffuse="$VAR[ColorWatchedProgress]">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <bordersize>-4</bordersize>
-                                                    <texture colordiffuse="panel_bg">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <texture colordiffuse="panel_fg_90">buttons/check-on.png</texture>
-                                                </control>
-                                                <visible>!String.IsEmpty(ListItem.Property(selected))</visible>
-                                            </control>
-                                        </include>
-                                    </control>
-                                </control>
+                                <include>Layout_Wizard</include>
                             </itemlayout>
                             <focusedlayout width="1180" height="760">
-                                <control type="group">
-                                    <top>40</top>
-                                    <bottom>80</bottom>
-                                    <left>180</left>
-                                    <right>-140</right>
-                                    <control type="group">
-                                        <include content="Dialog_Outline_Box">
-                                            <control type="image">
-                                                <texture background="true" border="20" colordiffuse="panel_bg">common/box.png</texture>
-                                            </control>
-                                            <control type="image">
-                                                <aspectratio scalediffuse="false">scale</aspectratio>
-                                                <texture background="true" diffuse="diffuse/landscape_w1140_h680.png">$INFO[ListItem.Icon]</texture>
-                                            </control>
-                                            <control type="group">
-                                                <width>24</width>
-                                                <height>24</height>
-                                                <right>30</right>
-                                                <bottom>30</bottom>
-                                                <control type="image">
-                                                    <bordersize>-12</bordersize>
-                                                    <texture colordiffuse="panel_bg">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <bordersize>-8</bordersize>
-                                                    <texture colordiffuse="$VAR[ColorWatchedProgress]">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <bordersize>-4</bordersize>
-                                                    <texture colordiffuse="panel_bg">common/circle.png</texture>
-                                                </control>
-                                                <control type="image">
-                                                    <texture colordiffuse="panel_fg_90">buttons/check-on.png</texture>
-                                                </control>
-                                                <visible>!String.IsEmpty(ListItem.Property(selected))</visible>
-                                            </control>
-                                        </include>
-                                        <include content="Object_SelectBox">
-                                            <param name="indicator">false</param>
-                                            <param name="focusbounce">true</param>
-                                            <visible>Control.HasFocus(50)</visible>
-                                        </include>
-                                    </control>
-                                </control>
+                                <include content="Layout_Wizard">
+                                    <param name="selected">true</param>
+                                </include>
                             </focusedlayout>
 
                             <content>
@@ -152,36 +70,29 @@
                                     <label>$LOCALIZE[31150]</label>
                                     <icon>special://skin/extras/screenshots/widgets/Categories.jpg</icon>
                                     <visible>String.IsEmpty(Window(Home).Property(WizardStep))</visible>
-                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=Reset,combined=Reset,sidemenu=Reset,compound=Reset,shortcut=default_home,position=0)</onclick>
-                                    <property name="selected">$VAR[Exp_Var_Layout_IsStandard]</property>
+                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=Reset,combined=Reset,hidemenu=Never,compound=Reset,shortcut=default_home,position=0)</onclick>
+                                    <property name="selected">$VAR[Exp_Var_Layout_IsCategories]</property>
                                 </item>
                                 <item>
                                     <label>$LOCALIZE[31083]</label>
                                     <icon>special://skin/extras/screenshots/widgets/Combined.jpg</icon>
                                     <visible>String.IsEmpty(Window(Home).Property(WizardStep))</visible>
-                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=SetBool,combined=SetBool,sidemenu=Reset,compound=Reset,shortcut=default_home,position=1)</onclick>
+                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=SetBool,combined=SetBool,hidemenu=Always,compound=Reset,shortcut=default_home,position=1)</onclick>
                                     <property name="selected">$VAR[Exp_Var_Layout_IsCombined]</property>
                                 </item>
                                 <item>
                                     <label>$LOCALIZE[31451]</label>
                                     <icon>special://skin/extras/screenshots/widgets/Compound.jpg</icon>
                                     <visible>String.IsEmpty(Window(Home).Property(WizardStep))</visible>
-                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=Reset,combined=Reset,sidemenu=SetBool,compound=Reset,shortcut=basic_library,position=2)</onclick>
+                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=Reset,combined=Reset,hidemenu=Always,compound=Reset,shortcut=basic_library,position=2)</onclick>
                                     <property name="selected">$VAR[Exp_Var_Layout_IsCompound]</property>
                                 </item>
                                 <item>
                                     <label>$LOCALIZE[31143]</label>
-                                    <icon>special://skin/extras/screenshots/widgets/Widgets.jpg</icon>
+                                    <icon>special://skin/extras/screenshots/widgets/Classic.jpg</icon>
                                     <visible>String.IsEmpty(Window(Home).Property(WizardStep))</visible>
-                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=SetBool,combined=Reset,sidemenu=Reset,compound=Reset,shortcut=default_home,position=3)</onclick>
-                                    <property name="selected">$VAR[Exp_Var_Layout_IsWidgets]</property>
-                                </item>
-                                <item>
-                                    <label>$LOCALIZE[31452]</label>
-                                    <icon>special://skin/extras/screenshots/widgets/Composite.jpg</icon>
-                                    <visible>String.IsEmpty(Window(Home).Property(WizardStep))</visible>
-                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=Reset,combined=Reset,sidemenu=SetBool,compound=SetBool,shortcut=basic_library,position=4)</onclick>
-                                    <property name="selected">$VAR[Exp_Var_Layout_IsComposite]</property>
+                                    <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,category=SetBool,combined=Reset,hidemenu=Never,compound=Reset,shortcut=default_home,position=3)</onclick>
+                                    <property name="selected">$VAR[Exp_Var_Layout_IsClassic]</property>
                                 </item>
                                 <!-- Step 02: Themes -->
                                 <item>

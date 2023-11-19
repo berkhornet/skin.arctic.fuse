@@ -9,4 +9,5 @@
     {all_content_adapative_widgets}
     {all_adapative_widgets}
     {all_standard_widgets}
+    {all_endrow_selector}
 </include>

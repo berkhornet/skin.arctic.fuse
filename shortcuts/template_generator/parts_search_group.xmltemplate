@@ -1,0 +1,39 @@
+<control type="group">
+    <include>Animation_Group_Bumper</include>
+    <include content="Home_Widgets_Infopanel">
+        <param name="visible">[ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus] | $EXP[Exp_HomeMenu_HasFocus]]</param>
+        <include content="Info_Panel">
+            <param name="container">Container.</param>
+        </include>
+        <include>Search_View_DiscoverInfoPanel</include>
+        <include content="Animation_Fade_In">
+            <param name="type">Visible</param>
+            <param name="delay">200</param>
+        </include>
+        <animation effect="fade" start="100" end="0" time="150" tween="sine" easing="in" reversible="false">Hidden</animation>
+    </include>
+    <include content="Search_View_Slide">
+        <include content="Search_View_Widgets">
+            {all_search_widgets}
+            <include>Search_View_DiscoverWidgets</include>
+        </include>
+    </include>
+    <include content="Search_View_Panel">
+        <include content="Search_View_Footer">
+            {all_search_footers}
+            <include content="Search_View_Footer_Item">
+                <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
+                <param name="id">5081</param>
+                <param name="icon">special://skin/extras/icons/film.png</param>
+                <param name="altnofocus">false</param>
+            </include>
+            <include content="Search_View_Footer_Item">
+                <visible>Skin.HasSetting(Search.EnableDiscover)</visible>
+                <param name="id">5082</param>
+                <param name="icon">special://skin/extras/icons/tv.png</param>
+                <param name="altnofocus">false</param>
+            </include>
+        </include>
+    </include>
+</control>
+<include>Search_View_Side</include>

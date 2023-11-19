@@ -22,7 +22,7 @@
         <include>Background_Main</include>
 
         <control type="group">
-            <include>TODO_SKINVARIABLES_template-searchmenu</include>
+            <include>skinvariables-searchmenu</include>
         </control>
 
         <include>Background_Transition</include>
@@ -30,7 +30,8 @@
         <control type="group">
             <left>view_menu</left>
             <width>40</width>
-            <visible>!Skin.HasSetting(Home.HideSideMenu)</visible>
+            <visible>!Skin.String(Home.SideMenuCollapse,Always)</visible>
+            <visible>!Skin.String(Home.SideMenuCollapse,Library)</visible>
             <visible>!$EXP[Exp_InfoDialogs]</visible>
             <control type="group">
                 <top>view_pad</top>

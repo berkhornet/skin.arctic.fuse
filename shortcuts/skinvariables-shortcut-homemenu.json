@@ -103,7 +103,7 @@
             },
             {
                 "label": "$LOCALIZE[31060]",
-                "path": "special://skin/extras/playlists/RecentTvEpisodes.xsp",
+                "path": "special://skin/extras/playlists/RecentEpisodes.xsp",
                 "widget_style": "Landscape",
                 "target": "videos"
             }
