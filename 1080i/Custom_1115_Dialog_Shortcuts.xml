@@ -89,6 +89,7 @@
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_delete&amp;&amp;False])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
+                                    <visible>!Container(22001).IsUpdating</visible>
                                 </control>
                                 <control type="button" id="22003" description="Add">
                                     <width>32</width>
@@ -98,6 +99,7 @@
                                     <texturefocus colordiffuse="$VAR[ColorSelected]">buttons/plus.png</texturefocus>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_new])</onclick>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
+                                    <visible>!Container(22001).IsUpdating</visible>
                                     <onback>24000</onback>
                                 </control>
                                 <control type="button" id="22004" description="Up">
@@ -108,6 +110,7 @@
                                     <texturefocus colordiffuse="$VAR[ColorSelected]" flipy="true">buttons/down.png</texturefocus>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_move&amp;&amp;-1&amp;&amp;22001])</onclick>
                                     <onback>24000</onback>
+                                    <visible>!Container(22001).IsUpdating</visible>
                                 </control>
                                 <control type="button" id="22005" description="Down">
                                     <width>32</width>
@@ -117,6 +120,7 @@
                                     <texturefocus colordiffuse="$VAR[ColorSelected]">buttons/down.png</texturefocus>
                                     <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_move&amp;&amp;1&amp;&amp;22001])</onclick>
                                     <onback>24000</onback>
+                                    <visible>!Container(22001).IsUpdating</visible>
                                 </control>
                             </control>
                         </control>
