@@ -1038,6 +1038,102 @@
                     </include>
                 </control>
 
+                <control type="group">
+                    <top>100</top>
+                    <height>view_pad</height>
+                    <left>30</left>
+                    <visible>!Integer.IsEqual(Container(9098).NumItems,0)</visible>
+                    <animation effect="slide" end="-40" time="400" tween="quadratic" reversible="false" condition="!Container(9098).OnNext">Conditional</animation>
+                    <animation effect="slide" end="40" time="400" tween="quadratic" reversible="false" condition="!Container(9098).OnPrevious">Conditional</animation>
+                    <control type="grouplist">
+                        <itemgap>0</itemgap>
+                        <orientation>horizontal</orientation>
+                        <control type="togglebutton">
+                            <textoffsetx>10</textoffsetx>
+                            <width>auto</width>
+                            <height>40</height>
+                            <centertop>50%</centertop>
+                            <texturefocus />
+                            <texturenofocus />
+                            <alttexturefocus />
+                            <alttexturenofocus />
+                            <align>center</align>
+                            <font>font_main_black</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <focusedcolor>main_fg_30</focusedcolor>
+                            <label>$INFO[Container(9098).ListItem.Label]</label>
+                            <altlabel>[COLOR=main_fg_90]$INFO[Container(9098).ListItem.Label][/COLOR]</altlabel>
+                            <usealttexture>Control.HasFocus(9098)</usealttexture>
+                        </control>
+                        <control type="button">
+                            <textoffsetx>10</textoffsetx>
+                            <width>auto</width>
+                            <height>40</height>
+                            <centertop>50%</centertop>
+                            <texturefocus />
+                            <texturenofocus />
+                            <align>center</align>
+                            <font>font_main_black</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <focusedcolor>main_fg_90</focusedcolor>
+                            <label>$INFO[Container(9098).ListItem(1).Label]</label>
+                        </control>
+                        <control type="button">
+                            <textoffsetx>10</textoffsetx>
+                            <width>auto</width>
+                            <height>40</height>
+                            <centertop>50%</centertop>
+                            <texturefocus />
+                            <texturenofocus />
+                            <align>center</align>
+                            <font>font_main_black</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <focusedcolor>main_fg_90</focusedcolor>
+                            <label>$INFO[Container(9098).ListItem(2).Label]</label>
+                        </control>
+                        <control type="button">
+                            <textoffsetx>10</textoffsetx>
+                            <width>auto</width>
+                            <height>40</height>
+                            <centertop>50%</centertop>
+                            <texturefocus />
+                            <texturenofocus />
+                            <align>center</align>
+                            <font>font_main_black</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <focusedcolor>main_fg_90</focusedcolor>
+                            <label>$INFO[Container(9098).ListItem(3).Label]</label>
+                        </control>
+                        <control type="button">
+                            <textoffsetx>10</textoffsetx>
+                            <width>auto</width>
+                            <height>40</height>
+                            <centertop>50%</centertop>
+                            <texturefocus />
+                            <texturenofocus />
+                            <align>center</align>
+                            <font>font_main_black</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <focusedcolor>main_fg_90</focusedcolor>
+                            <label>$INFO[Container(9098).ListItem(4).Label]</label>
+                        </control>
+                    </control>
+
+                    <control type="button">
+                        <textoffsetx>10</textoffsetx>
+                        <width>auto</width>
+                        <height>scrollbar_w</height>
+                        <bottom>10</bottom>
+                        <align>center</align>
+                        <font>font_main_black</font>
+                        <textcolor>00ffffff</textcolor>
+                        <focusedcolor>00ffffff</focusedcolor>
+                        <label>$INFO[Container(9098).ListItem.Label]</label>
+                        <include>Texture_Highlight_Underline_H</include>
+                        <visible>Control.HasFocus(9098)</visible>
+                    </control>
+                </control>
+
                 <!-- Auto complete Row -->
                 <control type="group">
                     <top>100</top>
@@ -1054,6 +1150,8 @@
 
                         <focusposition>0</focusposition>
                         <movement>0</movement>
+
+                        <visible allowhiddenfocus="true">false</visible>
 
                         <onclick>SetFocus(9099)</onclick>
                         <onclick>SetProperty(SearchTerm,$INFO[Container(9098).ListItem.Label])</onclick>
