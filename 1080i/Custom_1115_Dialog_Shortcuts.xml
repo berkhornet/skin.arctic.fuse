@@ -86,7 +86,7 @@
                                     <font/>
                                     <texturenofocus colordiffuse="dialog_bg_30">buttons/cross.png</texturenofocus>
                                     <texturefocus colordiffuse="$VAR[ColorSelected]">buttons/cross.png</texturefocus>
-                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_delete])</onclick>
+                                    <onclick>RunPlugin($INFO[Container(22001).ListItem.Property(url),,&amp;func=do_delete&amp;&amp;False])</onclick>
                                     <onback>24000</onback>
                                     <visible>String.IsEmpty(Container(22001).ListItem.Property(forced))</visible>
                                 </control>
