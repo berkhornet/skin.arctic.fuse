@@ -208,9 +208,8 @@
             <include condition="Skin.String(Movement.Menu.OnLeft,Menu)" content="Object_OnLeft"><param name="onleft">$PARAM[onmenu]</param></include>
 
             <!-- On Right -->
-            <onright>$PARAM[onlist]</onright>
-            <!-- <include condition="Skin.String(Movement.Menu.OnRight,Loop) + Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)" content="Action_HM_OnRight_LoopHome_NoWidgets"><param name="onlist">$PARAM[onlist]</param></include>
-            <include condition="Skin.String(Movement.Menu.OnRight,Loop) + ![Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)]" content="Action_HM_OnRight_LoopHome"><param name="onlist">$PARAM[onlist]</param></include> -->
+            <include condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)" content="Action_HM_OnRight_LoopHome_NoWidgets"><param name="onlist">$PARAM[onlist]</param></include>
+            <include condition="![Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)]" content="Action_HM_OnRight_LoopHome"><param name="onlist">$PARAM[onlist]</param></include>
         </definition>
     </include>
 

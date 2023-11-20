@@ -56,17 +56,24 @@
         },
         {
             "name": "Hubs",
-            "path": "grouping://shortcuts/hubs/",
+            "path": "grouping://shortcuts/links/hubs/",
             "icon": "special://skin/extras/icons/home.png",
             "link": "false",
-            "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
+            "rule": "String.IsEqual(Window(Home).Property(Shortcuts.Groupings.Links),Links)"
         },
         {
             "name": "Default",
             "path": "grouping://shortcuts/default/",
             "icon": "special://skin/extras/icons/folder.png",
             "link": "false",
-            "rule": "String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
+            "rule": "!String.IsEqual(Window(Home).Property(Shortcuts.Groupings.Links),Links)"
+        },
+        {
+            "name": "Experimental",
+            "path": "grouping://shortcuts/widgets/experimental/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "rule": "!String.IsEqual(Window(Home).Property(Shortcuts.Groupings.Links),Links)"
         },
         {
             "name": "Videos",
@@ -94,7 +101,7 @@
             "icon": "special://skin/extras/icons/livetv.png",
             "link": "false",
             "node": "tvguide",
-            "rule": "!String.IsEmpty(Window(Home).Property(Shortcuts.Groupings.Hubs))"
+            "rule": "String.IsEqual(Window(Home).Property(Shortcuts.Groupings.Links),Links)"
         },
         {
             "name": "Playlists",
@@ -897,7 +904,7 @@
             "icon": "special://skin/extras/icons/radio.png"
         }
     ],
-    "grouping://shortcuts/hubs/": [
+    "grouping://shortcuts/links/hubs/": [
         {
             "name": "Home",
             "path": "ActivateWindow(Home)",
@@ -926,6 +933,50 @@
             "name": "Live TV Hub",
             "path": "ActivateWindow(1104)",
             "icon": "special://skin/extras/icons/livetv.png",
+            "link": "true"
+        }
+    ],
+    "grouping://shortcuts/widgets/experimental/": [
+        {
+            "name": "Stacked Folder",
+            "path": "Stacked_Folder",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked Movie Recommendations",
+            "path": "Stacked_Movie_Recommendations",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked TV Show Recommendations",
+            "path": "Stacked_TVShows_Recommendations",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked Movie Year",
+            "path": "Stacked_Movie_Year",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked TV Show Year",
+            "path": "Stacked_TVShows_Year",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked Movie Genre",
+            "path": "Stacked_Movie_Genre",
+            "icon": "special://skin/extras/icons/list-ol.png",
+            "link": "true"
+        },
+        {
+            "name": "Stacked TV Show Genre",
+            "path": "Stacked_TVShows_Genre",
+            "icon": "special://skin/extras/icons/list-ol.png",
             "link": "true"
         }
     ]

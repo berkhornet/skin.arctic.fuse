@@ -29,7 +29,7 @@
         ]
     },
     {
-        "label": "Movies Hub",
+        "label": "Movies",
         "icon": "special://skin/extras/icons/film.png",
         "path": "ActivateWindow(1101)",
         "expression": "movies",
@@ -62,7 +62,7 @@
         ]
     },
     {
-        "label": "TV Shows Hub",
+        "label": "TV Shows",
         "icon": "special://skin/extras/icons/tv.png",
         "path": "ActivateWindow(1102)",
         "expression": "tvshows",
@@ -95,7 +95,7 @@
         ]
     },
     {
-        "label": "Music Hub",
+        "label": "Music",
         "icon": "special://skin/extras/icons/songs.png",
         "path": "ActivateWindow(1103)",
         "expression": "music",

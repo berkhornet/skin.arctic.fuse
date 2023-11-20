@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="Path_Shortcut_EditMenu">
+        <value condition="!String.IsEmpty(Window(Home).Property(Shortcuts.EditMenu))">$INFO[Window(Home).Property(Shortcuts.EditMenu)]</value>
+        <value>menu=sidemenu</value>
+    </variable>
+
     <variable name="Path_Shortcut_Hub_Prefix">
         <value condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(Home))">Home</value>
         <value condition="String.IsEqual(Container(22001).ListItem.Property(path),ActivateWindow(1101))">1101</value>
