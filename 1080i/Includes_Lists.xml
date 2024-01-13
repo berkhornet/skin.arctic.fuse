@@ -78,8 +78,11 @@
                         <font>font_tiny_bold</font>
                         <label>$INFO[ListItem.Label]</label>
                         <textcolor>main_fg_70</textcolor>
+						            <!-- PVR008: remove visible tag -->
+                        <!-- visible>String.Contains(ListItem.Label,:) | !Skin.HasSetting(Views.UseHalfPVRGuide)</visible -->
                         <shadowcolor>main_bg_12</shadowcolor>
-                        <animation effect="slide" start="0" end="0,-15" condition="!Skin.HasSetting(Views.UseHalfPVRGuide)">Conditional</animation>
+                        <!-- PVR008: change condition tag from "!Skin.HasSetting(Views.UseHalfPVRGuide)" -->
+                        <animation effect="slide" start="0" end="0,-15" condition="Window.IsVisible(10702)">Conditional</animation>
                     </control>
                 </rulerlayout>
                 <channellayout height="$PARAM[channelheight]" width="$PARAM[channelwidth]">

@@ -42,6 +42,22 @@
                         </include>
                     </control>
                 </include>
+				<!-- MISC013: START Top right clock added for Home screen without stacked widgets OR Explore mode -->
+				<control type="group">
+					<control type="image">							
+						<left>1265</left>
+						<top>-108</top>
+						<width>420</width>
+						<height>256</height>
+						<texture colordiffuse="$VAR[ColorClockBackground]">special://skin/media/common/menumain.png</texture>
+						<align>right</align>
+						<aligny>center</aligny>
+						<aspectratio></aspectratio>					
+					</control> 
+					<include>Furniture_Clock</include>					
+					<visible>[Window.IsVisible(Home) + !Skin.HasSetting(hubs.widgetselector)] | Window.IsVisible(11181)</visible>
+				</control>
+				<!-- MISC013: END Top right clock added for Home screen without stacked widgets OR Explore mode -->
             </include>
         </definition>
     </include>
@@ -57,7 +73,8 @@
                         <include content="Info_Studio" condition="![Skin.HasSetting(Furniture.EnableClock) | $EXP[Exp_Furniture_PVR]]">
                             <centertop>50%</centertop>
                         </include>
-                        <include content="Furniture_Clock" condition="Skin.HasSetting(Furniture.EnableClock)">
+                        <!-- MISC013: condition extended -  ![[Window.IsVisible(Home) + !Skin.HasSetting(hubs.widgetselector)] | Window.IsVisible(11181)] -->
+                        <include content="Furniture_Clock" condition="Skin.HasSetting(Furniture.EnableClock) + ![[Window.IsVisible(Home) + !Skin.HasSetting(hubs.widgetselector)] | Window.IsVisible(11181)]">
                             <param name="flipx">true</param>
                             <param name="topshadowcolor">main_bg_50</param>
                             <param name="bottomshadowcolor">main_bg_50</param>
