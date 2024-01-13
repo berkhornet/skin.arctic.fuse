@@ -777,13 +777,6 @@
     </variable>
 
     <variable name="Label_PVRPrograms">
-		<!-- PVR002: START Custom PVR Program Information -->
-		<value condition="$EXP[247_Channel]">$INFO[ListItem.ChannelName] ... All Day, Every Day</value>
-		<value condition="$EXP[Live_Football_NoMatch]">$INFO[ListItem.ChannelName] No Match Scheduled</value>
-		<value condition="$EXP[Live_NoMatch_SPFL_FHNatho]">$INFO[ListItem.ChannelName] No Match Scheduled</value>
-		<value condition="$EXP[Live_Football_Anova]">$INFO[ListItem.ChannelName]</value>
-		<value condition="$EXP[Live_Football_FHNatho]">$INFO[ListItem.ChannelName]</value>
-		<!-- PVR002: END Custom PVR Program Information -->
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
         <value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[ListItem.ChannelName]</value>
@@ -1062,34 +1055,7 @@
         <value condition="Window.IsVisible(1131)">$LOCALIZE[31020]</value>
         <value condition="Window.IsVisible(1132)">$LOCALIZE[24001]</value>
         <value condition="$EXP[Exp_Window_IsHub] + !String.IsEmpty(Window.Property(Hub.Header))">$INFO[Window.Property(Hub.Header)]</value>
-        		
-		<!-- MISC008: If focus in on Search or Settings display fixed label -->
-		<value condition="Window.IsVisible(Home) + String.IsEqual(System.CurrentControlID,308)">SEARCH</value>
-		<value condition="Window.IsVisible(Home) + String.IsEqual(System.CurrentControlID,309)">SETTINGS</value>		
-		<!-- MISC008: If Set up is Widgets Only AND focus is on Widget Selector display Side Menu and Widget labels -->
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,1419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(1419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,2419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(2419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,3419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(3419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,4419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(4419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,5419)">$INFO[Container(303).ListItem(0).Label] / $INFO[Container(5419).ListItem(0).Label]</value>
-		<!-- MISC008: If Set up is Categories AND focus is on Widget Selector display Category and Widget labels -->
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,1419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(1419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,2419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(2419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,3419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(3419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,4419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(4419).ListItem(0).Label]</value>
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) + String.IsEqual(System.CurrentControlID,5419)">$INFO[Container(300).ListItem(0).Label] / $INFO[Container(5419).ListItem(0).Label]</value>
-		<!-- MISC008: If Set up is Widgets Only display Side Menu label -->
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)">$INFO[Container(303).ListItem(0).Label]</value>				
-		<!-- MISC008: If Set Up is Categories AND Focus is on Category Menu OR Spotlight display Category and Spotlight labels -->		
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu) +[String.IsEqual(System.CurrentControlID,300) | String.IsEqual(System.CurrentControlID,311) | String.IsEqual(System.CurrentControlID,312)]">$INFO[Container(300).ListItem(0).Label] / Spotlight: $INFO[Container(300).ListItem.Property(spotlight_label)]</value>
-		<!-- MISC008: If Set Up is Widgets Only AND Focus is on widget row display Side Menu label -->				
-		<value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu)">$INFO[Container(303).ListItem(0).Label]</value>
-		<!-- MISC008: If Set Up is Categories AND Focus is on widget row display Category label -->				
-		<value condition="Window.IsVisible(Home) + !Skin.HasSetting(Hub.Home.DisableSubmenu)">$INFO[Container(300).ListItem(0).Label]</value>
-
-		<value>$VAR[Label_Home]</value>
+        <value>$VAR[Label_Home]</value>
     </variable>
 
     <variable name="Label_Section_Main">
@@ -1243,14 +1209,13 @@
     <variable name="Label_WidgetTitle">
         <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_tvshowtitle))">$INFO[Container(99950).ListItem.Property(base_tvshowtitle)]</value>
         <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_title))">$INFO[Container(99950).ListItem.Property(base_title)]</value>
-		<!-- MISC006: value condition "uncommented out" --> 
-		<value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_label))">$INFO[Container(99950).ListItem.Property(base_label)]</value>
+        <!-- <value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_label))">$INFO[Container(99950).ListItem.Property(base_label)]</value> -->
         <value>$VAR[Label_TitleFallback]</value>
     </variable>
 
     <variable name="Label_TitleFallback">
         <value condition="!String.IsEmpty(Weather.Conditions) + Weather.IsFetched + Skin.HasSetting(Furniture.EnableClock.TopLeft)">$INFO[Weather.Conditions,, ]$INFO[Weather.Temperature][CR]$INFO[Window(Weather).Property(Location)]</value>
-     	<value>$INFO[System.Time][CR]$INFO[System.Date]</value>
+        <value>$INFO[System.Time][CR]$INFO[System.Date]</value>
     </variable>
 
 </includes>
