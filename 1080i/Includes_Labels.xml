@@ -1349,8 +1349,8 @@
         <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,movies)">Video Library:  Movies</value>
         <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,sets)">Video Library:  Movie Collections</value>
         <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,genres) + String.Contains(Container.FolderPath,movies)">Video Library:  Movie Genres</value>
-        <value condition="Window.IsVisible(10025) + String.StartsWith(Container.FolderPath,sources)">Video Library: Sources</value>       
-        <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,playlists)">Video Library: Playlists</value>       
+        <value condition="Window.IsVisible(10025) + String.StartsWith(Container.FolderPath,sources)">Video Library:  Sources</value>       
+        <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,playlists)">Video Library:  Playlists</value>       
         <value condition="Window.IsVisible(10025) + Container.Content(files)">Video Files</value>
         <value condition="Window.IsVisible(10025)">Video Library</value>
         <value condition="Window.IsVisible(10502)">Music Library</value>
