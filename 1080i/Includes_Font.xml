@@ -225,7 +225,8 @@
             <font>
                 <name>font_main_plot</name>
                 <filename>$PARAM[font_regular]</filename>
-                <linespacing>1.14</linespacing>
+                <!-- MISC032: linespacing changed from 1.14 -->
+                <linespacing>1.025</linespacing>
                 <size>30</size>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
