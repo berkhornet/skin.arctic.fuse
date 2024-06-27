@@ -51,7 +51,9 @@
             <font>
                 <name>font_title_black</name>
                 <filename>$PARAM[font_black]</filename>
-                <size>74</size>
+                <!-- MISC018: Revert to Smaller Main Title Font -->
+                <!-- MISC018: size was 74 -->
+                <size>56</size>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
 
@@ -137,6 +139,15 @@
                 <size>24</size>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
+            <!-- PVR005: START EPG Group Switcher - custom font for All Channels (also used for MISC002 and MISC015) -->
+            <font>
+                <name>font_epg_group_switcher</name>
+                <filename>$PARAM[font_bold]</filename>
+                <style>uppercase</style>
+                <size>24</size>
+                <aspect>$PARAM[aspect_standard]</aspect>
+            </font>
+            <!-- PVR005: END EPG Group Switcher - custom font for All Channels (also used for MISC002 and MISC015) -->
             <font>
                 <name>font_hint_bold</name>
                 <filename>$PARAM[font_bold]</filename>
@@ -169,6 +180,14 @@
                 <size>22</size>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
+            <!-- PVR010: START custom font for detailed EPG plotbox -->
+            <font>
+                <name>font_tiny_24</name>
+                <filename>$PARAM[font_regular]</filename>
+                <size>24</size>
+                <aspect>$PARAM[aspect_standard]</aspect>
+            </font>
+            <!-- PVR010: START custom font for detailed EPG plotbox -->
             <font>
                 <name>font_hint</name>
                 <filename>$PARAM[font_regular]</filename>
