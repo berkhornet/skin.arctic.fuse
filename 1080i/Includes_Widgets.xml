@@ -740,6 +740,7 @@
                 <param name="offset_x">view_button_offset_x</param>
                 <param name="control">fixedlist</param>
                 <param name="slide">true</param>
+                <param name="slide_id">$PARAM[id]</param>
                 <param name="backing">true</param>
                 <!-- MISC002: font changed from font_mini -->
                 <param name="font">font_epg_group_switcher</param>
@@ -772,6 +773,7 @@
                 <param name="offset_x">view_button_offset_x</param>
                 <param name="control">fixedlist</param>
                 <param name="slide">true</param>
+                <param name="slide_id">$PARAM[id]</param>
                 <param name="backing">true</param>
                 <param name="font">font_mini</param>
                 <param name="color_fo">main_fg_30</param>

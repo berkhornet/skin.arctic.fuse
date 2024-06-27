@@ -90,7 +90,7 @@
             </control>
             <control type="group" id="9990">
                 <centertop>100</centertop>
-                <width>560</width>
+                <width>580</width>
                 <left>view_side</left>
                 <height>80</height>
                 <visible>!$EXP[Exp_InfoDialogs]</visible>
@@ -130,9 +130,11 @@
                             <align>left</align>
                             <textoffsetx>0</textoffsetx>
                             <width>200</width>
-                            <onright>SetFocus($PARAM[rowtwo])</onright>
+                            <onright>SetFocus($PARAM[rowtwo],0,absolute)</onright>
+                            <onback>SetFocus($PARAM[rowtwo],0,absolute)</onback>
                             <onback condition="Window.IsMedia">$PARAM[ondown]</onback>
                             <include>Search_View_Edit_Actions</include>
+                            <ondown>SetFocus($PARAM[rowtwo],0,absolute)</ondown>
                             <ondown>9090</ondown>
                             <visible allowhiddenfocus="true">Control.HasFocus($PARAM[editid])</visible>
                             <visible allowhiddenfocus="true">!Window.IsVisible(DialogKeyboard.xml)</visible>
@@ -257,6 +259,73 @@
         <param name="rowtwo">9993</param>
         <definition>
 
+            <control type="grouplist">
+                <top>20</top>
+                <left>-10</left>
+                <right>-40</right>
+                <orientation>horizontal</orientation>
+                <height>80</height>
+                <visible>!Control.IsVisible($PARAM[rowtwo])</visible>
+
+                <control type="group">
+                    <width>50</width>
+                    <control type="label">
+                        <description>Filter</description>
+                        <label>&#xf0b0;</label>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                </control>
+
+                <control type="group">
+                    <left>-6</left>
+                    <width>56</width>
+                    <control type="label">
+                        <description>Alphabet</description>
+                        <label>ABC</label>
+                        <font>font_hint_iconic</font>
+                        <textoffsety>14</textoffsety>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                    <control type="label">
+                        <description>Alphabet</description>
+                        <label>&#x2190;</label>
+                        <font>font_itsy_iconic</font>
+                        <textoffsety>29</textoffsety>
+                        <centerleft>37%</centerleft>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                    <control type="label">
+                        <description>Alphabet</description>
+                        <label>&#x2192;</label>
+                        <font>font_itsy_iconic</font>
+                        <textoffsety>29</textoffsety>
+                        <centerleft>63%</centerleft>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                </control>
+
+                <control type="group">
+                    <width>50</width>
+                    <control type="label">
+                        <description>Keyboard</description>
+                        <label>&#xf11c;</label>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                </control>
+
+
+                <control type="group">
+                    <width>50</width>
+                    <control type="label">
+                        <description>Clear</description>
+                        <label>&#xf071;</label>
+                        <include>Search_View_Alphabet_Iconic_Def</include>
+                    </control>
+                </control>
+
+
+            </control>
+
             <control type="grouplist" id="9090">
                 <top>20</top>
                 <left>-10</left>
@@ -269,92 +338,10 @@
                 <include condition="Window.IsVisible(1185)">Search_View_Edit_Actions_1185</include>
                 <include condition="Window.IsVisible(1105)">Search_View_Edit_Actions_1105</include>
 
-                <control type="group">
-                    <visible>!Control.IsVisible($PARAM[rowtwo])</visible>
-                    <width>108</width>
-                    <left>1</left>
-                    <control type="group">
-                        <centertop>51%</centertop>
-                        <height>26</height>
-                        <right>10</right>
-                        <left>10</left>
-                        <control type="image">
-                            <texture colordiffuse="main_fg_70" border="4">flags/quality/blank.png</texture>
-                        </control>
-                        <!-- <control type="label">
-                            <left>-12</left>
-                            <width>12</width>
-                            <align>center</align>
-                            <aligny>top</aligny>
-                            <textoffsety>-6</textoffsety>
-                            <font>font_tiny_black</font>
-                            <textcolor>main_fg_70</textcolor>
-                            <label>‹</label>
-                        </control>
-                        <control type="label">
-                            <right>-12</right>
-                            <width>12</width>
-                            <align>center</align>
-                            <aligny>top</aligny>
-                            <textoffsety>-6</textoffsety>
-                            <font>font_tiny_black</font>
-                            <textcolor>main_fg_70</textcolor>
-                            <label>›</label>
-                        </control> -->
-                        <control type="label">
-                            <right>32</right>
-                            <align>center</align>
-                            <aligny>top</aligny>
-                            <textoffsety>0.6</textoffsety>
-                            <font>font_hint_black</font>
-                            <textcolor>ff2a2a2a</textcolor>
-                            <shadowcolor>20ffffff</shadowcolor>
-                            <label>ABC</label>
-                        </control>
-
-                        <control type="group">
-                            <top>2</top>
-                            <bottom>2</bottom>
-                            <right>2</right>
-                            <width>32</width>
-                            <control type="image">
-                                <width>4</width>
-                                <texture colordiffuse="ff2a2a2a" border="4,0,0,0">flags/quality/blank-side.png</texture>
-                            </control>
-                            <control type="image">
-                                <right>0</right>
-                                <width>4</width>
-                                <texture colordiffuse="ff2a2a2a" border="4,0,0,0" flipx="true">flags/quality/blank-side.png</texture>
-                            </control>
-                            <control type="image">
-                                <left>4</left>
-                                <right>4</right>
-                                <height>2</height>
-                                <texture colordiffuse="ff2a2a2a">common/white.png</texture>
-                            </control>
-                            <control type="image">
-                                <left>4</left>
-                                <right>4</right>
-                                <height>2</height>
-                                <bottom>0</bottom>
-                                <texture colordiffuse="ff2a2a2a">common/white.png</texture>
-                            </control>
-                            <control type="label">
-                                <right>2.5</right>
-                                <align>right</align>
-                                <label>&#xe0d0;</label>
-                                <textoffsety>-3</textoffsety>
-                                <aligny>top</aligny>
-                                <textcolor>ff2a2a2a</textcolor>
-                                <font>font_mini_iconic</font>
-                            </control>
-                        </control>
-                    </control>
-                </control>
-
+                <visible allowhiddenfocus="true">Control.IsVisible($PARAM[rowtwo])</visible>
 
                 <control type="group">
-                    <width>40</width>
+                    <width>50</width>
                     <control type="button" id="9094">
                         <onleft>SetFocus($PARAM[rowone],9999,absolute)</onleft>
                         <onleft>9092</onleft>
@@ -363,17 +350,15 @@
                         <ondown>$PARAM[ondown]</ondown>
                         <onback condition="Window.IsMedia">$PARAM[ondown]</onback>
                         <description>Filter</description>
-                        <label>&#xe064;</label>
-                        <font>font_tiny_iconic</font>
-                        <textoffsety>14.5</textoffsety>
+                        <label>&#xf0b0;</label>
                         <include>Search_View_Alphabet_Iconic_Def</include>
                         <include>Search_Filter_MouseButton_OnClick</include>
                     </control>
                 </control>
 
                 <control type="group">
+                    <left>-4</left>
                     <width>408</width>
-                    <visible>Control.IsVisible($PARAM[rowtwo])</visible>
                     <control type="fixedlist" id="$PARAM[rowone]">
                         <orientation>horizontal</orientation>
                         <focusposition>2</focusposition>
@@ -593,18 +578,13 @@
                     </control>
                 </control>
 
-
-
                 <control type="group">
-                    <width>44</width>
-                    <visible>Control.IsVisible($PARAM[rowtwo])</visible>
+                    <width>50</width>
                     <control type="button" id="9093">
                         <onleft>SetFocus($PARAM[rowone],9999,absolute)</onleft>
                         <onright>9091</onright>
                         <description>Keyboard</description>
-                        <!-- <font>font_tiny_iconic</font>
-                        <textoffsety>14.5</textoffsety> -->
-                        <label>&#xe0d0;</label>
+                        <label>&#xf11c;</label>
                         <include>Search_View_Alphabet_Iconic_Def</include>
                         <onclick>SetFocus($PARAM[editid])</onclick>
                         <onclick>Action(Select)</onclick>
@@ -616,11 +596,10 @@
                 </control>
 
                 <control type="group">
-                    <width>44</width>
-                    <visible>Control.IsVisible($PARAM[rowtwo])</visible>
+                    <width>50</width>
                     <control type="button" id="9091">
                         <description>Backspace</description>
-                        <label>&#xe00e;</label>
+                        <label>&#xf55a;</label>
                         <include>Search_View_Alphabet_Iconic_Def</include>
                         <onclick>SetFocus($PARAM[editid])</onclick>
                         <include>Object_SearchLetter_Click_&lt;</include>
@@ -634,10 +613,10 @@
                 </control>
 
                 <control type="group">
-                    <width>44</width>
+                    <width>50</width>
                     <control type="button" id="9092">
                         <description>Clear</description>
-                        <label>&#xe08d;</label>
+                        <label>&#xf071;</label>
                         <include>Search_View_Alphabet_Iconic_Def</include>
                         <onclick>SetFocus($PARAM[editid])</onclick>
                         <include content="Search_Filter_Clear_OnClick">
@@ -654,8 +633,6 @@
                         <onright>9094</onright>
                     </control>
                 </control>
-
-
             </control>
 
             <control type="fixedlist" id="$PARAM[rowtwo]">
@@ -667,13 +644,17 @@
                 <movement>0</movement>
                 <left>1</left>
                 <width>546</width>
+                <onback>SetFocus($PARAM[rowtwo],0,absolute)</onback>
                 <onback condition="Window.IsMedia">$PARAM[ondown]</onback>
                 <include>Search_View_Edit_Actions</include>
+                <ondown>SetFocus($PARAM[rowtwo],0,absolute)</ondown>
                 <ondown>$PARAM[rowone]</ondown>
+                <onleft>SetFocus($PARAM[rowtwo],0,absolute)</onleft>
                 <onleft>$PARAM[editid]</onleft>
                 <onright>noop</onright>
                 <visible>!$EXP[Exp_MediaFilter_IsActive]</visible>
                 <visible allowhiddenfocus="true">ControlGroup(9090).HasFocus() | Control.HasFocus($PARAM[rowtwo]) | Control.HasFocus($PARAM[editid])</visible>
+                <onclick>Setfocus($PARAM[rowtwo],0,absolute)</onclick>
                 <onclick>SetFocus($PARAM[editid])</onclick>
                 <onclick>RunScript(script.skinvariables,set_editcontrol=$PARAM[editid],window_id=1105,setfocus=9094,text=$INFO[Container($PARAM[rowtwo]).ListItem.Label])</onclick>
                 <itemlayout width="155" />
