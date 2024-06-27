@@ -95,9 +95,10 @@
     </include>
 
     <include name="Info_Title_LogoLabel_SmallText">
-        <include content="Info_Title_LogoLabel_SmallText_KodiLogo">
+        <!-- MISC029: remove KODI logo and label -->
+        <!-- include content="Info_Title_LogoLabel_SmallText_KodiLogo">
             <param name="colordiffuse">$PARAM[colordiffuse]</param>
-        </include>
+        </include -->
         <control type="label">
             <wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
             <height>84</height>
@@ -111,7 +112,8 @@
 
     <include name="Info_Title_LogoLabel">
         <param name="label">$VAR[Label_Title_Container]</param>
-        <param name="wrapmultiline">false</param>
+        <!-- MISC032: use multi-line for Title (changed from false) -->
+        <param name="wrapmultiline">true</param>
         <param name="visible">true</param>
         <param name="width">info_plot_w</param>
         <param name="height">100%</param>
