@@ -3190,10 +3190,11 @@
                     <param name="visible">!$PARAM[info_musiccodecs] + !$PARAM[info_codecs] + !$PARAM[info_providers] + !$PARAM[info_watchedepisodes] + !$PARAM[info_playcount] + $PARAM[info_musicduration]</param>
                 </include>
 
-                <include content="Info_KodiLogo">
+                <!-- MISC034: disable display of profile and system names -->
+                <!-- include content="Info_KodiLogo">
                     <param name="container">$PARAM[container]</param>
                     <param name="visible">!$PARAM[info_musiccodecs] + !$PARAM[info_codecs] + !$PARAM[info_providers] + !$PARAM[info_watchedepisodes] + !$PARAM[info_playcount] + !$PARAM[info_musicduration]</param>
-                </include>
+                </include -->
             </control>
         </definition>
     </include>
