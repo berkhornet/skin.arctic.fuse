@@ -1302,6 +1302,20 @@
                     <param name="textcolor">$VAR[Info_Line_Episode_Banner_Color]</param>
                 </include>
                 <!-- MISC019: END Custom Infoline Episode Banners -->
+                
+                <!-- MISC036: START include TV Show status in Info_Line -->
+                <include content="Info_Line_Items">
+                    <include content="Info_Line_Visible_02">
+                        <param name="container">$PARAM[container]</param>
+                        <param name="dbtype_01">tvshow</param>
+                    </include>
+                    <param name="items_01">true</param>
+                    <param name="label_01">$VAR[Image_ListItem_Status_Text]</param>
+                    <param name="visible_01">!String.IsEqual(Container(99950).ListItem.Property(Status),Ended) + !String.IsEqual(Container(99950).ListItem.Property(Status),Canceled) + !String.IsEmpty(Container(99950).ListItem.Property(Status))</param>
+                    <!--param name="visible_01">true</param -->
+                    <param name="textcolor">$VAR[Image_ListItem_Status_Color]</param>
+                </include>
+                <!-- MISC036: END include TV Show status in Info_Line -->
 
                 <!-- Year / Premiered -->
                 <include content="Info_Line_Items">
