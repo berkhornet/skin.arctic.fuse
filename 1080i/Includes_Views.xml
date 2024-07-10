@@ -454,6 +454,7 @@
                 <include>View_Row_Items</include>
                 <include>View_Row_Info</include>
             </control>
+
             <include>View_Furniture_Edges</include>
             <include>View_Dialog_VideoPIP</include>
             <include>View_Dialog_Plot</include>
