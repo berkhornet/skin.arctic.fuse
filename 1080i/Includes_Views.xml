@@ -214,13 +214,17 @@
             <visible>$EXP[Exp_FurnitureFooter_Left_IsVisible]</visible>
             <visible>!Skin.String(Furniture.BottomLeft.Enable,Library)</visible>
             <visible>!Skin.String(Furniture.BottomLeft.Enable,Always)</visible>
+            <!-- MISC026: In Library, only show "Explore/Filter/Options" for media content -->
+            <visible>!String.IsEmpty(Container.Content)</visible>
             <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
             <control type="group">
                 <height>35</height>
                 <include content="Info_Viewline">
                     <param name="library_condition">false</param>
                     <param name="label">$VAR[Label_NextMedia]</param>
-                    <param name="custom_icon_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param>
+                    <!-- MISC026: Force display of "Down Arrow"  -->
+                    <!-- param name="custom_icon_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param -->
+                    <param name="custom_icon_condition">true</param>
                     <param name="custom_icon">$VAR[Image_NextMedia]</param>
                     <top>0</top>
                     <left>0</left>

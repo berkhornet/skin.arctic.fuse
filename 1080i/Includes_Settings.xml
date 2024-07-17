@@ -441,7 +441,9 @@
                     <height>35</height>
                     <include content="Info_Viewline">
                         <param name="library_condition">false</param>
-                        <param name="label">Kodi$INFO[System.BuildVersionCode, v,]</param>
+                        <!-- MISC025: Kodi Label changed -->
+                        <!-- param name="label">Kodi$INFO[System.BuildVersionCode, v,]</param -->
+                        <param name="label">KODI$INFO[System.BuildVersionShort, ,]</param>    
                         <param name="custom_icon_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param>
                         <param name="custom_icon">special://skin/extras/icons/kodi.png</param>
                         <top>0</top>
