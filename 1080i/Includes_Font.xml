@@ -30,31 +30,25 @@
 
             <!-- Title fonts -->
             <font>
-                <name>font_info_black</name>
-                <filename>$PARAM[font_black]</filename>
-                <size>128</size>
-                <aspect>$PARAM[aspect_standard]</aspect>
-            </font>
-            <font>
-                <name>font_info_single_black</name>
+                <name>font_title_huge</name>
                 <filename>$PARAM[font_black]</filename>
                 <size>98</size>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
             <font>
-                <name>font_info_double_black</name>
+                <name>font_title_midi</name>
                 <filename>$PARAM[font_black]</filename>
                 <!-- MISC018: Revert to Smaller Main Title Font -->
-                <!-- MISC018: size was 64 -->
+                <!-- MISC018: size was 74 and add linespacing -->
                 <size>56</size>
                 <linespacing>0.8</linespacing>
                 <aspect>$PARAM[aspect_standard]</aspect>
             </font>
             <font>
-                <name>font_title_black</name>
+                <name>font_title_main</name>
                 <filename>$PARAM[font_black]</filename>
                 <!-- MISC018: Revert to Smaller Main Title Font -->
-                <!-- MISC018: size was 74 -->
+                <!-- MISC018: size was 64 -->
                 <size>56</size>
                 <!-- MISC018: add linespacing -->
                 <linespacing>0.8</linespacing>
