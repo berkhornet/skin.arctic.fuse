@@ -58,7 +58,9 @@
     <expression name="Live_Football_Anova_SPL_Club">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,639) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,650)]</expression>
     <expression name="Live_Football_Anova_SPL_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,651) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,656)]</expression>
     <expression name="Live_Football_Anova_SPFLC_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,657) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,661)]</expression>
-    <expression name="Live_Football_Anova_UEFA_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,662) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)]</expression>
+    <expression name="Live_Football_Anova_ScottishCup_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,662) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,667)]</expression>
+
+    <expression name="Live_Football_Anova_UEFA_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,668) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)]</expression>
 
 	<expression name="Live_Football_Anova">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)</expression>
     
@@ -72,6 +74,7 @@
 	<expression name="Live_UEFA_Anova">$EXP[Live_Football_Anova_UEFA_Fixture]</expression>
     <expression name="Live_SPL_Anova">$EXP[Live_Football_Anova_SPL_Club] | $EXP[Live_Football_Anova_SPL_Fixture]</expression>
 	<expression name="Live_SPFLC_Anova">$EXP[Live_Football_Anova_SPFLC_Fixture]</expression>
+    <expression name="Live_ScottishCup_Anova">$EXP[Live_Football_Anova_ScottishCup_Fixture]</expression>
     <!-- expression name="Live_NL_Anova">$EXP[Live_Football_Anova] + String.StartsWith(ListItem.ChannelName,"NATIONAL LEAGUE")</expression -->
 
     <expression name="Live_Football_FHNatho">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,701) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,799)</expression>
@@ -101,6 +104,7 @@
 		<value condition="$EXP[Live_UEFA_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE UEFA.png</value>
         <value condition="$EXP[Live_SPL_Anova] | $EXP[Live_SPL_FHNatho]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SPFL PREMIERSHIP.png</value>
 		<value condition="$EXP[Live_SPFLC_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SPFL CHAMPIONSHIP.png</value>
+        <value condition="$EXP[Live_ScottishCup_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SCOTTISH CUP.png</value>
         <value>$INFO[ListItem.Icon]</value>
 	</variable>
 
