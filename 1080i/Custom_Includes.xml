@@ -104,7 +104,7 @@
 		<value condition="$EXP[Live_UEFA_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE UEFA.png</value>
         <value condition="$EXP[Live_SPL_Anova] | $EXP[Live_SPL_FHNatho]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SPFL PREMIERSHIP.png</value>
 		<value condition="$EXP[Live_SPFLC_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SPFL CHAMPIONSHIP.png</value>
-        <value condition="$EXP[Live_ScottishCup_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SCOTTISH CUP.png</value>
+        <value condition="$EXP[Live_ScottishCup_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SCOTTISH LEAGUE CUP.png</value>
         <value>$INFO[ListItem.Icon]</value>
 	</variable>
 
