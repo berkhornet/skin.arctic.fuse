@@ -658,7 +658,7 @@
 
     <include name="Info_Line_Rating_Status">
         <param name="is_player">false</param>
-        <param name="visible_movies">!Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)</param>
+        <param name="visible_movies">Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)</param>
         <param name="visible_tvshows">!Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus)</param>
         <definition>
             <include content="Info_Line_Rating" condition="![$PARAM[is_player]]">
@@ -802,23 +802,23 @@
                     <param name="is_player">$PARAM[is_player]</param>
                 </include>
 
-                <include content="Info_Ratings_Item" condition="Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)">
+                <include content="Info_Ratings_Item" condition="Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | !Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)">
                     <param name="item">Item05</param>
                     <param name="container">$PARAM[container]</param>
                     <param name="is_player">$PARAM[is_player]</param>
-                    <param name="visible_movies">Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)</param>
+                    <param name="visible_movies">!Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)</param>
                     <param name="visible_tvshows">Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus)</param>
                 </include>
 
-                <include content="Info_Ratings_Item" condition="Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)">
+                <include content="Info_Ratings_Item" condition="Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | !Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)">
                     <param name="item">Item06</param>
                     <param name="container">$PARAM[container]</param>
                     <param name="is_player">$PARAM[is_player]</param>
-                    <param name="visible_movies">Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)</param>
+                    <param name="visible_movies">!Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)</param>
                     <param name="visible_tvshows">Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus)</param>
                 </include>
 
-                <include content="Info_Line_Rating_Status" condition="!Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | !Skin.HasSetting(CustomRating.Movies.DisablePremiereStatus)">
+                <include content="Info_Line_Rating_Status" condition="!Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)">
                     <param name="container">$PARAM[container]</param>
                     <param name="is_player">$PARAM[is_player]</param>
                 </include>
@@ -1299,10 +1299,11 @@
 
                 <!-- Year / Premiered -->
                 <include content="Info_Line_Items">
-                    <include content="Info_Line_Visible_02">
+                    <include content="Info_Line_Visible_03">
                         <param name="container">$PARAM[container]</param>
                         <param name="dbtype_01">episode</param>
                         <param name="dbtype_02">video</param>
+                        <param name="dbtype_03">movie</param>
                     </include>
                     <param name="items_04">true</param>
                     <param name="label_01">$INFO[$PARAM[container]ListItem.Premiered]</param>
@@ -1316,14 +1317,13 @@
                     <param name="textcolor">$PARAM[colordiffuse]_70</param>
                 </include>
                 <include content="Info_Line_Items">
-                    <include content="Info_Line_Visible_06">
+                    <include content="Info_Line_Visible_05">
                         <param name="container">$PARAM[container]</param>
                         <param name="dbtype_01">tvshow</param>
                         <param name="dbtype_02">set</param>
                         <param name="dbtype_03">album</param>
                         <param name="dbtype_04">song</param>
                         <param name="dbtype_05">season</param>
-                        <param name="dbtype_06">movie</param>
                     </include>
                     <param name="items_03">true</param>
                     <param name="label_01">$INFO[Container(99950).ListItem.Property(Set.Years)]</param>
