@@ -16,8 +16,8 @@
 	</variable>
 	
 	<!-- PVR001: Expressions and variable for Channel Provider Icon (ImagePVRProviderIcon) -->
-	<expression name="Anova_Channel">Integer.IsLess(ListItem.ChannelNumberLabel,200) | [Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,700)] | Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,901) </expression>
-	<expression name="FHNatho_Channel">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,201) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,400)] | [Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,701) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,900)] </expression>
+	<expression name="Anova_Channel">Integer.IsLess(ListItem.ChannelNumberLabel,200) | [Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,700)] | Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,801) </expression>
+	<expression name="FHNatho_Channel">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,201) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,400)] | [Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,701) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,800)] </expression>
 	<expression name="BBC_Channel">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,401) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,410) </expression>
 	<expression name="ITV_Channel">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,411) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,420)]</expression>
 	<expression name="STV_Channel">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,421) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,430) </expression>
@@ -64,6 +64,8 @@
 
 	<expression name="Live_Football_Anova">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)</expression>
     
+    <expression name="Live_Football_Anova_SkySportsPlus">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,801) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,900)]</expression>
+
     <!--  Anova Live Football League / Cup Expressions -->
 	<expression name="Live_EPL_Anova">$EXP[Live_Football_Anova_EPL_Club] | $EXP[Live_Football_Anova_EPL_Fixture]</expression>
 	<expression name="Live_EFLC_Anova">$EXP[Live_Football_Anova_EFLC_Club] | $EXP[Live_Football_Anova_EFLC_Fixture]</expression>
@@ -177,19 +179,48 @@
 		<value condition="$EXP[Standard_Channel]">$VAR[Label_Plot]</value>
 		<value condition="$EXP[247_Channel]">All Day, Every Day</value>
         <value condition="$EXP[Live_Football_Anova] | $EXP[Live_Football_FHNatho]">[CR]Live Football (Match Time Only).</value>
+        <value condition="$EXP[Live_Football_Anova_SkySportsPlus]">[CR]Live Football and other Sports Events (Event Time Only).</value>
 		<value>$INFO[ListItem.Label]</value>
+	</variable>
+    
+    <variable name="TextPVREPGSkySportsPlusEventNo">
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,801)">EVENT 01:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,802)">EVENT 02:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,803)">EVENT 03:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,804)">EVENT 04:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,805)">EVENT 05:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,806)">EVENT 06:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,807)">EVENT 07:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,808)">EVENT 08:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,809)">EVENT 09:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,810)">EVENT 10:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,811)">EVENT 11:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,812)">EVENT 12:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,813)">EVENT 13:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,814)">EVENT 14:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,815)">EVENT 15:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,816)">EVENT 16:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,817)">EVENT 17:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,818)">EVENT 18:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,819)">EVENT 19:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,820)">EVENT 20:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,821)">EVENT 21:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,822)">EVENT 22:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,823)">EVENT 23:</value>
+        <value>$INFO[ListItem.Label]</value>
 	</variable>
 	
 	<variable name="TextPVREPGProgramInfo">
 		<value condition="$EXP[Standard_Channel]">$INFO[ListItem.Label]</value>
-		<value condition="$EXP[247_Channel]">$INFO[ListItem.ChannelName] ... All Day, Every Day</value>		
+		<value condition="$EXP[247_Channel]">$INFO[ListItem.ChannelName] ... All Day, Every Day</value>
         <value condition="$EXP[Live_Football_Anova]">$INFO[ListItem.ChannelName]</value>
 		<value condition="$EXP[Live_Football_FHNatho]">$INFO[ListItem.ChannelName]</value>
+        <value condition="$EXP[Live_Football_Anova_SkySportsPlus]">$VAR[TextPVREPGSkySportsPlusEventNo] $INFO[ListItem.Label]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
     
     <variable name="TextPVRPlotboxHeader">
-        <value condition="!$EXP[Live_Football_Anova] + !$EXP[Live_Football_FHNatho]">$VAR[TextPVREPGProgramInfo] : $INFO[ListItem.StartTime,,]$INFO[ListItem.EndTime, - ,]</value>
+        <value condition="!$EXP[Live_Football_Anova] + !$EXP[Live_Football_FHNatho] + !$EXP[Live_Football_Anova_SkySportsPlus]">$VAR[TextPVREPGProgramInfo] : $INFO[ListItem.StartTime,,]$INFO[ListItem.EndTime, - ,]</value>
         <value>$VAR[TextPVREPGProgramInfo]</value>
     </variable>
 	
