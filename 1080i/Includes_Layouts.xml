@@ -403,26 +403,16 @@
                             <visible>$EXP[Live_Football_Club_Channel]</visible>
                         </control>
                         
-                        <!-- PVR001: For Sky Sports+ Channels, display Event No. -->                       
-                        <control type="image">
-                            <left>300</left>
-                            <top>-45</top>
-                            <width>99</width>
-                            <height>140</height>                                 
-                            <texture colordiffuse="FFE1ECF0">special://skin/extras/icons/square.png</texture>                           
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <aspectratio>stretch</aspectratio>
-                            <visible>$EXP[Live_Football_Anova_SkySportsPlus]</visible>
-                        </control>
+                        <!-- PVR001: For Sky Sports+ Channels, display Event No. over Channel Icon-->                       
                         <control type="label">                          
-                            <left>320</left>
-                            <top>0</top>
-                            <width>60</width>
+                            <left>135</left>
+                            <top>16</top>
+                            <width>150</width>
                             <height>53</height>                                 
                             <align>center</align>
                             <textcolor>FF940102</textcolor>
-                            <label>$VAR[TextPVREPGSkySportsPlusEventNo]</label>
+                            <font>font_hint_black</font>
+                            <label>Event $VAR[TextPVREPGSkySportsPlusEventNo]</label>
                             <visible>$EXP[Live_Football_Anova_SkySportsPlus]</visible>
                         </control>
                         
