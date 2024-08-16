@@ -184,29 +184,29 @@
 	</variable>
     
     <variable name="TextPVREPGSkySportsPlusEventNo">
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,801)">EVENT 01:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,802)">EVENT 02:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,803)">EVENT 03:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,804)">EVENT 04:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,805)">EVENT 05:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,806)">EVENT 06:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,807)">EVENT 07:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,808)">EVENT 08:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,809)">EVENT 09:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,810)">EVENT 10:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,811)">EVENT 11:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,812)">EVENT 12:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,813)">EVENT 13:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,814)">EVENT 14:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,815)">EVENT 15:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,816)">EVENT 16:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,817)">EVENT 17:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,818)">EVENT 18:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,819)">EVENT 19:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,820)">EVENT 20:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,821)">EVENT 21:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,822)">EVENT 22:</value>
-        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,823)">EVENT 23:</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,801)">01</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,802)">02</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,803)">03</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,804)">04</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,805)">05</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,806)">06</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,807)">07</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,808)">08</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,809)">09</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,810)">10</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,811)">11</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,812)">12</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,813)">13</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,814)">14</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,815)">15</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,816)">16</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,817)">17</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,818)">18</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,819)">19</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,820)">20</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,821)">21</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,822)">22</value>
+        <value condition="Integer.IsEqual(ListItem.ChannelNumberLabel,823)">23</value>
         <value>$INFO[ListItem.Label]</value>
 	</variable>
 	
@@ -215,7 +215,7 @@
 		<value condition="$EXP[247_Channel]">$INFO[ListItem.ChannelName] ... All Day, Every Day</value>
         <value condition="$EXP[Live_Football_Anova]">$INFO[ListItem.ChannelName]</value>
 		<value condition="$EXP[Live_Football_FHNatho]">$INFO[ListItem.ChannelName]</value>
-        <value condition="$EXP[Live_Football_Anova_SkySportsPlus]">$VAR[TextPVREPGSkySportsPlusEventNo] $INFO[ListItem.Label]</value>
+        <value condition="$EXP[Live_Football_Anova_SkySportsPlus]">EVENT $VAR[TextPVREPGSkySportsPlusEventNo]: $INFO[ListItem.Label]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
     
