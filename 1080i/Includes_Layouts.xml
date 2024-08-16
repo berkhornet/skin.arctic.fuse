@@ -405,14 +405,15 @@
                         
                         <!-- PVR001: For Sky Sports+ Channels, display Event No. over Channel Icon-->                       
                         <control type="label">                          
-                            <left>135</left>
+                            <left>170</left>
                             <top>16</top>
                             <width>150</width>
                             <height>53</height>                                 
                             <align>center</align>
-                            <textcolor>FF940102</textcolor>
-                            <font>font_hint_black</font>
-                            <label>Event $VAR[TextPVREPGSkySportsPlusEventNo]</label>
+                            <!--textcolor>FF940102</textcolor -->
+                            <textcolor>FF1E1E7F</textcolor>
+                            <font>font_tiny</font>
+                            <label>$VAR[TextPVREPGSkySportsPlusEventNo]</label>
                             <visible>$EXP[Live_Football_Anova_SkySportsPlus]</visible>
                         </control>
                         
