@@ -63,10 +63,11 @@
 
     <expression name="Live_Football_Anova_UEFA_Fixture">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,670) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)]</expression>
 
-	<expression name="Live_Football_Anova">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)</expression>
+    <expression name="Live_Football_Anova">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,501) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,699)] | [Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,861) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,870)]</expression>
     
-    <expression name="Live_Football_Anova_SkySportsPlus">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,801) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,900)]</expression>
-
+    <expression name="Live_Football_Anova_SkySportsPlus">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,801) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,860)]</expression>
+    <expression name="Live_Football_Anova_MLS">[Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,861) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,870)]</expression>
+    
     <!--  Anova Live Football League / Cup Expressions -->
 	<expression name="Live_EPL_Anova">$EXP[Live_Football_Anova_EPL_Club] | $EXP[Live_Football_Anova_EPL_Fixture]</expression>
 	<expression name="Live_EFLC_Anova">$EXP[Live_Football_Anova_EFLC_Club] | $EXP[Live_Football_Anova_EFLC_Fixture]</expression>
@@ -110,6 +111,7 @@
         <value condition="$EXP[Live_ScottishCup_Anova]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE SCOTTISH LEAGUE CUP.png</value>
         
         <value condition="$EXP[Live_Football_Anova_SkySportsPlus]">special://userdata/customisations\PVR\PVR Logo Pack\SKY SPORTS+ EVENTS.png</value>
+        <value condition="$EXP[Live_Football_Anova_MLS]">special://userdata/customisations\PVR\PVR Logo Pack\LIVE MLS.png</value>
         
         <value>$INFO[ListItem.Icon]</value>
 	</variable>
