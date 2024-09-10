@@ -6,7 +6,6 @@
 	<expression name="SD_Channel">String.Contains(ListItem.ChannelName," SD")</expression>
 	<expression name="UHD_Channel">String.Contains(ListItem.ChannelName," UHD")</expression>
 	
-	<!-- PVR001: Channel Resolution Icon variable -->
 	<variable name="ImagePVRChannelResolutionIcon">
 		<value condition="$EXP[FHD_Channel]">special://userdata/customisations\PVR\resolution flags\fhd.png</value>
 		<value condition="$EXP[HD_Channel]">special://userdata/customisations\PVR\resolution flags\hd.png</value>
@@ -27,7 +26,21 @@
 	<expression name="Discovery_Channel">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,461) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,470) </expression>
 	<expression name="CUTV_Channel">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,471) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,490) </expression>
 	<expression name="PlutoTV_Channel">Integer.IsGreaterOrEqual(ListItem.ChannelNumberLabel,491) + Integer.IsLessOrEqual(ListItem.ChannelNumberLabel,499) </expression>
-	<variable name="ImagePVRProviderIcon">
+	
+    <!-- New Expressions for Kodi 22 -->
+    <!-- expression name="Anova_Channel">String.IsEqual(ListItem.MediaProviders,Anova)</expression>
+	<expression name="FHNatho_Channel">String.IsEqual(ListItem.MediaProviders,FH Natho)</expression>
+	<expression name="BBC_Channel">String.IsEqual(ListItem.MediaProviders,BBC iPlayer)</expression>
+	<expression name="ITV_Channel">String.IsEqual(ListItem.MediaProviders,ITVX)</expression>
+	<expression name="STV_Channel">String.IsEqual(ListItem.MediaProviders,STV Player)</expression>
+	<expression name="All4_Channel">String.IsEqual(ListItem.MediaProviders,Channel4)</expression>
+	<expression name="My5_Channel">String.IsEqual(ListItem.MediaProviders,My5)</expression>
+	<expression name="UKTVPlay_Channel">String.IsEqual(ListItem.MediaProviders,UKTV Play)</expression>
+	<expression name="Discovery_Channel">String.Contains(ListItem.MediaProviders,Discovery)</expression>
+	<expression name="CUTV_Channel">String.IsEqual(ListItem.MediaProviders,CUTV)</expression>
+	<expression name="PlutoTV_Channel">String.IsEqual(ListItem.MediaProviders,PlutoTV)</expression -->
+    
+    <variable name="ImagePVRProviderIcon">
 		<value condition="$EXP[FHNatho_Channel]">special://userdata/customisations\PVR\provider icons\FHNatho.png</value>
 		<value condition="$EXP[BBC_Channel]">special://userdata/customisations\PVR\provider icons\BBC.png</value>
 		<value condition="$EXP[ITV_Channel]">special://userdata/customisations\PVR\provider icons\ITV.png</value>
