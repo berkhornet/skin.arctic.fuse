@@ -29,7 +29,7 @@
 	
     <!-- New Expressions for Kodi 22 -->
     <!-- expression name="Anova_Channel">String.IsEqual(ListItem.MediaProviders,Anova)</expression>
-	<expression name="FHNatho_Channel">String.IsEqual(ListItem.MediaProviders,FH Natho)</expression>
+	<expression name="FHNatho_Channel">String.Contains(ListItem.MediaProviders,FH Natho)</expression>
 	<expression name="BBC_Channel">String.IsEqual(ListItem.MediaProviders,BBC iPlayer)</expression>
 	<expression name="ITV_Channel">String.IsEqual(ListItem.MediaProviders,ITVX)</expression>
 	<expression name="STV_Channel">String.IsEqual(ListItem.MediaProviders,STV Player)</expression>
