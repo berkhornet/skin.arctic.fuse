@@ -1462,7 +1462,9 @@
         <!-- MISC008: Video Library Playlists -->
         <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,playlists)">Video Library:  Playlists</value>       
         <!-- value condition="Window.IsVisible(10025)">Video Library: $INFO[Container.Content] / $INFO[Container.FolderName]</value -->        
-        <value condition="Window.IsVisible(10025) + Container.Content(files)">Video Files</value>
+        <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,files)">Video Files</value>
+        <!-- MISC008: PVR Recordings -->
+        <value condition="Window.IsVisible(10025) + String.IsEqual(Container.Content,recordings)">Video Library:  PVR Movies</value>
         <value condition="Window.IsVisible(10025)">Video Library</value>
         <value condition="Window.IsVisible(10502)">Music Library</value>
         <value condition="Window.IsVisible(10001)">Addons:  $INFO[Container.FolderName]</value>
