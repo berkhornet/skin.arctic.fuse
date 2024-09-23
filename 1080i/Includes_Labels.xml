@@ -1466,10 +1466,13 @@
         <value condition="Window.IsVisible(10025)">Video Library</value>
         <value condition="Window.IsVisible(10502)">Music Library</value>
         <value condition="Window.IsVisible(10001)">Addons:  $INFO[Container.FolderName]</value>
+        <!-- MISC008: PVR Recordings -->
+        <value condition="Window.IsVisible(10701)">Video Library:  PVR On Demand</value>       
+
         <!-- MISC008: END Custom Headers -->
         
         <value condition="Window.IsVisible(tvchannels)">$LOCALIZE[10700]</value>
-        <value condition="Window.IsVisible(tvguide)">$LOCALIZE[10702]</value>s
+        <value condition="Window.IsVisible(tvguide)">$LOCALIZE[10702]</value>
         <value condition="Window.IsVisible(tvrecordings)">$LOCALIZE[10701]</value>
         <value condition="Window.IsVisible(tvsearch)">$LOCALIZE[10704]</value>
         <value condition="Window.IsVisible(1130)">$LOCALIZE[31019]</value>
