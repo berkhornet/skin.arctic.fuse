@@ -75,7 +75,9 @@
         <!-- include content="Info_Title_LogoLabel_SmallText_KodiLogo">
             <param name="colordiffuse">$PARAM[colordiffuse]</param>
         </include -->
-        <control type="label">
+        
+        <!-- MISC032: replace label with textbox to give multi-line -->
+        <!--control type="label">
             <wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
             <height>84</height>
             <bottom>5</bottom>
@@ -83,13 +85,27 @@
             <label>$PARAM[label]</label>
             <textcolor>$PARAM[colordiffuse]_100</textcolor>
             <font>font_title_main</font>
+        </control -->
+        
+        
+        <control type="textbox">
+            <height>130</height>
+            <bottom>5</bottom>
+            <aligny>center</aligny>
+            <label>$PARAM[label]</label>
+            <textcolor>$PARAM[colordiffuse]_100</textcolor>
+            <font>font_title_main</font>
+            <scroll>true</scroll>
+            <scrollspeed>150</scrollspeed>
         </control>
+        
     </include>
 
     <include name="Info_Title_LogoLabel">
         <param name="label">$VAR[Label_Title_Container]</param>
         <!-- MISC032: use multi-line for Title (changed from false) -->
-        <param name="wrapmultiline">true</param>
+        <!-- MISC032: reverted to false and replaced by textbox above -->
+        <param name="wrapmultiline">false</param>
         <param name="visible">true</param>
         <param name="width">info_plot_w</param>
         <param name="height">100%</param>
